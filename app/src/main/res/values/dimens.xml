@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normal_margin">20dp</dimen>
+    <dimen name="medium_margin">40dp</dimen>
+    <dimen name="large_margin">70dp</dimen>
+    <dimen name="title">50sp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="little_padding">50dp</dimen>
+    <dimen name="layout_width_button">300dp</dimen>
+
+    <!-- Dimensiones para el tamaño de las letras-->
+    <dimen name="normal_word">20dp</dimen>
+    <dimen name="medium_word">40dp</dimen>
+    <dimen name="size_image">250dp</dimen>
+
+</resources>

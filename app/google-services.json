@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "863730299085",
+    "project_id": "learning-verbs-d794e",
+    "storage_bucket": "learning-verbs-d794e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863730299085:android:0ca1ed189bea682d02f984",
+        "android_client_info": {
+          "package_name": "com.example.learningverbs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-c8QL8KXfK1F6mwyIE6pqYx0JrNI-PKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LearningVerbs</string>
+
+    <!-- Strings para la pantalla de login-->
+    <string name="title">Crear cuenta</string>
+    <string name="textButton">Login con email</string>
+    <string name="textButtonWithFacebook">Facebook</string>
+    <string name="textButtonWithGoogle">Google</string>
+    <string name="textButtonWhitTwitter">Twitter</string>
+
+    <string name="textSeparator">ó</string>
+
+
+</resources>
