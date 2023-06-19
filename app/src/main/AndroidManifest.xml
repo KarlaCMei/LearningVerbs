@@ -12,13 +12,16 @@
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31" >
         <activity
+            android:name=".login.view.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".signup.view.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".login.view.LoginActivity"
+            android:name=".createaccount.CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".splash.view.SplashActivity"

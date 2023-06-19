@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".createaccount.CreateAccountActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500"
+    android:paddingStart="@dimen/normal_margin"
+    android:paddingEnd="@dimen/normal_margin"
+    tools:context=".createaccount.CreateAccountActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:padding="@dimen/little_padding"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="@dimen/padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_login"
+            android:layout_width="@dimen/size_image"
+            android:layout_height="@dimen/size_image"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="updateImagen"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_img_background" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txtCreateAcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:fontFamily="serif-monospace"
+        android:text="@string/title"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/medium_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:background="@color/teal_800"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_word"
+        android:text="@string/textSeparator"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/normal_word"
+        android:fontFamily="serif-monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateAcount" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/teal_800"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:layout_marginStart="@dimen/normal_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/layout_width_button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@drawable/btn_login"
+        android:text="@string/textButton"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:textSize="@dimen/normal_word"
+        android:textColor="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoginWithFacebook"
+        android:layout_width="@dimen/layout_width_button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@drawable/btn_login_with_facebook"
+        android:text="@string/textButtonWithFacebook"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:foreground="?selectableItemBackground"
+        android:textSize="@dimen/normal_word"
+        android:paddingStart="18dp"
+        android:paddingEnd="@dimen/normal_margin"
+        android:textColor="@color/teal_800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:drawableLeftCompat="@drawable/ic_vector_facebook_logo"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoginWithGoogle"
+        android:layout_width="@dimen/layout_width_button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@drawable/btn_login_with_facebook"
+        android:text="@string/textButtonWithGoogle"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingEnd="@dimen/normal_margin"
+        android:textSize="@dimen/normal_word"
+        android:textColor="@color/teal_800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginWithFacebook"
+        app:drawableLeftCompat="@drawable/ic_vector_google_logo"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoginWithTwitter"
+        android:layout_width="@dimen/layout_width_button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@drawable/btn_login_with_facebook"
+        android:text="@string/textButtonWhitTwitter"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:foreground="?selectableItemBackground"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingEnd="@dimen/normal_margin"
+        android:textSize="@dimen/normal_word"
+        android:textColor="@color/teal_800"
+        android:layout_marginBottom="@dimen/normal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginWithGoogle"
+        app:drawableLeftCompat="@drawable/ic_vector_twitter_logo"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

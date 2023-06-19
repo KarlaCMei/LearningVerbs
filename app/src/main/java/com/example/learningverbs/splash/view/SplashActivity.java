@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 
 import com.example.learningverbs.databinding.ActivitySplashBinding;
 import com.example.learningverbs.home.HomeActivity;
-import com.example.learningverbs.login.view.LoginActivity;
+import com.example.learningverbs.createaccount.CreateAccountActivity;
 import com.example.learningverbs.splash.viewmodel.SplashViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 
@@ -39,7 +39,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
                 if(isLogin){
                     startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                 }else{
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    startActivity(new Intent(SplashActivity.this, CreateAccountActivity.class));
                 }
                 finish();
             }
