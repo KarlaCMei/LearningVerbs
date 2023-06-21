@@ -5,12 +5,18 @@
     <dimen name="large_margin">70dp</dimen>
     <dimen name="title">50sp</dimen>
     <dimen name="padding">10dp</dimen>
+    <dimen name="elevation">10dp</dimen>
     <dimen name="little_padding">50dp</dimen>
     <dimen name="layout_width_button">300dp</dimen>
 
     <!-- Dimensiones para el tamaño de las letras-->
+    <dimen name="little_word">15dp</dimen>
     <dimen name="normal_word">20dp</dimen>
     <dimen name="medium_word">40dp</dimen>
     <dimen name="size_image">250dp</dimen>
+
+    <!-- Dimensiones para el card view de login-->
+    <dimen name="card_layout_width">300dp</dimen>
+    <dimen name="card_layout_height">500dp</dimen>
 
 </resources>

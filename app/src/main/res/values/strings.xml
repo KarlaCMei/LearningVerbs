@@ -1,14 +1,26 @@
 <resources>
     <string name="app_name">LearningVerbs</string>
 
-    <!-- Strings para la pantalla de login-->
+    <!-- Strings para la pantalla de create account-->
     <string name="title">Crear cuenta</string>
-    <string name="textButton">Login con email</string>
+    <string name="textButton">Ingresar con email</string>
     <string name="textButtonWithFacebook">Facebook</string>
     <string name="textButtonWithGoogle">Google</string>
     <string name="textButtonWhitTwitter">Twitter</string>
 
     <string name="textSeparator">ó</string>
+
+    <!-- Strings para la pantalla de login-->
+    <string name="tittle_login">INICIAR SESIÓN</string>
+    <string name="hint_edit_email">correo</string>
+    <string name="hint_edit_password">contraseña</string>
+    <string name="text_check_box">Recordar usuario</string>
+    <string name="btn_start_sesion">Iniciar sesión</string>
+    <string name="btn_forgot_password">Olvidé mi contraseña</string>
+
+    <!-- Strings para la pantalla de signUp-->
+    <string name="tittle_sign_up">CREAR CUENTA</string>
+    <string name="hint_edit_verify_password">verificar contraseña</string>
 
 
 </resources>

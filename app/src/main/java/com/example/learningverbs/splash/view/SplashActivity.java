@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 
 import com.example.learningverbs.databinding.ActivitySplashBinding;
 import com.example.learningverbs.home.HomeActivity;
-import com.example.learningverbs.createaccount.CreateAccountActivity;
+import com.example.learningverbs.createaccount.createaccountview.CreateAccountActivity;
 import com.example.learningverbs.splash.viewmodel.SplashViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 
