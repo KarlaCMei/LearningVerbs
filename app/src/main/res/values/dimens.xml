@@ -19,4 +19,8 @@
     <dimen name="card_layout_width">300dp</dimen>
     <dimen name="card_layout_height">500dp</dimen>
 
+    <!-- Dimensiones para el card view de recuperar contraseña-->
+    <dimen name="size_image_get_password">200dp</dimen>
+
+
 </resources>

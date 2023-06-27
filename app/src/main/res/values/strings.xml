@@ -22,5 +22,11 @@
     <string name="tittle_sign_up">CREAR CUENTA</string>
     <string name="hint_edit_verify_password">verificar contraseña</string>
 
+    <!-- Strings para la pantalla de forgot password-->
+    <string name="tittle_get_password">Recupera tu constraseña </string>
+    <string name="msg_get_password">Introduce el correo electrónico con el que iniciaste sesión y enviaremos un enlace para que puedas cambiar tu contraseña y puedas recuperar tu cuenta</string>
+    <string name="btn_get_password">Enviar </string>
+    <string name="msg_error">Correo no valido </string>
+
 
 </resources>

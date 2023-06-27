@@ -1,17 +1,25 @@
 package com.example.learningverbs.login.view;
 
+import static com.example.learningverbs.utils.StringUtils.validateEmail;
+import static com.example.learningverbs.utils.StringUtils.validatePassword;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 
-import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityCreateAccountBinding;
 import com.example.learningverbs.databinding.ActivityLoginBinding;
+import com.example.learningverbs.forgotpassword.view.GetPasswordActivity;
+import com.example.learningverbs.home.HomeActivity;
 import com.example.learningverbs.login.viewmodel.LoginViewModel;
+import com.example.learningverbs.signup.view.SignUpActivity;
 import com.example.learningverbs.utils.BaseActivity;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 
@@ -29,6 +37,49 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
+        binding.btnForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, GetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (validateEmail(binding.editTextEmail.getText().toString())) {
+                    binding.editTextEmail.setError(null);
+                    if (validatePassword(binding.editTextPassword.getText().toString())) {
+                        binding.editTextPassword.setError(null);
+                        viewModel.doLogin(binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
+                    } else {
+                        binding.editTextPassword.setError("La contraseña tiene que ser mayor a 6 digitos");
+                    }
+                } else {
+                    binding.editTextEmail.setError("Email no valido");
+                }
+            }
+        });
+
+        createUserWithEmail();
+    }
+
+
+
+    private void createUserWithEmail() {
+        viewModel.getFireBaseUser().observe(LoginActivity.this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean != null){
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    finish();
+                }
+            }
+        });
+
     }
 }
