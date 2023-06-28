@@ -8,6 +8,7 @@
     tools:context=".createaccount.createaccountview.CreateAccountActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CoordinatorLayout_container_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"

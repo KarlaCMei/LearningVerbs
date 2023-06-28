@@ -34,7 +34,6 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
 
 
     private void observers() {
-
         viewModel.loading.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean isLoading) {

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".tools.LearningApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31">
+        <activity
+            android:name=".userdetail.view.UserDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".forgotpassword.view.GetPasswordActivity"
             android:exported="false" />
@@ -21,7 +25,7 @@
             android:name=".signup.view.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".home.view.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".createaccount.createaccountview.CreateAccountActivity"

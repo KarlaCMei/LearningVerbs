@@ -11,18 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CompoundButton;
 
-import com.example.learningverbs.databinding.ActivityCreateAccountBinding;
+import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityLoginBinding;
 import com.example.learningverbs.forgotpassword.view.GetPasswordActivity;
-import com.example.learningverbs.home.HomeActivity;
+import com.example.learningverbs.home.view.HomeActivity;
 import com.example.learningverbs.login.viewmodel.LoginViewModel;
-import com.example.learningverbs.signup.view.SignUpActivity;
 import com.example.learningverbs.utils.BaseActivity;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.learningverbs.utils.constants.Constants;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
-
     @Override
     protected LoginViewModel createViewModel() {
         return new ViewModelProvider(this).get(LoginViewModel.class);
@@ -55,6 +54,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                     if (validatePassword(binding.editTextPassword.getText().toString())) {
                         binding.editTextPassword.setError(null);
                         viewModel.doLogin(binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
+
                     } else {
                         binding.editTextPassword.setError("La contraseña tiene que ser mayor a 6 digitos");
                     }
@@ -65,9 +65,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         });
 
         createUserWithEmail();
+        configSwitchSaveUser();
+        getSaveData();
+
     }
-
-
 
     private void createUserWithEmail() {
         viewModel.getFireBaseUser().observe(LoginActivity.this, new Observer<Boolean>() {
@@ -82,4 +83,35 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         });
 
     }
+
+    private void getSaveData(){
+        String userName = com.example.learningverbs.tools.Tools.getStringPreference(Constants.USERNAME_SAVE);
+        if(!userName.isEmpty()){
+            binding.editTextEmail.setText(userName);
+            binding.checkBoxRememberUser.setChecked(true);
+        }
+    }
+
+
+    private void configSwitchSaveUser(){
+        binding.checkBoxRememberUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                String userName = binding.editTextEmail.getText().toString();
+                if(!userName.isEmpty()){
+                    if(compoundButton.isChecked()){
+                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE,userName);
+                    }else {
+                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE,"");
+                    }
+                }else{
+                    binding.checkBoxRememberUser.setChecked(false);
+                    com.example.learningverbs.tools.Tools.showSnackMessage(binding.CoordinatorLayoutContainerLogin,getString(R.string.lbl_email));
+                }
+
+            }
+        });
+    }
+
+
 }

@@ -17,6 +17,7 @@
     <string name="text_check_box">Recordar usuario</string>
     <string name="btn_start_sesion">Iniciar sesión</string>
     <string name="btn_forgot_password">Olvidé mi contraseña</string>
+    <string name="lbl_email">Ingresa correo electrónico</string>
 
     <!-- Strings para la pantalla de signUp-->
     <string name="tittle_sign_up">CREAR CUENTA</string>
@@ -27,6 +28,17 @@
     <string name="msg_get_password">Introduce el correo electrónico con el que iniciaste sesión y enviaremos un enlace para que puedas cambiar tu contraseña y puedas recuperar tu cuenta</string>
     <string name="btn_get_password">Enviar </string>
     <string name="msg_error">Correo no valido </string>
+
+    <!-- Strings para la pantalla del home-->
+    <string name="title_home">Inicio</string>
+    <string name="title_list_verbs">Verbos</string>
+    <string name="title_favorites">Favoritos</string>
+
+    <!-- Strings para los botones de los verbos en el home-->
+    <string name="btn_title">Verbo   del día</string>
+    <string name="btn_title_to_be">Verbo To Be</string>
+    <string name="btn_title_have">Verbo Have</string>
+    <string name="btn_title_do">Verbo Do</string>
 
 
 </resources>

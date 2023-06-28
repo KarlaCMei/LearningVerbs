@@ -15,13 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.example.learningverbs.R;
-import com.example.learningverbs.databinding.ActivityCreateAccountBinding;
 import com.example.learningverbs.databinding.ActivitySignUpBinding;
-import com.example.learningverbs.home.HomeActivity;
-import com.example.learningverbs.login.viewmodel.LoginViewModel;
+import com.example.learningverbs.home.view.HomeActivity;
 import com.example.learningverbs.signup.viewmodel.SignUpViewModel;
-import com.example.learningverbs.splash.viewmodel.SplashViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 import com.google.firebase.auth.FirebaseUser;
 

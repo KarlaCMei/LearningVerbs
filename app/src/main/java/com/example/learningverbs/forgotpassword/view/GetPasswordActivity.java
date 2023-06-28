@@ -3,30 +3,17 @@ package com.example.learningverbs.forgotpassword.view;
 import static com.example.learningverbs.utils.StringUtils.validateEmail;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityGetPasswordBinding;
-import com.example.learningverbs.databinding.ActivityLoginBinding;
 import com.example.learningverbs.forgotpassword.viewmodel.GetPasswordViewModel;
-import com.example.learningverbs.home.HomeActivity;
-import com.example.learningverbs.login.view.LoginActivity;
-import com.example.learningverbs.login.viewmodel.LoginViewModel;
-import com.example.learningverbs.signup.view.SignUpActivity;
 import com.example.learningverbs.utils.BaseActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.regex.Pattern;
 
 public class GetPasswordActivity extends BaseActivity<ActivityGetPasswordBinding, GetPasswordViewModel> {
 

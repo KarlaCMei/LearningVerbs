@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="little_margin">10dp</dimen>
     <dimen name="normal_margin">20dp</dimen>
     <dimen name="medium_margin">40dp</dimen>
     <dimen name="large_margin">70dp</dimen>
     <dimen name="title">50sp</dimen>
     <dimen name="padding">10dp</dimen>
+    <dimen name="padding_little">7dp</dimen>
     <dimen name="elevation">10dp</dimen>
     <dimen name="little_padding">50dp</dimen>
     <dimen name="layout_width_button">300dp</dimen>
+    <dimen name="radius">12dp</dimen>
+    <dimen name="fit_component">0dp</dimen>
+
 
     <!-- Dimensiones para el tamaño de las letras-->
     <dimen name="little_word">15dp</dimen>
     <dimen name="normal_word">20dp</dimen>
+    <dimen name="norm_word">25dp</dimen>
+    <dimen name="large_word">35dp</dimen>
     <dimen name="medium_word">40dp</dimen>
     <dimen name="size_image">250dp</dimen>
 
@@ -21,6 +28,9 @@
 
     <!-- Dimensiones para el card view de recuperar contraseña-->
     <dimen name="size_image_get_password">200dp</dimen>
+
+    <!-- Dimensiones para el boton de verbo del día-->
+    <dimen name="title_width">150dp</dimen>
 
 
 </resources>
