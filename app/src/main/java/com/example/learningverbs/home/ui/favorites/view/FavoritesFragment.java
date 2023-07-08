@@ -1,4 +1,4 @@
-package com.example.learningverbs.home.ui.favorites;
+package com.example.learningverbs.home.ui.favorites.view;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.learningverbs.databinding.FragmentFavoritesBinding;
+import com.example.learningverbs.home.ui.favorites.viewmodel.FavoritesViewModel;
 import com.example.learningverbs.utils.BaseFragment;
 
 public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, FavoritesViewModel> {

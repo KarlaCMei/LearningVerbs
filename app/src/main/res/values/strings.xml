@@ -33,12 +33,19 @@
     <string name="title_home">Inicio</string>
     <string name="title_list_verbs">Verbos</string>
     <string name="title_favorites">Favoritos</string>
+    <!-- Strings para la pantalla de verb list-->
+    <string name="edit_search">Buscar</string>
+    <string name="txt_verb_name">Verbo</string>
 
     <!-- Strings para los botones de los verbos en el home-->
     <string name="btn_title">Verbo   del día</string>
     <string name="btn_title_to_be">Verbo To Be</string>
     <string name="btn_title_have">Verbo Have</string>
     <string name="btn_title_do">Verbo Do</string>
+
+    <!-- Strings para el layout de user detail-->
+    <string name="btn_close_sesion">Cerrar sesión</string>
+    <string name="title_user">Usuario</string>
 
 
 </resources>

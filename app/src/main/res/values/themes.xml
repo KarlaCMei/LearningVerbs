@@ -30,4 +30,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!--Tema para boton general-->
+    <style name="AppTheme.ButtonGeneral" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textColor">@color/teal_800</item>
+        <item name="android:background">@color/purple_700</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textSize">@dimen/normal_word</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.learningverbs.home.ui.favorites;
+package com.example.learningverbs.home.ui.favorites.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
