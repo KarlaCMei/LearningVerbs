@@ -89,10 +89,12 @@
                     android:fontFamily="serif-monospace"
                     android:textColor="@color/purple_500"
                     android:gravity="center"
-                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:layout_marginBottom="@dimen/normal_margin"
+                    android:layout_marginEnd="@dimen/normal_margin"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Verbo en Español" />
+                    android:text="Verbo en Español" />
 
                 <TextView
                     android:id="@+id/english"
@@ -104,7 +106,7 @@
                     android:gravity="center"
                     app:layout_constraintStart_toEndOf="@+id/spanish"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Verbo en Ingles" />
+                    android:text="Verbo en Ingles" />
 
                 <TextView
                     android:id="@+id/verbSpanish"
@@ -118,7 +120,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/spanish"
                     app:layout_constraintStart_toStartOf="@+id/spanish"
                     app:layout_constraintTop_toBottomOf="@+id/spanish"
-                    tools:text="Verbo" />
+                    android:text="Verbo" />
 
                 <TextView
                     android:id="@+id/verbEnglish"
@@ -132,10 +134,30 @@
                     app:layout_constraintEnd_toEndOf="@+id/english"
                     app:layout_constraintStart_toStartOf="@+id/english"
                     app:layout_constraintTop_toBottomOf="@+id/english"
-                    tools:text="Verb" />
+                    android:text="Verb" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:background="@drawable/view_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:background="@drawable/view_radius"
+                app:tabSelectedTextAppearance="@style/Theme.BottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.viewpager.widget.ViewPager>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

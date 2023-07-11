@@ -2,14 +2,11 @@ package com.example.learningverbs.login.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.learningverbs.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.login.repository.LoginRepository;
 import com.example.learningverbs.utils.BaseViewModel;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginViewModel extends BaseViewModel {
     private MutableLiveData<Boolean> isLogin;

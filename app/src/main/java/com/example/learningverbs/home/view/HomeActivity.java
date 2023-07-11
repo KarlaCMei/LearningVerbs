@@ -1,6 +1,7 @@
 package com.example.learningverbs.home.view;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,6 +16,7 @@ import android.view.View;
 import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityGetPasswordBinding;
 import com.example.learningverbs.databinding.ActivityHomeBinding;
+import com.example.learningverbs.home.ui.home.view.HomeFragment;
 import com.example.learningverbs.home.viewmodel.HomeViewModel;
 import com.example.learningverbs.userdetail.view.UserDetailActivity;
 import com.example.learningverbs.utils.BaseActivity;
@@ -44,6 +46,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         NavigationUI.setupActionBarWithNavController(HomeActivity.this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
         binding.customToolbar.imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +54,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                 startActivity(intent);
             }
         });
+
 
     }
 
