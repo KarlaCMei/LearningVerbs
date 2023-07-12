@@ -21,7 +21,7 @@
             android:layout_width="@dimen/card_layout_width"
             android:layout_height="@dimen/card_layout_height"
             android:layout_marginBottom="@dimen/normal_margin"
-            android:background="@color/teal_800"
+            android:backgroundTint="@color/teal_700"
             app:cardCornerRadius="@dimen/title"
             app:cardElevation="@dimen/elevation"
             android:layout_marginTop="@dimen/medium_margin"

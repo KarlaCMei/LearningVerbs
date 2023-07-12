@@ -96,4 +96,19 @@ public class Verb {
     public void setVerboInglesPresente(String verboInglesPresente) {
         this.verboInglesPresente = verboInglesPresente;
     }
+
+    @Override
+    public String toString() {
+        return "Verb{" +
+                "esRegular=" + esRegular +
+                ", verboEspañol='" + verboEspañol + '\'' +
+                ", verboEspañolFuturo='" + verboEspañolFuturo + '\'' +
+                ", verboEspañolPasado='" + verboEspañolPasado + '\'' +
+                ", verboEspañolPresente='" + verboEspañolPresente + '\'' +
+                ", verboIngles='" + verboIngles + '\'' +
+                ", verboInglesFuturo='" + verboInglesFuturo + '\'' +
+                ", verboInglesPasado='" + verboInglesPasado + '\'' +
+                ", verboInglesPresente='" + verboInglesPresente + '\'' +
+                '}';
+    }
 }

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.learningverbs.detailverb.view.ViewPagerFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/verbSpanish"
@@ -21,6 +17,7 @@
             android:fontFamily="serif-monospace"
             android:gravity="center"
             android:text="Verbo"
+            android:layout_margin="@dimen/normal_margin"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/large_word"
             android:textStyle="bold"
@@ -29,8 +26,9 @@
 
         <View
             android:id="@+id/view_separator"
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="35dp"
+            android:layout_marginTop="@dimen/normal_margin"
             android:layout_marginStart="@dimen/padding"
             android:layout_marginEnd="@dimen/padding"
             android:background="@color/purple_500"
@@ -43,6 +41,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif-monospace"
             android:gravity="center"
+            android:layout_margin="@dimen/normal_margin"
             android:text="Verb"
             android:layout_marginStart="@dimen/padding"
             android:textColor="@color/purple_500"
@@ -51,17 +50,182 @@
             app:layout_constraintStart_toEndOf="@+id/view_separator"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/view_random"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_affirmative"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
-            android:layout_margin="@dimen/normal_margin"
-            android:background="@color/purple_500"
+            android:layout_height="@dimen/title_width"
+            android:backgroundTint="@color/purple_500"
+            app:cardCornerRadius="@dimen/normal_margin"
+            app:cardElevation="@dimen/elevation"
+            android:layout_margin="@dimen/padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/verbSpanish" />
+            app:layout_constraintTop_toBottomOf="@+id/verbSpanish" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_affirmative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_title_affirmative"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:textSize="@dimen/norm_word"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtExampleAffirmativeSpanish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Mi maleta es muy pesada."
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_affirmative" />
+
+                <TextView
+                    android:id="@+id/txtExampleAffirmativeEnglish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="My suitcase is very heavy."
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtExampleAffirmativeSpanish" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_negative"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_width"
+            android:backgroundTint="@color/purple_500"
+            app:cardCornerRadius="@dimen/normal_margin"
+            app:cardElevation="@dimen/elevation"
+            android:layout_margin="@dimen/padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_affirmative" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_negative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_title_negative"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:textSize="@dimen/norm_word"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtExampleNegativeSpanish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Yo no estoy interesado en el fútbol"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_negative" />
+
+                <TextView
+                    android:id="@+id/txtExampleNegativeEnglish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="I’m not interested in soccer"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtExampleNegativeSpanish" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_question"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_width"
+            android:layout_margin="@dimen/padding"
+            android:backgroundTint="@color/purple_500"
+            app:cardCornerRadius="@dimen/normal_margin"
+            app:cardElevation="@dimen/elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_negative" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:text="@string/card_title_question"
+                    android:textColor="@color/teal_800"
+                    android:textSize="@dimen/norm_word"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtExampleQuestionSpanish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="¿El tiempo está agradable hoy?"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_question" />
+
+                <TextView
+                    android:id="@+id/txtExampleQuestionEnglish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Is the weather nice today?"
+                    android:textColor="@color/teal_800"
+                    android:fontFamily="casual"
+                    android:layout_margin="@dimen/padding"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtExampleQuestionSpanish" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

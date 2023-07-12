@@ -47,5 +47,14 @@
     <string name="btn_close_sesion">Cerrar sesión</string>
     <string name="title_user">Usuario</string>
 
+    <!--Strings para la pantalla del detalle del verbo -->
+    <string name="msg_verb_spanish">Verbo en Español</string>
+    <string name="msg_verb_english">Verbo en Ingles</string>
+    <string name="verb_spanish">Verbo</string>
+    <string name="verb_english">Verb</string>
+    <string name="card_title_affirmative">Afirmativo</string>
+    <string name="card_title_negative">Negativo</string>
+    <string name="card_title_question">Pregunta</string>
+
 
 </resources>
