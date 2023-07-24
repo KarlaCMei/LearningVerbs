@@ -1,13 +1,16 @@
 package com.example.learningverbs.userdetail.view;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.learningverbs.R;
 import com.example.learningverbs.createaccount.createaccountview.CreateAccountActivity;
@@ -15,8 +18,10 @@ import com.example.learningverbs.databinding.ActivityHomeBinding;
 import com.example.learningverbs.databinding.ActivityUserDetailBinding;
 import com.example.learningverbs.home.view.HomeActivity;
 import com.example.learningverbs.home.viewmodel.HomeViewModel;
+import com.example.learningverbs.listverbs.view.VerbListFragment;
 import com.example.learningverbs.login.view.LoginActivity;
 import com.example.learningverbs.signup.view.SignUpActivity;
+import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
 import com.example.learningverbs.userdetail.viewmodel.UserDetailViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,7 +47,12 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
         binding.btnCloseSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeSesion();
+                LearningVerbsDialogGlobal.showDialogAccept(UserDetailActivity.this, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        closeSesion();
+                    }
+                });
             }
         });
 
@@ -53,6 +63,23 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
             }
         });
 
+        binding.icCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LearningVerbsDialogGlobal.showDialogTakePhoto(UserDetailActivity.this, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                }, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+
+            }
+        });
     }
 
     public void closeSesion() {

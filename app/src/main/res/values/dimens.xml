@@ -33,6 +33,7 @@
 
     <!-- Dimensiones para el boton de verbo del día-->
     <dimen name="title_width">150dp</dimen>
+    <dimen name="btn_floating_button_verb">68dp</dimen>
 
     <!-- Dimensiones para el layout de user detail-->
     <dimen name="margin_icon_camera">95dp</dimen>

@@ -38,9 +38,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/normal_margin"
         android:layout_marginBottom="@dimen/normal_margin"
-        app:tint="@color/teal_800"
-        android:src="@drawable/ic_add_verb"
-        app:backgroundTint="@color/purple_700"/>
+        app:tint="@color/purple_700"
+        app:maxImageSize="@dimen/btn_floating_button_verb"
+        android:src="@drawable/ic_chage_verb"
+        app:backgroundTint="@color/teal_800"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listVerbs"

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:background="@color/teal_800"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding"
+    >
+
+
+    <TextView
+        android:id="@+id/title_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_dialog"
+        android:textSize="@dimen/norm_word"
+        android:layout_margin="@dimen/padding"
+        android:textColor="@color/purple_700"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/msg_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:textColor="@color/purple_500"
+        android:text="@string/msg_dialog"
+        android:textSize="@dimen/normal_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_dialog" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@drawable/btn_login_with_facebook"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/btn_accept"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/msg_dialog" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOpenGalery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/padding"
+        android:background="@drawable/btn_login_with_facebook"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toStartOf="@+id/btnTakePhoto"
+        app:layout_constraintTop_toBottomOf="@+id/msg_dialog" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

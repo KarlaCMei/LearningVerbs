@@ -34,9 +34,9 @@ public class VerbAdapter extends FirestoreRecyclerAdapter<Verb, VerbAdapter.View
     @Override
     protected void onBindViewHolder(@NonNull VerbAdapter.ViewHolder holder, int position, @NonNull Verb model) {
         Log.e("miverbo","mi verbo"+model.toString());
-        holder.txtNameVerb.setText(model.getVerboEspañol());
+        holder.txtNameVerb.setText(model.getVerbSpanish());
 
-        if (model.getEsRegular()) {
+        if (model.getRegular()) {
             holder.txtIsRegular.setText("Regular");
         } else {
             holder.txtIsRegular.setText("Irregular");

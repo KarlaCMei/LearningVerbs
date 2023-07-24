@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:background="@color/teal_800"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding"
+    >
+
+
+    <TextView
+        android:id="@+id/title_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_dialog_take_photo"
+        android:textSize="@dimen/norm_word"
+        android:layout_margin="@dimen/padding"
+        android:textColor="@color/purple_700"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="@dimen/size_image_get_password"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_login_with_facebook"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/padding"
+        android:text="@string/btn_open_galeri"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenGalery" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOpenGalery"
+        android:layout_width="@dimen/size_image_get_password"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_login_with_facebook"
+        android:fontFamily="casual"
+        android:layout_marginTop="@dimen/padding"
+        android:gravity="center"
+        android:text="@string/btn_take_photo"
+        android:textColor="@color/teal_800"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_dialog" />
+
+    <TextView
+        android:id="@+id/btnCancel"
+        android:backgroundTint="@color/teal_800"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_cancel"
+        android:fontFamily="casual"
+        android:textSize="@dimen/normal_word"
+        android:layout_margin="@dimen/padding"
+        android:textColor="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTakePhoto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

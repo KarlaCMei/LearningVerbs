@@ -1,114 +1,67 @@
 package com.example.learningverbs.model;
 
-public class Verb {
-    private Boolean esRegular;
-    private String verboEspañol;
-    private String verboEspañolFuturo;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Verb implements Serializable {
+    private Boolean regular;
+    private String verbSpanish;
+    private String verbEnglish;
+
+    private ArrayList<ExampleVerbPresent> exampleVerbPresent;
+
+    public ArrayList<ExampleVerbPresent> getExampleVerbPresent() {
+        return exampleVerbPresent;
+    }
+
+    public void setExampleVerbPresent(ArrayList<ExampleVerbPresent> exampleVerbPresent) {
+        this.exampleVerbPresent = exampleVerbPresent;
+    }
+/*private String verboEspañolFuturo;
     private String verboEspañolPasado;
     private String verboEspañolPresente;
-    private String verboIngles;
     private String verboInglesFuturo;
     private String verboInglesPasado;
-    private String verboInglesPresente;
+    private String verboInglesPresente;*/
 
     public Verb(){}
 
-    public Verb(Boolean esRegular, String verboEspañol, String verboEspañolFuturo, String verboEspañolPasado, String verboEspañolPresente, String verboIngles, String verboInglesFuturo, String verboInglesPasado, String verboInglesPresente) {
-        this.esRegular = esRegular;
-        this.verboEspañol = verboEspañol;
-        this.verboEspañolFuturo = verboEspañolFuturo;
-        this.verboEspañolPasado = verboEspañolPasado;
-        this.verboEspañolPresente = verboEspañolPresente;
-        this.verboIngles = verboIngles;
-        this.verboInglesFuturo = verboInglesFuturo;
-        this.verboInglesPasado = verboInglesPasado;
-        this.verboInglesPresente = verboInglesPresente;
+    public Verb(Boolean regular, String verbSpanish, String verbEnglish) {
+        this.regular = regular;
+        this.verbSpanish = verbSpanish;
+        this.verbEnglish = verbEnglish;
     }
 
-    public boolean getEsRegular() {
-        return esRegular;
+    public Boolean getRegular() {
+        return regular;
     }
 
-    public void setEsRegular(Boolean esRegular) {
-        this.esRegular = esRegular;
+    public void setRegular(Boolean regular) {
+        this.regular = regular;
     }
 
-    public String getVerboEspañol() {
-        return verboEspañol;
+    public String getVerbSpanish() {
+        return verbSpanish;
     }
 
-    public void setVerboEspañol(String verboEspañol) {
-        this.verboEspañol = verboEspañol;
+    public void setVerbSpanish(String verbSpanish) {
+        this.verbSpanish = verbSpanish;
     }
 
-    public String getVerboEspañolFuturo() {
-        return verboEspañolFuturo;
+    public String getVerbEnglish() {
+        return verbEnglish;
     }
 
-    public void setVerboEspañolFuturo(String verboEspañolFuturo) {
-        this.verboEspañolFuturo = verboEspañolFuturo;
-    }
-
-    public String getVerboEspañolPasado() {
-        return verboEspañolPasado;
-    }
-
-    public void setVerboEspañolPasado(String verboEspañolPasado) {
-        this.verboEspañolPasado = verboEspañolPasado;
-    }
-
-    public String getVerboEspañolPresente() {
-        return verboEspañolPresente;
-    }
-
-    public void setVerboEspañolPresente(String verboEspañolPresente) {
-        this.verboEspañolPresente = verboEspañolPresente;
-    }
-
-    public String getVerboIngles() {
-        return verboIngles;
-    }
-
-    public void setVerboIngles(String verboIngles) {
-        this.verboIngles = verboIngles;
-    }
-
-    public String getVerboInglesFuturo() {
-        return verboInglesFuturo;
-    }
-
-    public void setVerboInglesFuturo(String verboInglesFuturo) {
-        this.verboInglesFuturo = verboInglesFuturo;
-    }
-
-    public String getVerboInglesPasado() {
-        return verboInglesPasado;
-    }
-
-    public void setVerboInglesPasado(String verboInglesPasado) {
-        this.verboInglesPasado = verboInglesPasado;
-    }
-
-    public String getVerboInglesPresente() {
-        return verboInglesPresente;
-    }
-
-    public void setVerboInglesPresente(String verboInglesPresente) {
-        this.verboInglesPresente = verboInglesPresente;
+    public void setVerbEnglish(String verbEnglish) {
+        this.verbEnglish = verbEnglish;
     }
 
     @Override
     public String toString() {
         return "Verb{" +
-                "esRegular=" + esRegular +
-                ", verboEspañol='" + verboEspañol + '\'' +
-                ", verboEspañolFuturo='" + verboEspañolFuturo + '\'' +
-                ", verboEspañolPasado='" + verboEspañolPasado + '\'' +
-                ", verboEspañolPresente='" + verboEspañolPresente + '\'' +
-                ", verboIngles='" + verboIngles + '\'' +
-                ", verboInglesFuturo='" + verboInglesFuturo + '\'' +
-                ", verboInglesPasado='" + verboInglesPasado + '\'' +
-                ", verboInglesPresente='" + verboInglesPresente + '\'' +
+                "isRegular=" + regular +
+                ", verbSpanish='" + verbSpanish + '\'' +
+                ", verbEnglish='" + verbEnglish + '\'' +
                 '}';
     }
 }

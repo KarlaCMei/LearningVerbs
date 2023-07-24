@@ -18,9 +18,14 @@ import com.example.learningverbs.databinding.FragmentVerbListBinding;
 import com.example.learningverbs.detailverb.view.VerbDetailActivity;
 import com.example.learningverbs.listverbs.viewmodel.VerbListViewModel;
 import com.example.learningverbs.model.Verb;
+import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
+import com.example.learningverbs.userdetail.view.UserDetailActivity;
 import com.example.learningverbs.utils.BaseFragment;
+import com.example.learningverbs.utils.constants.Constants;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
+
+import java.io.Serializable;
 
 public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> {
     private VerbAdapter adapterList;
@@ -47,16 +52,20 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         viewModel.getQuery().observe(this, new Observer<Query>() {
             @Override
             public void onChanged(Query query) {
-
-                Log.e("query","queryqueryqueryquery"+query);
                 FirestoreRecyclerOptions<Verb> firestoreRecyclerAdapter = new FirestoreRecyclerOptions.Builder<Verb>().setQuery(query, Verb.class).build();
                 adapterList = new VerbAdapter(firestoreRecyclerAdapter);
                 adapterList.setListener(new OnClicVerbListener() {
                     @Override
                     public void onVerbClicListener(Verb verb) {
-                        Log.e("Mensaje de intent", "INTENT PARA EL DETALLE DEL VERBO" + verb.getVerboEspañol());
-                        Intent intent = new Intent(requireContext(), VerbDetailActivity.class);
-                        startActivity(intent);
+                        /*Bundle detailActivity = new Bundle();
+                        detailActivity.putSerializable(Constants.VERB, verb);
+                        Intent intent = new Intent(requireActivity(), VerbDetailActivity.class);
+                        startActivity(intent);*/
+
+
+                        Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                        detailActivity.putExtra(Constants.VERB, verb);
+                        startActivity(detailActivity);
 
                     }
                 });
@@ -68,6 +77,31 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
             }
         });
 
+        binding.btnCreateVerb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LearningVerbsDialogGlobal.showDialogChange(VerbListFragment.this, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                }, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+            }
+        });
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(adapterList != null){
+            adapterList.startListening();
+        }
 
     }
 

@@ -56,5 +56,15 @@
     <string name="card_title_negative">Negativo</string>
     <string name="card_title_question">Pregunta</string>
 
+    <!-- Strings para los dialogos-->
+    <string name="title_dialog">Cerrar sesión</string>
+    <string name="msg_dialog">¿Desea cerrar la sesión?</string>
+    <string name="btn_accept">Aceptar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_regular">Regulares</string>
+    <string name="btn_irregular">Irregulares</string>
+    <string name="title_dialog_take_photo">Selecciona una foto</string>
+    <string name="btn_take_photo">Toma una foto</string>
+    <string name="btn_open_galeri">Abre tu galeria</string>
 
 </resources>
