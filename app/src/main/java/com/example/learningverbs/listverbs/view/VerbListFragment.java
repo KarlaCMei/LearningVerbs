@@ -67,45 +67,52 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     }
 
 
-    public void fillDataBase() {
+    /*public void fillDataBase() {
         long currentTimeMillis = System.currentTimeMillis();
         Verb verb = new Verb();
-        ExampleVerb phrase = new ExampleVerb();
-        /*verb.setVerbSpanishPresent("Añadir");
-        verb.setVerbSpanishPast("Añadí");
-        verb.setVerbSpanishFuture("Añadiré");
-        verb.setVerbEnglishPresent("Add");
-        verb.setVerbEnglishPast("Added");
-        verb.setVerbEnglishFuture("Will add");
-        verb.setRegular(true);
+
         verb.setVerbId(String.valueOf(currentTimeMillis));
+        verb.setImage("https://img.freepik.com/vector-premium/llamar-personas-traves-comunicacion-linea-telefono-internet-mano-que-sostiene-telefono_373887-1652.jpg");
+        verb.setVerbSpanishPresent("Llamar");
+        verb.setVerbEnglishPresent("Call");
+        verb.setRegular(true);
 
-        phrase.setPhraseAffirmativeSpanish("Debes de añadir dos cucharadas de azucar.");
-        phrase.setPhraseAffirmativeEnglish("You must add two tablespoons of sugar.");
-        phrase.setPhraseNegativeSpanish("No debes añadir do cucharadas de azucar.");
-        phrase.setPhraseNegativeEnglish("You should not add two tablespoons of sugar.");
-        phrase.setPhraseQuestionSpanish("¿Debes añadir dos cucharadas de azucar?");
-        phrase.setPhraseQuestionEnglish("Should you add two tablespoons of sugar?");
-
-        phrase.setPhrasePastAffirmativeSpanish("Añadí este sitio web a mis favoritos.");
-        phrase.setPhrasePastAffirmativeEnglish("I added this website to my favorites.");
-        phrase.setPhrasePastNegativeSpanish("No añadí este sitio web a mis favoritos.");
-        phrase.setPhrasePastNegativeEnglish("I did not add this website to my favorites.");
-        phrase.setPhrasePastQuestionSpanish("¿Añadí este sitio web a mis favoritos?");
-        phrase.setPhrasePastQuestionEnglish("Did I add this website to my favorites?");
-
-        phrase.setPhraseFutureAffirmativeSpanish("Añadiré los detalles a lo que he dicho anteriormente.");
-        phrase.setPhraseFutureAffirmativeSpanish("I will add the details to what I have said above.");
-        phrase.setPhraseFutureNegativeSpanish("No Añadiré los detalles a lo que he dicho anteriormente.");
-        phrase.setPhraseFutureNegativeEnglish("I will not add the details to what I have said above.");
-        phrase.setPhraseFutureQuestionSpanish("¿Añadiré los detalles a lo que he dicho anteriormente?");
-        phrase.setPhraseFutureQuestionEnglish("Will I add the details to what I have said above?");
+        ExampleVerb exampleVerbPresent = new ExampleVerb();
+        exampleVerbPresent.setVerbSpanish("Llamar");
+        exampleVerbPresent.setVerbEnglish("Call");
+        exampleVerbPresent.setPhraseAffirmativeSpanish("Quiero hacer una llamada.");
+        exampleVerbPresent.setPhraseAffirmativeEnglish("I want to make a call.");
+        exampleVerbPresent.setPhraseNegativeSpanish("No quiero hacer una llamada");
+        exampleVerbPresent.setPhraseNegativeEnglish("I don't want to make a call.");
+        exampleVerbPresent.setPhraseQuestionSpanish("¿Puedo hacer una llamada?");
+        exampleVerbPresent.setPhraseQuestionEnglish("Can i make a call?");
 
 
-        verb.setExampleVerb(phrase);*/
+        ExampleVerbPast exampleVerbPast= new ExampleVerbPast();
+        exampleVerbPast.setVerbSpanishPast("Llamé");
+        exampleVerbPast.setVerbEnglishPast("Called");
+        exampleVerbPast.setPhrasePastAffirmativeSpanish("Llamé a tu casa.");
+        exampleVerbPast.setPhrasePastAffirmativeEnglish("I called at your house.");
+        exampleVerbPast.setPhrasePastNegativeSpanish("No llamé a tu casa");
+        exampleVerbPast.setPhrasePastNegativeEnglish("I didn't call your house");
+        exampleVerbPast.setPhrasePastQuestionSpanish("¿Llamé a tu casa?");
+        exampleVerbPast.setPhrasePastQuestionEnglish("Did I call your house?");
+
+        ExampleVerbFuture exampleVerbFuture = new ExampleVerbFuture();
+        exampleVerbFuture.setVerbSpanishFuture("Llamaré");
+        exampleVerbFuture.setVerbEnglishFuture("Will call");
+        exampleVerbFuture.setPhraseFutureAffirmativeSpanish("Te llamaré mañana.");
+        exampleVerbFuture.setPhraseFutureAffirmativeSpanish("I will call you tomorrow.");
+        exampleVerbFuture.setPhraseFutureNegativeSpanish("No te llamare mañana");
+        exampleVerbFuture.setPhraseFutureNegativeEnglish("I won't call you tomorrow.");
+        exampleVerbFuture.setPhraseFutureQuestionSpanish("¿Me llamarás mañana?");
+        exampleVerbFuture.setPhraseFutureQuestionEnglish("Will you call me tomorrow?");
+
+        verb.setExampleVerbPresent(exampleVerbPresent);
+        verb.setExampleVerbPast(exampleVerbPast);
+        verb.setExampleVerbFuture(exampleVerbFuture);
         viewModel.fillDb(verb);
-
-    }
+    }*/
 
     private void getListDataBase() {
         viewModel.getListElement();

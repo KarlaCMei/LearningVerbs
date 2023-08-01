@@ -9,11 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.learningverbs.R;
 import com.example.learningverbs.adapter.Title;
 import com.example.learningverbs.adapter.ViewPagerAdapter;
 import com.example.learningverbs.databinding.ActivityVerbDetailBinding;
 import com.example.learningverbs.detailverb.viewmodel.VerbDetailViewModel;
+import com.example.learningverbs.model.ExampleVerb;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseActivity;
 import com.example.learningverbs.utils.constants.Constants;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 
 public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
     ArrayList<Title> arrayTitleViewPager = new ArrayList();
+    ArrayList<ExampleVerb> arrayExampleVerbs = new ArrayList();
+
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
 
@@ -59,8 +63,6 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 
     private void readExtra() {
@@ -68,12 +70,17 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             Verb verbDetail = (Verb) getIntent().getExtras().getSerializable(Constants.VERB);
             binding.verbSpanish.setText(verbDetail.getVerbSpanishPresent());
             binding.verbEnglish.setText(verbDetail.getVerbEnglishPresent());
+            Glide.with(binding.imgVerb.getContext()).load(verbDetail.getImage()).into(binding.imgVerb);
+
 
             if (verbDetail.getRegular()) {
                 binding.txtIsRegular.setText("Regular");
             } else {
                 binding.txtIsRegular.setText("Irregular");
             }
+
+            verbDetail.getExampleVerbPresent();
+
         }else{
             Log.e("NO Contiene llave", "NO Contiene la Key");
 

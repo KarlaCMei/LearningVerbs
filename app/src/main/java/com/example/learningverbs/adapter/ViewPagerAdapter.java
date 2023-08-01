@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.learningverbs.detailverb.view.ViewPagerFragment;
+import com.example.learningverbs.model.ExampleVerb;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm,ArrayList<Title> arrayTitle) {
         super(fm);
         this.arrayTitle = arrayTitle;
-
     }
 
     @NonNull

@@ -1,5 +1,6 @@
 package com.example.learningverbs.utils;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,10 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 
+import com.example.learningverbs.R;
+
 public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseViewModel> extends AppCompatActivity {
 
     protected VM viewModel;
     protected BINDING binding;
+    private Dialog dialog;
 
     private ProgressDialog customProgressDialog;
 
@@ -28,6 +32,7 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         super.onCreate(savedInstanceState);
         binding = createViewBinding(LayoutInflater.from(this));
         setContentView(binding.getRoot());
+        dialog = new Dialog(BaseActivity.this, R.style.customLottie);
         viewModel = createViewModel();
         observers();
     }
@@ -53,18 +58,18 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         });
     }
 
-    private void showProgress(){
-
+     void showProgress(){
+        dialog.setContentView(R.layout.loading_view);
+         if(!dialog.isShowing()) dialog.show();
     }
 
-    private void hideProgress(){
-
+     void hideProgress(){
+        if(dialog.isShowing())dialog.dismiss();
     }
 
 
     public void showMessageError(String msgError){
         Toast.makeText(BaseActivity.this, msgError, Toast.LENGTH_SHORT).show();
-
     }
 
 }

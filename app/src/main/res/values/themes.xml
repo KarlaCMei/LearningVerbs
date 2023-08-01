@@ -43,4 +43,8 @@
         <item name="android:windowBackground">@drawable/rounded_background</item>
     </style>
 
+    <style name="customLottie" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

@@ -1,6 +1,8 @@
 package com.example.learningverbs.model;
 
 public class ExampleVerb {
+    private String verbSpanish;
+    private String verbEnglish;
     private String phraseAffirmativeSpanish;
     private String phraseNegativeSpanish;
     private String phraseQuestionSpanish;
@@ -8,19 +10,36 @@ public class ExampleVerb {
     private String phraseNegativeEnglish;
     private String phraseQuestionEnglish;
 
-    private String phrasePastAffirmativeSpanish;
-    private String phrasePastNegativeSpanish;
-    private String phrasePastQuestionSpanish;
-    private String phrasePastAffirmativeEnglish;
-    private String phrasePastNegativeEnglish;
-    private String phrasePastQuestionEnglish;
+    public ExampleVerb(){
 
-    private String phraseFutureAffirmativeSpanish;
-    private String phraseFutureNegativeSpanish;
-    private String phraseFutureQuestionSpanish;
-    private String phraseFutureAffirmativeEnglish;
-    private String phraseFutureNegativeEnglish;
-    private String phraseFutureQuestionEnglish;
+    }
+
+    public ExampleVerb(String verbSpanish, String verbEnglish, String phraseAffirmativeSpanish, String phraseNegativeSpanish, String phraseQuestionSpanish, String phraseAffirmativeEnglish, String phraseNegativeEnglish, String phraseQuestionEnglish) {
+        this.verbSpanish = verbSpanish;
+        this.verbEnglish = verbEnglish;
+        this.phraseAffirmativeSpanish = phraseAffirmativeSpanish;
+        this.phraseNegativeSpanish = phraseNegativeSpanish;
+        this.phraseQuestionSpanish = phraseQuestionSpanish;
+        this.phraseAffirmativeEnglish = phraseAffirmativeEnglish;
+        this.phraseNegativeEnglish = phraseNegativeEnglish;
+        this.phraseQuestionEnglish = phraseQuestionEnglish;
+    }
+
+    public String getVerbSpanish() {
+        return verbSpanish;
+    }
+
+    public void setVerbSpanish(String verbSpanish) {
+        this.verbSpanish = verbSpanish;
+    }
+
+    public String getVerbEnglish() {
+        return verbEnglish;
+    }
+
+    public void setVerbEnglish(String verbEnglish) {
+        this.verbEnglish = verbEnglish;
+    }
 
     public String getPhraseAffirmativeSpanish() {
         return phraseAffirmativeSpanish;
@@ -68,101 +87,5 @@ public class ExampleVerb {
 
     public void setPhraseQuestionEnglish(String phraseQuestionEnglish) {
         this.phraseQuestionEnglish = phraseQuestionEnglish;
-    }
-
-    public String getPhrasePastAffirmativeSpanish() {
-        return phrasePastAffirmativeSpanish;
-    }
-
-    public void setPhrasePastAffirmativeSpanish(String phrasePastAffirmativeSpanish) {
-        this.phrasePastAffirmativeSpanish = phrasePastAffirmativeSpanish;
-    }
-
-    public String getPhrasePastNegativeSpanish() {
-        return phrasePastNegativeSpanish;
-    }
-
-    public void setPhrasePastNegativeSpanish(String phrasePastNegativeSpanish) {
-        this.phrasePastNegativeSpanish = phrasePastNegativeSpanish;
-    }
-
-    public String getPhrasePastQuestionSpanish() {
-        return phrasePastQuestionSpanish;
-    }
-
-    public void setPhrasePastQuestionSpanish(String phrasePastQuestionSpanish) {
-        this.phrasePastQuestionSpanish = phrasePastQuestionSpanish;
-    }
-
-    public String getPhrasePastAffirmativeEnglish() {
-        return phrasePastAffirmativeEnglish;
-    }
-
-    public void setPhrasePastAffirmativeEnglish(String phrasePastAffirmativeEnglish) {
-        this.phrasePastAffirmativeEnglish = phrasePastAffirmativeEnglish;
-    }
-
-    public String getPhrasePastNegativeEnglish() {
-        return phrasePastNegativeEnglish;
-    }
-
-    public void setPhrasePastNegativeEnglish(String phrasePastNegativeEnglish) {
-        this.phrasePastNegativeEnglish = phrasePastNegativeEnglish;
-    }
-
-    public String getPhrasePastQuestionEnglish() {
-        return phrasePastQuestionEnglish;
-    }
-
-    public void setPhrasePastQuestionEnglish(String phrasePastQuestionEnglish) {
-        this.phrasePastQuestionEnglish = phrasePastQuestionEnglish;
-    }
-
-    public String getPhraseFutureAffirmativeSpanish() {
-        return phraseFutureAffirmativeSpanish;
-    }
-
-    public void setPhraseFutureAffirmativeSpanish(String phraseFutureAffirmativeSpanish) {
-        this.phraseFutureAffirmativeSpanish = phraseFutureAffirmativeSpanish;
-    }
-
-    public String getPhraseFutureNegativeSpanish() {
-        return phraseFutureNegativeSpanish;
-    }
-
-    public void setPhraseFutureNegativeSpanish(String phraseFutureNegativeSpanish) {
-        this.phraseFutureNegativeSpanish = phraseFutureNegativeSpanish;
-    }
-
-    public String getPhraseFutureQuestionSpanish() {
-        return phraseFutureQuestionSpanish;
-    }
-
-    public void setPhraseFutureQuestionSpanish(String phraseFutureQuestionSpanish) {
-        this.phraseFutureQuestionSpanish = phraseFutureQuestionSpanish;
-    }
-
-    public String getPhraseFutureAffirmativeEnglish() {
-        return phraseFutureAffirmativeEnglish;
-    }
-
-    public void setPhraseFutureAffirmativeEnglish(String phraseFutureAffirmativeEnglish) {
-        this.phraseFutureAffirmativeEnglish = phraseFutureAffirmativeEnglish;
-    }
-
-    public String getPhraseFutureNegativeEnglish() {
-        return phraseFutureNegativeEnglish;
-    }
-
-    public void setPhraseFutureNegativeEnglish(String phraseFutureNegativeEnglish) {
-        this.phraseFutureNegativeEnglish = phraseFutureNegativeEnglish;
-    }
-
-    public String getPhraseFutureQuestionEnglish() {
-        return phraseFutureQuestionEnglish;
-    }
-
-    public void setPhraseFutureQuestionEnglish(String phraseFutureQuestionEnglish) {
-        this.phraseFutureQuestionEnglish = phraseFutureQuestionEnglish;
     }
 }

@@ -3,12 +3,14 @@ package com.example.learningverbs.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.learningverbs.R;
 import com.example.learningverbs.model.Verb;
 
@@ -38,6 +40,9 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
     @Override
     public void onBindViewHolder(@NonNull VerbAdapter.ViewHolder holder, int position) {
         holder.txtNameVerb.setText(resultsListVerbs.get(position).getVerbSpanishPresent());
+
+        Glide.with(holder.img_verb.getContext()).load(resultsListVerbs.get(position).getImage()).into(holder.img_verb);
+
         holder.setVerb(resultsListVerbs.get(position));
 
         if (resultsListVerbs.get(position).getRegular()) {
@@ -54,6 +59,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final CardView cardView;
+        private ImageView img_verb;
         private TextView txtNameVerb;
         private TextView txtIsRegular;
         private OnClicVerbListener listener;
@@ -62,6 +68,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            img_verb = itemView.findViewById(R.id.imgVerb);
             cardView = itemView.findViewById(R.id.cardview);
             txtNameVerb = itemView.findViewById(R.id.txtVerbName);
             txtIsRegular = itemView.findViewById(R.id.txtIsRegular);

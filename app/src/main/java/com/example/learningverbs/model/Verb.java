@@ -4,23 +4,32 @@ package com.example.learningverbs.model;
 import java.io.Serializable;
 
 public class Verb implements Serializable {
-
+    private String image;
     private String verbId;
     private Boolean regular;
     private String verbSpanishPresent;
-    private String verbSpanishPast;
-    private String verbSpanishFuture;
     private String verbEnglishPresent;
-    private String verbEnglishPast;
-    private String verbEnglishFuture;
-    private ExampleVerb exampleVerb;
+   private ExampleVerb exampleVerbPresent;
+   private ExampleVerb exampleVerbPast;
+   private ExampleVerb exampleVerbFuture;
 
-    public ExampleVerb getExampleVerb() {
-        return exampleVerb;
+    public Verb(){}
+
+    public Verb(String image, String verbId, Boolean regular, String verbSpanishPresent, String verbEnglishPresent, ExampleVerb exampleVerbPresent, ExampleVerb exampleVerbPast, ExampleVerb exampleVerbFuture) {
+        this.image = image;
+        this.verbId = verbId;
+        this.regular = regular;
+        this.verbSpanishPresent = verbSpanishPresent;
+        this.verbEnglishPresent = verbEnglishPresent;
+        this.exampleVerbPresent = exampleVerbPresent;
     }
 
-    public void setExampleVerb(ExampleVerb exampleVerb) {
-        this.exampleVerb = exampleVerb;
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getVerbId() {
@@ -47,22 +56,6 @@ public class Verb implements Serializable {
         this.verbSpanishPresent = verbSpanishPresent;
     }
 
-    public String getVerbSpanishPast() {
-        return verbSpanishPast;
-    }
-
-    public void setVerbSpanishPast(String verbSpanishPast) {
-        this.verbSpanishPast = verbSpanishPast;
-    }
-
-    public String getVerbSpanishFuture() {
-        return verbSpanishFuture;
-    }
-
-    public void setVerbSpanishFuture(String verbSpanishFuture) {
-        this.verbSpanishFuture = verbSpanishFuture;
-    }
-
     public String getVerbEnglishPresent() {
         return verbEnglishPresent;
     }
@@ -71,28 +64,37 @@ public class Verb implements Serializable {
         this.verbEnglishPresent = verbEnglishPresent;
     }
 
-    public String getVerbEnglishPast() {
-        return verbEnglishPast;
+    public ExampleVerb getExampleVerbPresent() {
+        return exampleVerbPresent;
     }
 
-    public void setVerbEnglishPast(String verbEnglishPast) {
-        this.verbEnglishPast = verbEnglishPast;
+    public void setExampleVerbPresent(ExampleVerb exampleVerbPresent) {
+        this.exampleVerbPresent = exampleVerbPresent;
     }
 
-    public String getVerbEnglishFuture() {
-        return verbEnglishFuture;
+    public ExampleVerb getExampleVerbPast() {
+        return exampleVerbPast;
     }
 
-    public void setVerbEnglishFuture(String verbEnglishFuture) {
-        this.verbEnglishFuture = verbEnglishFuture;
+    public void setExampleVerbPast(ExampleVerb exampleVerbPast) {
+        this.exampleVerbPast = exampleVerbPast;
+    }
+
+    public ExampleVerb getExampleVerbFuture() {
+        return exampleVerbFuture;
+    }
+
+    public void setExampleVerbFuture(ExampleVerb exampleVerbFuture) {
+        this.exampleVerbFuture = exampleVerbFuture;
     }
 
     @Override
     public String toString() {
         return "Verb{" +
                 "isRegular=" + regular +
-                ", verbSpanish='"  + '\'' +
-                ", verbEnglish='"  + '\'' +
+                ", verbSpanish='" + verbSpanishPresent + '\'' +
+                ", verbEnglish='" + verbEnglishPresent + '\'' +
                 '}';
     }
+
 }
