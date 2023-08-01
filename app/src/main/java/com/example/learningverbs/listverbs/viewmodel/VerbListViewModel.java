@@ -1,30 +1,61 @@
 package com.example.learningverbs.listverbs.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.learningverbs.listverbs.repository.VerbListFragmentRepository;
+import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseViewModel;
+import com.example.learningverbs.utils.CustomListEventListener;
 import com.google.firebase.firestore.Query;
 
-public class VerbListViewModel extends BaseViewModel {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final MutableLiveData<Query> queryMutableLiveData;
+public class VerbListViewModel extends BaseViewModel {
+    private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
+
     private VerbListFragmentRepository repository;
 
     public VerbListViewModel() {
-        this.queryMutableLiveData = new MutableLiveData<>();
-        this.repository = VerbListFragmentRepository.getInstance();
+        repository = VerbListFragmentRepository.getInstance();
     }
 
-    public void query(){
-        queryMutableLiveData.postValue(repository.obtainQuery());
-
+    public void fillDb(Verb verb) {
+        repository.fillDataBase(verb);
     }
 
+    public void getListElement(){
+        repository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
+            @Override
+            public void onSuccess(ArrayList<Verb> response) {
+                for (Verb verbList : response) {
+                    Log.e("Response", "" + verbList.getVerbSpanishPresent());
+                    getResultListVerbs.postValue(response);
+                }
+            }
+            @Override
+            public void onFailed(Throwable throwable) {
+                msgError.postValue(throwable.getMessage());
+                Log.e("Mensaje", "No hay informacion");
+            }
 
+            @Override
+            public void showLoaging() {
+                loading.postValue(true);
+            }
 
-    public LiveData<Query> getQuery() {
-        return queryMutableLiveData;
+            @Override
+            public void hideLoading() {
+                loading.postValue(false);
+            }
+        });
     }
+
+    public LiveData<List<Verb>> getListResultsVerbs() {
+        return getResultListVerbs;
+    }
+
 }

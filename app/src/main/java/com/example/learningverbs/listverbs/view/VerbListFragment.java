@@ -2,7 +2,6 @@ package com.example.learningverbs.listverbs.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +16,16 @@ import com.example.learningverbs.adapter.VerbAdapter;
 import com.example.learningverbs.databinding.FragmentVerbListBinding;
 import com.example.learningverbs.detailverb.view.VerbDetailActivity;
 import com.example.learningverbs.listverbs.viewmodel.VerbListViewModel;
+import com.example.learningverbs.model.ExampleVerb;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
-import com.example.learningverbs.userdetail.view.UserDetailActivity;
 import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.firestore.Query;
 
-import java.io.Serializable;
+import java.util.List;
 
 public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> {
-    private VerbAdapter adapterList;
+    private VerbAdapter adapterListVerbs;
 
     @Override
     protected VerbListViewModel createViewModel() {
@@ -46,36 +43,9 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        viewModel.query();
-
-        viewModel.getQuery().observe(this, new Observer<Query>() {
-            @Override
-            public void onChanged(Query query) {
-                FirestoreRecyclerOptions<Verb> firestoreRecyclerAdapter = new FirestoreRecyclerOptions.Builder<Verb>().setQuery(query, Verb.class).build();
-                adapterList = new VerbAdapter(firestoreRecyclerAdapter);
-                adapterList.setListener(new OnClicVerbListener() {
-                    @Override
-                    public void onVerbClicListener(Verb verb) {
-                        /*Bundle detailActivity = new Bundle();
-                        detailActivity.putSerializable(Constants.VERB, verb);
-                        Intent intent = new Intent(requireActivity(), VerbDetailActivity.class);
-                        startActivity(intent);*/
-
-
-                        Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                        detailActivity.putExtra(Constants.VERB, verb);
-                        startActivity(detailActivity);
-
-                    }
-                });
-
-                binding.listVerbs.setAdapter(adapterList);
-                adapterList.notifyDataSetChanged();
-                adapterList.startListening();
-
-            }
-        });
+        //fillDataBase();
+        getListDataBase();
+        observers();
 
         binding.btnCreateVerb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,20 +66,67 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        if(adapterList != null){
-            adapterList.startListening();
-        }
+
+    public void fillDataBase() {
+        long currentTimeMillis = System.currentTimeMillis();
+        Verb verb = new Verb();
+        ExampleVerb phrase = new ExampleVerb();
+        /*verb.setVerbSpanishPresent("Añadir");
+        verb.setVerbSpanishPast("Añadí");
+        verb.setVerbSpanishFuture("Añadiré");
+        verb.setVerbEnglishPresent("Add");
+        verb.setVerbEnglishPast("Added");
+        verb.setVerbEnglishFuture("Will add");
+        verb.setRegular(true);
+        verb.setVerbId(String.valueOf(currentTimeMillis));
+
+        phrase.setPhraseAffirmativeSpanish("Debes de añadir dos cucharadas de azucar.");
+        phrase.setPhraseAffirmativeEnglish("You must add two tablespoons of sugar.");
+        phrase.setPhraseNegativeSpanish("No debes añadir do cucharadas de azucar.");
+        phrase.setPhraseNegativeEnglish("You should not add two tablespoons of sugar.");
+        phrase.setPhraseQuestionSpanish("¿Debes añadir dos cucharadas de azucar?");
+        phrase.setPhraseQuestionEnglish("Should you add two tablespoons of sugar?");
+
+        phrase.setPhrasePastAffirmativeSpanish("Añadí este sitio web a mis favoritos.");
+        phrase.setPhrasePastAffirmativeEnglish("I added this website to my favorites.");
+        phrase.setPhrasePastNegativeSpanish("No añadí este sitio web a mis favoritos.");
+        phrase.setPhrasePastNegativeEnglish("I did not add this website to my favorites.");
+        phrase.setPhrasePastQuestionSpanish("¿Añadí este sitio web a mis favoritos?");
+        phrase.setPhrasePastQuestionEnglish("Did I add this website to my favorites?");
+
+        phrase.setPhraseFutureAffirmativeSpanish("Añadiré los detalles a lo que he dicho anteriormente.");
+        phrase.setPhraseFutureAffirmativeSpanish("I will add the details to what I have said above.");
+        phrase.setPhraseFutureNegativeSpanish("No Añadiré los detalles a lo que he dicho anteriormente.");
+        phrase.setPhraseFutureNegativeEnglish("I will not add the details to what I have said above.");
+        phrase.setPhraseFutureQuestionSpanish("¿Añadiré los detalles a lo que he dicho anteriormente?");
+        phrase.setPhraseFutureQuestionEnglish("Will I add the details to what I have said above?");
+
+
+        verb.setExampleVerb(phrase);*/
+        viewModel.fillDb(verb);
 
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        if(adapterList != null){
-            adapterList.stopListening();
-        }
+    private void getListDataBase() {
+        viewModel.getListElement();
     }
+
+    private void observers() {
+            viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
+                @Override
+                public void onChanged(List<Verb> verbs) {
+                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                        @Override
+                        public void onVerbClicListener(Verb verb) {
+                                Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                            detailActivity.putExtra(Constants.VERB, verb);
+                            startActivity(detailActivity);
+                        }
+                    });
+                    binding.listVerbs.setAdapter(adapterListVerbs);
+                }
+            });
+
+    }
+
 }

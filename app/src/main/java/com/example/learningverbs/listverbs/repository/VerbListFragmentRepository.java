@@ -1,22 +1,32 @@
 package com.example.learningverbs.listverbs.repository;
 
 import com.example.learningverbs.model.Verb;
+import com.example.learningverbs.utils.CustomListEventListener;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class VerbListFragmentRepository {
-    FirebaseFirestore mFireBaseData;
-    private static VerbListFragmentRepository instance;
-
-    public static VerbListFragmentRepository getInstance(){
-        if(instance == null ) instance = new VerbListFragmentRepository();
+    private DatabaseReference dataBaseBookReference;
+    private DatabaseReference mPostReference;
+    public static VerbListFragmentRepository instance;
+    public static VerbListFragmentRepository getInstance() {
+        if (instance == null) instance = new VerbListFragmentRepository();
         return instance;
     }
-
-    public Query obtainQuery() {
-        mFireBaseData = FirebaseFirestore.getInstance();
-        return mFireBaseData.collection("verbs");
+    public VerbListFragmentRepository() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        dataBaseBookReference = database.getReference();
+        mPostReference = dataBaseBookReference.child("LearningVerbs").child("VerbList");
     }
 
+    public void fillDataBase(Verb verb) {
+        mPostReference.child(verb.getVerbId()).setValue(verb);
+    }
+
+    public void getListVerbsDataBase(CustomListEventListener<Verb> postListener){
+        mPostReference.addValueEventListener(postListener);
+    }
 }

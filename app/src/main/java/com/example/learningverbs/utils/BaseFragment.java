@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.learningverbs.databinding.FragmentHomeBinding;
@@ -27,6 +29,23 @@ public abstract class BaseFragment <BINDING extends ViewBinding, VM extends Base
         binding = createViewBinding(LayoutInflater.from(requireContext()),container);
         viewModel = createViewModel();
         return  binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        observers();
+    }
+
+    private void observers() {
+        viewModel.msgError.observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                if(getActivity() instanceof BaseActivity){
+                    ( (BaseActivity) getActivity()).showMessageError(s);
+                }
+            }
+        });
     }
 
     @Override

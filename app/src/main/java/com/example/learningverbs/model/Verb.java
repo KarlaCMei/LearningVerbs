@@ -1,35 +1,34 @@
 package com.example.learningverbs.model;
 
+
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Verb implements Serializable {
+
+    private String verbId;
     private Boolean regular;
-    private String verbSpanish;
-    private String verbEnglish;
+    private String verbSpanishPresent;
+    private String verbSpanishPast;
+    private String verbSpanishFuture;
+    private String verbEnglishPresent;
+    private String verbEnglishPast;
+    private String verbEnglishFuture;
+    private ExampleVerb exampleVerb;
 
-    private ArrayList<ExampleVerbPresent> exampleVerbPresent;
-
-    public ArrayList<ExampleVerbPresent> getExampleVerbPresent() {
-        return exampleVerbPresent;
+    public ExampleVerb getExampleVerb() {
+        return exampleVerb;
     }
 
-    public void setExampleVerbPresent(ArrayList<ExampleVerbPresent> exampleVerbPresent) {
-        this.exampleVerbPresent = exampleVerbPresent;
+    public void setExampleVerb(ExampleVerb exampleVerb) {
+        this.exampleVerb = exampleVerb;
     }
-/*private String verboEspañolFuturo;
-    private String verboEspañolPasado;
-    private String verboEspañolPresente;
-    private String verboInglesFuturo;
-    private String verboInglesPasado;
-    private String verboInglesPresente;*/
 
-    public Verb(){}
+    public String getVerbId() {
+        return verbId;
+    }
 
-    public Verb(Boolean regular, String verbSpanish, String verbEnglish) {
-        this.regular = regular;
-        this.verbSpanish = verbSpanish;
-        this.verbEnglish = verbEnglish;
+    public void setVerbId(String verbId) {
+        this.verbId = verbId;
     }
 
     public Boolean getRegular() {
@@ -40,28 +39,60 @@ public class Verb implements Serializable {
         this.regular = regular;
     }
 
-    public String getVerbSpanish() {
-        return verbSpanish;
+    public String getVerbSpanishPresent() {
+        return verbSpanishPresent;
     }
 
-    public void setVerbSpanish(String verbSpanish) {
-        this.verbSpanish = verbSpanish;
+    public void setVerbSpanishPresent(String verbSpanishPresent) {
+        this.verbSpanishPresent = verbSpanishPresent;
     }
 
-    public String getVerbEnglish() {
-        return verbEnglish;
+    public String getVerbSpanishPast() {
+        return verbSpanishPast;
     }
 
-    public void setVerbEnglish(String verbEnglish) {
-        this.verbEnglish = verbEnglish;
+    public void setVerbSpanishPast(String verbSpanishPast) {
+        this.verbSpanishPast = verbSpanishPast;
+    }
+
+    public String getVerbSpanishFuture() {
+        return verbSpanishFuture;
+    }
+
+    public void setVerbSpanishFuture(String verbSpanishFuture) {
+        this.verbSpanishFuture = verbSpanishFuture;
+    }
+
+    public String getVerbEnglishPresent() {
+        return verbEnglishPresent;
+    }
+
+    public void setVerbEnglishPresent(String verbEnglishPresent) {
+        this.verbEnglishPresent = verbEnglishPresent;
+    }
+
+    public String getVerbEnglishPast() {
+        return verbEnglishPast;
+    }
+
+    public void setVerbEnglishPast(String verbEnglishPast) {
+        this.verbEnglishPast = verbEnglishPast;
+    }
+
+    public String getVerbEnglishFuture() {
+        return verbEnglishFuture;
+    }
+
+    public void setVerbEnglishFuture(String verbEnglishFuture) {
+        this.verbEnglishFuture = verbEnglishFuture;
     }
 
     @Override
     public String toString() {
         return "Verb{" +
                 "isRegular=" + regular +
-                ", verbSpanish='" + verbSpanish + '\'' +
-                ", verbEnglish='" + verbEnglish + '\'' +
+                ", verbSpanish='"  + '\'' +
+                ", verbEnglish='"  + '\'' +
                 '}';
     }
 }

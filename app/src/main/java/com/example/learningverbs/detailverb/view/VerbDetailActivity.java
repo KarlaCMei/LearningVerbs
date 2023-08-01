@@ -22,7 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
-    ArrayList<Title> arrayImagenes = new ArrayList();
+    ArrayList<Title> arrayTitleViewPager = new ArrayList();
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
 
@@ -49,11 +49,11 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             }
         });
 
-        arrayImagenes.add(new Title("Presente"));
-        arrayImagenes.add(new Title("Pasado"));
-        arrayImagenes.add(new Title("Futuro"));
+        arrayTitleViewPager.add(new Title("Presente"));
+        arrayTitleViewPager.add(new Title("Pasado"));
+        arrayTitleViewPager.add(new Title("Futuro"));
 
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),arrayImagenes);
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayTitleViewPager);
         viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -66,10 +66,14 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
     private void readExtra() {
         if (getIntent() != null && getIntent().getExtras() != null && getIntent().getExtras().containsKey(Constants.VERB)) {
             Verb verbDetail = (Verb) getIntent().getExtras().getSerializable(Constants.VERB);
-            binding.verbSpanish.setText(verbDetail.getVerbSpanish());
-            binding.verbEnglish.setText(verbDetail.getVerbEnglish());
-            binding.txtIsRegular.setText(verbDetail.getRegular().toString());
-            Log.e("Contiene llave", "Contiene la Key" + verbDetail.getExampleVerbPresent().size());
+            binding.verbSpanish.setText(verbDetail.getVerbSpanishPresent());
+            binding.verbEnglish.setText(verbDetail.getVerbEnglishPresent());
+
+            if (verbDetail.getRegular()) {
+                binding.txtIsRegular.setText("Regular");
+            } else {
+                binding.txtIsRegular.setText("Irregular");
+            }
         }else{
             Log.e("NO Contiene llave", "NO Contiene la Key");
 

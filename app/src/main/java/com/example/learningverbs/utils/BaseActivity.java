@@ -48,7 +48,7 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         viewModel.msgError.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String msgError) {
-                Toast.makeText(BaseActivity.this, msgError, Toast.LENGTH_SHORT).show();
+                showMessageError(msgError);
             }
         });
     }
@@ -61,5 +61,10 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
 
     }
 
+
+    public void showMessageError(String msgError){
+        Toast.makeText(BaseActivity.this, msgError, Toast.LENGTH_SHORT).show();
+
+    }
 
 }
