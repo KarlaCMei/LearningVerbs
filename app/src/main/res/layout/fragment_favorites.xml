@@ -11,7 +11,7 @@ android:layout_marginBottom="@dimen/large_margin"
 app:layout_constraintEnd_toEndOf="parent"
 tools:context="com.example.learningverbs.favorites.view.FavoritesFragment">
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
+<!--<com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/btnCreateVerbFavorite"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -21,12 +21,13 @@ tools:context="com.example.learningverbs.favorites.view.FavoritesFragment">
     android:layout_marginBottom="@dimen/normal_margin"
     app:tint="@color/teal_800"
     android:src="@drawable/ic_add_verb"
-    app:backgroundTint="@color/purple_700"/>
+    app:backgroundTint="@color/purple_700"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listVerbsFavorites"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

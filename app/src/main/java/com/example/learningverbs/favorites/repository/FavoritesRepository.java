@@ -2,6 +2,7 @@ package com.example.learningverbs.favorites.repository;
 
 import com.example.learningverbs.listverbs.repository.VerbListFragmentRepository;
 import com.example.learningverbs.model.Verb;
+import com.example.learningverbs.utils.CustomListEventListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -23,10 +24,8 @@ public class FavoritesRepository {
         mPostReference = dataBaseBookReference.child("LearningVerbs").child("Favorites");
     }
 
-    public void fillUserVerbFavorites(DatabaseReference.CompletionListener listener, String idUser, Verb verb){
-        mPostReference.child(idUser).child(verb.getVerbId()).setValue(verb);
+    public void getListElementsDataBase(String userId,CustomListEventListener<Verb> postListener){
+        mPostReference.child(userId).addValueEventListener(postListener);
     }
-
-
 
 }

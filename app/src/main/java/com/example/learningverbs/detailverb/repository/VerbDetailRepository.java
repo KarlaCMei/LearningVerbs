@@ -20,7 +20,7 @@ public class VerbDetailRepository {
     }
 
     public void fillUserVerbFavorites(DatabaseReference.CompletionListener listener, String idUser, Verb verb){
-        mPostReference.child(idUser).child(verb.getVerbId()).setValue(verb);
+        mPostReference.child(idUser).child(verb.getVerbId()).setValue(verb,listener);
     }
 
 }
