@@ -10,5 +10,4 @@ public class VerbDetailViewModel extends BaseViewModel {
     public VerbDetailViewModel() {
         verbDetailRepository = VerbDetailRepository.getInstance();
     }
-
 }

@@ -1,6 +1,8 @@
 package com.example.learningverbs.model;
 
-public class ExampleVerb {
+import java.io.Serializable;
+
+public class ExampleVerb implements Serializable {
     private String verbSpanish;
     private String verbEnglish;
     private String phraseAffirmativeSpanish;

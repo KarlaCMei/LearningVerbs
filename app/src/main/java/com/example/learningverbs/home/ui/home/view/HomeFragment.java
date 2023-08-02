@@ -7,14 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.ObservableArrayList;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
-import com.example.learningverbs.adapter.OnClicVerbListener;
-import com.example.learningverbs.adapter.Title;
-import com.example.learningverbs.adapter.VerbAdapter;
 import com.example.learningverbs.databinding.FragmentHomeBinding;
 import com.example.learningverbs.detailverb.view.VerbDetailActivity;
 import com.example.learningverbs.home.ui.home.viewmodel.HomeFragmentViewModel;
@@ -23,12 +19,13 @@ import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragmentViewModel> {
-    private Verb verbResult = null;
+    private Verb verbResultDo = null;
+    private Verb verbResultHave = null;
+    private Verb verbResultBe = null;
     @Override
     protected HomeFragmentViewModel createViewModel() {
         return new ViewModelProvider(this).get(HomeFragmentViewModel.class);
@@ -53,20 +50,20 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
             @Override
             public void onClick(View view) {
 
-                if(verbResult != null){
+                if(verbResultHave != null){
                     Intent intent = new Intent(requireActivity(), VerbDetailActivity.class);
-                    intent.putExtra(Constants.VERB, verbResult);
+                    intent.putExtra(Constants.VERB, verbResultHave);
                     startActivity(intent);
                 }
-
             }
         });
 
         binding.btnVerbToBe.cardVerbToBe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(verbResult != null){
+                if(verbResultBe != null){
                     Intent intent = new Intent(requireContext(), VerbDetailActivity.class);
+                    intent.putExtra(Constants.VERB, verbResultBe);
                     startActivity(intent);
                 }
 
@@ -76,8 +73,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         binding.btnVerbDo.cardVerbDo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(verbResult != null){
+                if(verbResultDo != null){
                     Intent intent = new Intent(requireContext(), VerbDetailActivity.class);
+                    intent.putExtra(Constants.VERB, verbResultDo);
                     startActivity(intent);
                 }
 
@@ -86,7 +84,40 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     }
 
-    public void fillDataBase() {
+    private void getListDataBase() {
+        viewModel.getListElement();
+    }
+
+    private void observers() {
+        viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
+            @Override
+            public void onChanged(List<Verb> verbs) {
+                for (Verb verbList : verbs) {
+                    Log.e("Verb ID", "ID" + verbList.getVerbId());
+                    if(Objects.equals(verbList.getVerbId(), "1690850399354")){
+                        verbResultDo = verbList;
+                        Glide.with(binding.btnVerbDo.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbDo.imgVerb);
+                    }else if(Objects.equals(verbList.getVerbId(), "1690850850666")){
+                        verbResultHave = verbList;
+                        Glide.with(binding.btnVerbHave.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbHave.imgVerb);
+                    }else{
+                        verbResultBe = verbList;
+                        Glide.with(binding.btnVerbToBe.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbToBe.imgVerb);
+                    }
+
+                }
+
+            }
+
+        });
+
+    }
+
+}
+
+
+
+    /*public void fillDataBase() {
         long currentTimeMillis = System.currentTimeMillis();
         Verb verb = new Verb();
 
@@ -131,33 +162,4 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         verb.setExampleVerbPast(exampleVerbPast);
         verb.setExampleVerbFuture(exampleVerbFuture);
         viewModel.fillDb(verb);
-    }
-
-    private void getListDataBase() {
-        viewModel.getListElement();
-    }
-
-    private void observers() {
-        viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
-            @Override
-            public void onChanged(List<Verb> verbs) {
-                for (Verb verbList : verbs) {
-                    Log.e("Verb ID", "ID" + verbList.getVerbId());
-                    if(Objects.equals(verbList.getVerbId(), "1690850399354")){
-                        verbResult = verbList;
-                        Glide.with(binding.btnVerbDo.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbDo.imgVerb);
-                    }else if(Objects.equals(verbList.getVerbId(), "1690850850666")){
-                        Glide.with(binding.btnVerbHave.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbHave.imgVerb);
-                    }else{
-                        Glide.with(binding.btnVerbToBe.imgVerb.getContext()).load(verbList.getImage()).into(binding.btnVerbToBe.imgVerb);
-                    }
-
-                }
-
-            }
-
-        });
-
-    }
-
-}
+    }*/

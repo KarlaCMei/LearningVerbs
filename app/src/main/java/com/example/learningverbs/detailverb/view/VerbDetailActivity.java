@@ -24,8 +24,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
-    ArrayList<Title> arrayTitleViewPager = new ArrayList();
-    ArrayList<ExampleVerb> arrayExampleVerbs = new ArrayList();
+    ArrayList<ExampleVerb> arrayExampleVerb = new ArrayList();
 
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
@@ -53,11 +52,7 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             }
         });
 
-        arrayTitleViewPager.add(new Title("Presente"));
-        arrayTitleViewPager.add(new Title("Pasado"));
-        arrayTitleViewPager.add(new Title("Futuro"));
-
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayTitleViewPager);
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
         viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -72,18 +67,19 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             binding.verbEnglish.setText(verbDetail.getVerbEnglishPresent());
             Glide.with(binding.imgVerb.getContext()).load(verbDetail.getImage()).into(binding.imgVerb);
 
+            arrayExampleVerb.add(verbDetail.getExampleVerbPresent());
+            arrayExampleVerb.add(verbDetail.getExampleVerbPast());
+            arrayExampleVerb.add(verbDetail.getExampleVerbFuture());
 
             if (verbDetail.getRegular()) {
                 binding.txtIsRegular.setText("Regular");
             } else {
                 binding.txtIsRegular.setText("Irregular");
             }
-
             verbDetail.getExampleVerbPresent();
 
         }else{
             Log.e("NO Contiene llave", "NO Contiene la Key");
-
         }
 
     }

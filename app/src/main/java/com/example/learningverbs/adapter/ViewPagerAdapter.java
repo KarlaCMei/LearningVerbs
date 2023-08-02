@@ -14,10 +14,13 @@ import com.example.learningverbs.model.ExampleVerb;
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    private ArrayList<Title> arrayTitle ;
-    public ViewPagerAdapter(@NonNull FragmentManager fm,ArrayList<Title> arrayTitle) {
+
+   private String[] arrayTitle = {"Presente", "Pasado", "Futuro"};
+    private ArrayList<ExampleVerb> exampleVerbs = new ArrayList<>();
+
+    public ViewPagerAdapter(@NonNull FragmentManager fm, ArrayList<ExampleVerb> exampleVerbs) {
         super(fm);
-        this.arrayTitle = arrayTitle;
+        this.exampleVerbs = exampleVerbs;
     }
 
     @NonNull
@@ -25,19 +28,19 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment = new ViewPagerFragment();
         Bundle args = new Bundle();
-        args.putString(ViewPagerFragment.ARG_OBJECT, arrayTitle.get(position).titulo);
+        args.putSerializable(ViewPagerFragment.ARG_OBJECT_VERB_EXAMPLE, exampleVerbs.get(position));
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return arrayTitle.size();
+        return arrayTitle.length;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return arrayTitle.get(position).titulo;
+        return arrayTitle[position];
     }
 }
