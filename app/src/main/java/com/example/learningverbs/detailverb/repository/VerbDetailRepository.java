@@ -1,6 +1,10 @@
 package com.example.learningverbs.detailverb.repository;
 
+import android.util.Log;
+
 import com.example.learningverbs.model.Verb;
+import com.example.learningverbs.utils.CustomEventListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,8 +23,16 @@ public class VerbDetailRepository {
         mPostReference = dataBaseBookReference.child("LearningVerbs").child("Favorites");
     }
 
-    public void fillUserVerbFavorites(DatabaseReference.CompletionListener listener, String idUser, Verb verb){
-        mPostReference.child(idUser).child(verb.getVerbId()).setValue(verb,listener);
+    public void fillDataBase(String idUser,String verbId ,Verb verb) {
+        mPostReference.child(idUser).child(verbId).setValue(verb);
+    }
+
+    public void getUserVerbFavorite(String idUser, String verbId,CustomEventListener<Verb> postListener){
+        mPostReference.child(idUser).orderByChild("verbId").equalTo(verbId).addValueEventListener(postListener);
+    }
+
+    public void deleteElement(String iduser, String verbid,OnSuccessListener onSuccessListener){
+        mPostReference.child(iduser).child(verbid).removeValue().addOnSuccessListener(onSuccessListener);
     }
 
 }

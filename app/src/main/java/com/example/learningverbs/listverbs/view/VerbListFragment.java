@@ -2,9 +2,14 @@ package com.example.learningverbs.listverbs.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,12 +26,14 @@ import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
 import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
 public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> {
     private VerbAdapter adapterListVerbs;
-
+    private Handler handler;
     @Override
     protected VerbListViewModel createViewModel() {
         return new ViewModelProvider(this).get(VerbListViewModel.class);
@@ -42,31 +49,78 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        //inicializateElements();
         //fillDataBase();
         getListDataBase();
         observers();
 
-        binding.btnCreateVerb.setOnClickListener(new View.OnClickListener() {
+        /*binding.btnCreateVerb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LearningVerbsDialogGlobal.showDialogChange(VerbListFragment.this, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                     }
                 }, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                     }
                 });
             }
-        });
+        });*/
 
+        binding.txtSearchVerb.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                getHandler().removeCallbacksAndMessages(null);
+                getHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(charSequence.toString() != null){
+                            viewModel.getSearchVerb(charSequence.toString());
+                        }
+                    }
+                }, 1000);
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    public Handler getHandler() {
+        if(handler==null){
+            handler = new Handler();
+        }
+        return handler;
     }
 
 
+    private void getListDataBase() {
+        viewModel.getListElement();
+    }
+    private void observers() {
+            viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
+                @Override
+                public void onChanged(List<Verb> verbs) {
+                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                        @Override
+                        public void onVerbClicListener(Verb verb) {
+                                Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                            detailActivity.putExtra(Constants.VERB, verb);
+                            startActivity(detailActivity);
+                        }
+                    });
+                    binding.listVerbs.setAdapter(adapterListVerbs);
+                }
+            });
+    }
     /*public void fillDataBase() {
         long currentTimeMillis = System.currentTimeMillis();
         Verb verb = new Verb();
@@ -113,27 +167,4 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         verb.setExampleVerbFuture(exampleVerbFuture);
         viewModel.fillDb(verb);
     }*/
-
-    private void getListDataBase() {
-        viewModel.getListElement();
-    }
-
-    private void observers() {
-            viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
-                @Override
-                public void onChanged(List<Verb> verbs) {
-                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
-                        @Override
-                        public void onVerbClicListener(Verb verb) {
-                                Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                            detailActivity.putExtra(Constants.VERB, verb);
-                            startActivity(detailActivity);
-                        }
-                    });
-                    binding.listVerbs.setAdapter(adapterListVerbs);
-                }
-            });
-
-    }
-
 }

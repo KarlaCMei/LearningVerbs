@@ -27,6 +27,13 @@ public class VerbListFragmentRepository {
     }
 
     public void getListVerbsDataBase(CustomListEventListener<Verb> postListener){
-        mPostReference.addValueEventListener(postListener);
+        mPostReference.orderByChild("verbSpanishPresent").addValueEventListener(postListener);
     }
+
+    public void getSearchVerb(String verbName, CustomListEventListener<Verb> postListener){
+        String paramName = verbName!=null && !verbName.isEmpty() ? verbName : "";
+        mPostReference.orderByChild("verbSpanishPresent").startAt(paramName).endAt(paramName+ "\uf8ff").addValueEventListener(postListener);
+    }
+
+
 }

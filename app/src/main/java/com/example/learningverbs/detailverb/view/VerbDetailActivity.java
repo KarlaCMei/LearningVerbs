@@ -1,9 +1,11 @@
 package com.example.learningverbs.detailverb.view;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,8 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
     ViewPager viewPager;
     private Verb verbDetail;
 
+    private boolean isFavorite;
+
     @Override
     protected VerbDetailViewModel createViewModel() {
         return new ViewModelProvider(this).get(VerbDetailViewModel.class);
@@ -43,6 +47,7 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        observers();
         readExtra();
 
         binding.icBack.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +58,11 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
         });
 
         binding.btnFavoriteVerb.setOnClickListener(view -> {
-            viewModel.responseVerbFavoriteUser(verbDetail);
+            if(Boolean.TRUE.equals(viewModel.getIsFavoriteVerb().getValue())){
+                deleteElement();
+            }else{
+                viewModel.fillDb(verbDetail, verbDetail.getVerbId());
+            }
         });
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
@@ -71,6 +80,8 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             binding.verbEnglish.setText(verbDetail.getVerbEnglishPresent());
             Glide.with(binding.imgVerb.getContext()).load(verbDetail.getImage()).into(binding.imgVerb);
 
+            viewModel.responseVerbFavoriteUser(verbDetail.getVerbId());
+
             arrayExampleVerb.add(verbDetail.getExampleVerbPresent());
             arrayExampleVerb.add(verbDetail.getExampleVerbPast());
             arrayExampleVerb.add(verbDetail.getExampleVerbFuture());
@@ -81,11 +92,28 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
                 binding.txtIsRegular.setText("Irregular");
             }
             verbDetail.getExampleVerbPresent();
-
         }else{
             Log.e("NO Contiene llave", "NO Contiene la Key");
         }
+    }
 
+    private void observers(){
+        viewModel.getIsFavoriteVerb().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    Log.e("Response aBoolean", "True");
+                    binding.btnFavoriteVerb.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+                }else{
+                    Log.e("Response aBoolean", "False");
+                   binding.btnFavoriteVerb.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.teal_800)));
+                }
+            }
+        });
+    }
+
+    private void deleteElement() {
+        viewModel.deleteelement(verbDetail.getVerbId());
     }
 
 }
