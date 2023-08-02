@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.learningverbs.databinding.FragmentFavoritesBinding;
 import com.example.learningverbs.favorites.viewmodel.FavoritesViewModel;
+import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseFragment;
 
 public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, FavoritesViewModel> {
@@ -29,5 +30,13 @@ public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, Fa
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        fillFavoriteUserVerbDataBase();
+
+
     }
+    private void fillFavoriteUserVerbDataBase() {
+        Verb verb = new Verb();
+        viewModel.fillDb(verb);
+
     }
+}

@@ -25,9 +25,9 @@ import java.util.ArrayList;
 
 public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
     ArrayList<ExampleVerb> arrayExampleVerb = new ArrayList();
-
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
+    private Verb verbDetail;
 
     @Override
     protected VerbDetailViewModel createViewModel() {
@@ -52,6 +52,10 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             }
         });
 
+        binding.btnFavoriteVerb.setOnClickListener(view -> {
+            viewModel.responseVerbFavoriteUser(verbDetail);
+        });
+
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
         viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(viewPagerAdapter);
@@ -62,7 +66,7 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
 
     private void readExtra() {
         if (getIntent() != null && getIntent().getExtras() != null && getIntent().getExtras().containsKey(Constants.VERB)) {
-            Verb verbDetail = (Verb) getIntent().getExtras().getSerializable(Constants.VERB);
+            verbDetail = (Verb) getIntent().getExtras().getSerializable(Constants.VERB);
             binding.verbSpanish.setText(verbDetail.getVerbSpanishPresent());
             binding.verbEnglish.setText(verbDetail.getVerbEnglishPresent());
             Glide.with(binding.imgVerb.getContext()).load(verbDetail.getImage()).into(binding.imgVerb);

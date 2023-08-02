@@ -7,16 +7,21 @@ public class SplashRepository {
     private static SplashRepository instance;
 
     public SplashRepository() {
-        this.firebaseAuth =  FirebaseAuth.getInstance();
+        this.firebaseAuth = FirebaseAuth.getInstance();
     }
 
-    public static SplashRepository getInstance(){
-        if(instance == null ) instance = new SplashRepository();
+    public static SplashRepository getInstance() {
+        if (instance == null) instance = new SplashRepository();
         return instance;
     }
 
-    public boolean isLogin(){
-        return  firebaseAuth.getCurrentUser() != null;
+    public boolean isLogin() {
+        return firebaseAuth.getCurrentUser() != null;
     }
-    
+
+    public String getUserId() {
+        return (firebaseAuth.getCurrentUser() != null) ? firebaseAuth.getCurrentUser().getUid() : "";
+
+    }
+
 }
