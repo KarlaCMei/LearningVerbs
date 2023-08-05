@@ -28,6 +28,7 @@ import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //inicializateElements();
+        FirebaseDatabase.getInstance().getReference().keepSynced(true);
         //fillDataBase();
         getListDataBase();
         observers();
@@ -89,7 +90,6 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
             }
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
     }
@@ -106,6 +106,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         viewModel.getListElement();
     }
     private void observers() {
+        FirebaseDatabase.getInstance().getReference().keepSynced(true);
             viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
                 @Override
                 public void onChanged(List<Verb> verbs) {

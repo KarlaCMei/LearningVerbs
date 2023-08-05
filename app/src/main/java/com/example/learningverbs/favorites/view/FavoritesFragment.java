@@ -19,6 +19,7 @@ import com.example.learningverbs.favorites.viewmodel.FavoritesViewModel;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, Fa
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        FirebaseDatabase.getInstance().getReference().keepSynced(true);
         getListFavoriteVerbDataBase();
         observers();
     }
