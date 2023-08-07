@@ -4,6 +4,7 @@ package com.example.learningverbs.tools;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import android.net.Uri;
 import android.view.View;
 import android.widget.Toast;
 import androidx.fragment.app.FragmentActivity;
@@ -30,6 +31,29 @@ public class Tools {
 
     public static String getStringPreference(String name) {
         return preferences.getString(name, "");
+    }
+
+    public static String getFormatUrlImage(Uri photoPath) {
+        String photoPathCustom;
+        if (photoPath != null && !photoPath.toString().isEmpty()) {
+            photoPathCustom = photoPath.toString();
+            String originalPieceOfUrl = "s96-c/photo.jpg";
+            String originalPieceOfUrlTwitter = "_normal";
+            String originalPieceOfUrlFacebook = "graph.facebook";
+            String newPieceOfUrlToAdd = "s400-c/photo.jpg";
+
+            if (photoPathCustom.contains(originalPieceOfUrl)) {
+                photoPathCustom = photoPathCustom.replace(originalPieceOfUrl, newPieceOfUrlToAdd);
+            } else if (photoPathCustom.contains(originalPieceOfUrlTwitter)) {
+                photoPathCustom = photoPathCustom.replace(originalPieceOfUrlTwitter, "");
+            } else if (photoPathCustom.contains(originalPieceOfUrlFacebook)) {
+                photoPathCustom += "?height=500";
+            }
+        } else {
+            photoPathCustom = "";
+        }
+
+        return photoPathCustom;
     }
 
 
