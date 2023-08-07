@@ -66,5 +66,6 @@
     <string name="title_dialog_take_photo">Selecciona una foto</string>
     <string name="btn_take_photo">Toma una foto</string>
     <string name="btn_open_galeri">Abre tu galeria</string>
+    <string name="msg_loading">Cargando</string>
 
 </resources>
