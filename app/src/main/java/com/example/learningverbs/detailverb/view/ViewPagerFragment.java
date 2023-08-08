@@ -47,18 +47,23 @@ public class ViewPagerFragment extends BaseFragment<FragmentViewPagerBinding, Ve
 
         Bundle args = getArguments();
 
-        if(args != null && args.containsKey(ARG_OBJECT_VERB_EXAMPLE) ){
+        if (args != null && args.containsKey(ARG_OBJECT_VERB_EXAMPLE)) {
             ExampleVerb exampleVerb = (ExampleVerb) getArguments().getSerializable(ARG_OBJECT_VERB_EXAMPLE);
-            binding.verbSpanish.setText(exampleVerb.getVerbSpanish());
-            binding.verbEnglish.setText(exampleVerb.getVerbEnglish());
-            binding.txtExampleAffirmativeSpanish.setText(exampleVerb.getPhraseAffirmativeSpanish());
-            binding.txtExampleAffirmativeEnglish.setText(exampleVerb.getPhraseAffirmativeEnglish());
-            binding.txtExampleNegativeSpanish.setText(exampleVerb.getPhraseNegativeSpanish());
-            binding.txtExampleNegativeEnglish.setText(exampleVerb.getPhraseNegativeEnglish());
-            binding.txtExampleQuestionSpanish.setText(exampleVerb.getPhraseQuestionSpanish());
-            binding.txtExampleQuestionEnglish.setText(exampleVerb.getPhraseQuestionEnglish());
 
-        }else{
+            if(exampleVerb != null){
+                binding.verbSpanish.setText(exampleVerb.getVerbSpanish()) ;
+                binding.verbEnglish.setText(exampleVerb.getVerbEnglish());
+                binding.txtExampleAffirmativeSpanish.setText(exampleVerb.getPhraseAffirmativeSpanish());
+                binding.txtExampleAffirmativeEnglish.setText(exampleVerb.getPhraseAffirmativeEnglish());
+                binding.txtExampleNegativeSpanish.setText(exampleVerb.getPhraseNegativeSpanish());
+                binding.txtExampleNegativeEnglish.setText(exampleVerb.getPhraseNegativeEnglish());
+                binding.txtExampleQuestionSpanish.setText(exampleVerb.getPhraseQuestionSpanish());
+                binding.txtExampleQuestionEnglish.setText(exampleVerb.getPhraseQuestionEnglish());
+            }
+
+
+
+        } else {
             Log.e("NO Contiene llave", "NO Contiene la Key");
         }
 

@@ -35,5 +35,8 @@ public class VerbListFragmentRepository {
         mPostReference.orderByChild("verbSpanishPresent").startAt(paramName).endAt(paramName+ "\uf8ff").addValueEventListener(postListener);
     }
 
+    public void getListVerbs(CustomListEventListener<Verb> postListener){
+        mPostReference.addValueEventListener(postListener);
+    }
 
 }

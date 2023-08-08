@@ -26,6 +26,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
     private Verb verbResultDo = null;
     private Verb verbResultHave = null;
     private Verb verbResultBe = null;
+    private Verb verbDay = null;
+
     @Override
     protected HomeFragmentViewModel createViewModel() {
         return new ViewModelProvider(this).get(HomeFragmentViewModel.class);
@@ -44,8 +46,10 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         super.onViewCreated(view, savedInstanceState);
 
         //fillDataBase();
+        getElementRandom();
         getListDataBase();
         observers();
+        observer();
         binding.btnVerbHave.cardVerbHave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +71,13 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
                     startActivity(intent);
                 }
 
+            }
+        });
+        binding.btnVerbOfTheDay.btnSignUp.setOnClickListener(view1 -> {
+            if(verbDay != null){
+                Intent intent = new Intent(requireContext(), VerbDetailActivity.class);
+                intent.putExtra(Constants.VERB, verbDay);
+                startActivity(intent);
             }
         });
 
@@ -112,6 +123,22 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         });
 
     }
+
+    private void getElementRandom() {
+        viewModel.getListVerbs();
+    }
+
+    public void observer(){
+        viewModel.getElementRandom().observe(this, new Observer<Verb>() {
+            @Override
+            public void onChanged(Verb verb) {
+                verbDay = verb;
+                binding.btnVerbOfTheDay.btnSignUp.setText(verb.getVerbSpanishPresent());
+                Log.e("Verbo del dia", "Verbo " + verb.getVerbSpanishPresent());
+            }
+        });
+    }
+
 
 }
 

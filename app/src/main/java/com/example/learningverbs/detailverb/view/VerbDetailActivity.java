@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
     ArrayList<ExampleVerb> arrayExampleVerb = new ArrayList();
     ViewPagerAdapter viewPagerAdapter;
-    ViewPager viewPager;
+
     private Verb verbDetail;
 
     private boolean isFavorite;
@@ -65,12 +65,7 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             }
         });
 
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
-        viewPager = findViewById(R.id.pager);
-        viewPager.setAdapter(viewPagerAdapter);
 
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager);
     }
 
     private void readExtra() {
@@ -86,12 +81,15 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             arrayExampleVerb.add(verbDetail.getExampleVerbPast());
             arrayExampleVerb.add(verbDetail.getExampleVerbFuture());
 
+            viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
+            binding.pager.setAdapter(viewPagerAdapter);
+            binding.tabLayout.setupWithViewPager(binding.pager);
+
             if (verbDetail.getRegular()) {
                 binding.txtIsRegular.setText("Regular");
             } else {
                 binding.txtIsRegular.setText("Irregular");
             }
-            verbDetail.getExampleVerbPresent();
         }else{
             Log.e("NO Contiene llave", "NO Contiene la Key");
         }
