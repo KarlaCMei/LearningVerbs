@@ -2,6 +2,7 @@ package com.example.learningverbs.home.view;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -42,6 +43,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         configToolbar();
+        getUrlUserImage();
+        observer();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
@@ -69,8 +72,17 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         }
     }
 
-    private void getImageUser(){
-        //Glide.with(this).load().apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+    private void getUrlUserImage(){
+        viewModel.responseImageUser();
+    }
+
+    private void observer(){
+        viewModel.getUrlImage().observe(this, new Observer<Uri>() {
+            @Override
+            public void onChanged(Uri uri) {
+                Glide.with(HomeActivity.this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+            }
+        });
     }
 
 

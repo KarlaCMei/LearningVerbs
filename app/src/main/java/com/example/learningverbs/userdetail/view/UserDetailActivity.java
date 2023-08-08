@@ -2,11 +2,11 @@ package com.example.learningverbs.userdetail.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -102,10 +102,12 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
                                 .compress(1024)
                                 .maxResultSize(1080, 1080)
                                 .start();
+
                     }
-                }, new View.OnClickListener() {
+                }, new LearningVerbsDialogGlobal.OnClickDialogListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(View var1, AlertDialog dialog) {
+                        dialog.dismiss();
                         ImagePicker.Companion.with(UserDetailActivity.this)
                                 .galleryOnly()
                                 .crop()
@@ -114,6 +116,7 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
                                 .maxResultSize(1080, 1080)
                                 .start();
                     }
+
                 });
 
             }

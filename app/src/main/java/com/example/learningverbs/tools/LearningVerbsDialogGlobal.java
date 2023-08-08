@@ -39,13 +39,24 @@ public class LearningVerbsDialogGlobal {
         dialog.show();
     }
 
-    public static void showDialogTakePhoto(AppCompatActivity context, View.OnClickListener onClickListener,View.OnClickListener onClickListenerIrregular ) {
+    public static void showDialogTakePhoto(AppCompatActivity context, View.OnClickListener onClickListener,OnClickDialogListener onClickListenerIrregular ) {
         AlertDialog dialog = new AlertDialog.Builder(context).create();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_take_photo, null);
         dialog.setView(view);
-        view.findViewById(R.id.btnOpenGalery).setOnClickListener(onClickListener);
-        view.findViewById(R.id.btnTakePhoto).setOnClickListener(onClickListenerIrregular);
+        view.findViewById(R.id.btnOpenGalery).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //onClickListenerIrregular.on(onClickListener);
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.btnTakePhoto).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickListenerIrregular.onClick(view,dialog);
+            }
+        });
         view.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +64,10 @@ public class LearningVerbsDialogGlobal {
             }
         });
         dialog.show();
+    }
+
+    public interface OnClickDialogListener {
+        void onClick(View var1, AlertDialog dialog);
     }
 
 }
