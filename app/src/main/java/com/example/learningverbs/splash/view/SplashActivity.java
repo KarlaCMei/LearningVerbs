@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 
 import com.example.learningverbs.databinding.ActivitySplashBinding;
@@ -37,8 +38,12 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
             @Override
             public void onChanged(Boolean isLogin) {
                 if(isLogin){
+                    Log.e("Email user", "Email" );
+
                     startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                 }else{
+                    Log.e("Email user", "Emailcc" );
+
                     startActivity(new Intent(SplashActivity.this, CreateAccountActivity.class));
                 }
                 finish();

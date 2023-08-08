@@ -9,10 +9,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityGetPasswordBinding;
 import com.example.learningverbs.databinding.ActivityHomeBinding;
@@ -22,6 +25,7 @@ import com.example.learningverbs.userdetail.view.UserDetailActivity;
 import com.example.learningverbs.utils.BaseActivity;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
+    private Uri uri;
 
     @Override
     protected HomeViewModel createViewModel() {
@@ -65,7 +69,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         }
     }
 
-
+    private void getImageUser(){
+        //Glide.with(this).load().apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+    }
 
 
 }

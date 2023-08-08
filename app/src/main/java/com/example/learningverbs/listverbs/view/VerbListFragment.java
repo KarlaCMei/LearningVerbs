@@ -52,6 +52,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         super.onViewCreated(view, savedInstanceState);
         FirebaseDatabase.getInstance().getReference().keepSynced(true);
         //fillDataBase();
+
         getListDataBase();
         observers();
 
@@ -122,50 +123,52 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
                 }
             });
     }
-    /*public void fillDataBase() {
+
+
+    public void fillDataBase() {
         long currentTimeMillis = System.currentTimeMillis();
         Verb verb = new Verb();
 
         verb.setVerbId(String.valueOf(currentTimeMillis));
-        verb.setImage("https://img.freepik.com/vector-premium/llamar-personas-traves-comunicacion-linea-telefono-internet-mano-que-sostiene-telefono_373887-1652.jpg");
-        verb.setVerbSpanishPresent("Llamar");
-        verb.setVerbEnglishPresent("Call");
+        verb.setImage("https://i.pinimg.com/564x/ff/70/4c/ff704cf23ce4e6107a54e4b657256aad.jpg");
+        verb.setVerbSpanishPresent("Caminar");
+        verb.setVerbEnglishPresent("Walk");
         verb.setRegular(true);
 
         ExampleVerb exampleVerbPresent = new ExampleVerb();
-        exampleVerbPresent.setVerbSpanish("Llamar");
-        exampleVerbPresent.setVerbEnglish("Call");
-        exampleVerbPresent.setPhraseAffirmativeSpanish("Quiero hacer una llamada.");
-        exampleVerbPresent.setPhraseAffirmativeEnglish("I want to make a call.");
-        exampleVerbPresent.setPhraseNegativeSpanish("No quiero hacer una llamada");
-        exampleVerbPresent.setPhraseNegativeEnglish("I don't want to make a call.");
-        exampleVerbPresent.setPhraseQuestionSpanish("¿Puedo hacer una llamada?");
-        exampleVerbPresent.setPhraseQuestionEnglish("Can i make a call?");
+        exampleVerbPresent.setVerbSpanish("Caminar");
+        exampleVerbPresent.setVerbEnglish("Walk");
+        exampleVerbPresent.setPhraseAffirmativeSpanish("Ella se fue a dar un paseo.");
+        exampleVerbPresent.setPhraseAffirmativeEnglish("She went for a walk.");
+        exampleVerbPresent.setPhraseNegativeSpanish("Ella no se fue a dar un paseo.");
+        exampleVerbPresent.setPhraseNegativeEnglish("She didn't go for a walk.");
+        exampleVerbPresent.setPhraseQuestionSpanish("¿Ella se fue a dar un paseo?");
+        exampleVerbPresent.setPhraseQuestionEnglish("Did she go for a walk?");
 
 
-        ExampleVerbPast exampleVerbPast= new ExampleVerbPast();
-        exampleVerbPast.setVerbSpanishPast("Llamé");
-        exampleVerbPast.setVerbEnglishPast("Called");
-        exampleVerbPast.setPhrasePastAffirmativeSpanish("Llamé a tu casa.");
-        exampleVerbPast.setPhrasePastAffirmativeEnglish("I called at your house.");
-        exampleVerbPast.setPhrasePastNegativeSpanish("No llamé a tu casa");
-        exampleVerbPast.setPhrasePastNegativeEnglish("I didn't call your house");
-        exampleVerbPast.setPhrasePastQuestionSpanish("¿Llamé a tu casa?");
-        exampleVerbPast.setPhrasePastQuestionEnglish("Did I call your house?");
+        ExampleVerb exampleVerbPast= new ExampleVerb();
+        exampleVerbPast.setVerbSpanish("Caminé");
+        exampleVerbPast.setVerbEnglish("Walked");
+        exampleVerbPast.setPhraseAffirmativeSpanish("Él y yo caminamos juntos.");
+        exampleVerbPast.setPhraseAffirmativeEnglish("He and I walked together..");
+        exampleVerbPast.setPhraseNegativeSpanish("Él y yo no caminamos juntos.");
+        exampleVerbPast.setPhraseNegativeEnglish("He and I don't walk together.");
+        exampleVerbPast.setPhraseQuestionSpanish("¿El caminó por el bosque?");
+        exampleVerbPast.setPhraseQuestionEnglish("Did he walk through the woods?");
 
-        ExampleVerbFuture exampleVerbFuture = new ExampleVerbFuture();
-        exampleVerbFuture.setVerbSpanishFuture("Llamaré");
-        exampleVerbFuture.setVerbEnglishFuture("Will call");
-        exampleVerbFuture.setPhraseFutureAffirmativeSpanish("Te llamaré mañana.");
-        exampleVerbFuture.setPhraseFutureAffirmativeSpanish("I will call you tomorrow.");
-        exampleVerbFuture.setPhraseFutureNegativeSpanish("No te llamare mañana");
-        exampleVerbFuture.setPhraseFutureNegativeEnglish("I won't call you tomorrow.");
-        exampleVerbFuture.setPhraseFutureQuestionSpanish("¿Me llamarás mañana?");
-        exampleVerbFuture.setPhraseFutureQuestionEnglish("Will you call me tomorrow?");
+        ExampleVerb exampleVerbFuture = new ExampleVerb();
+        exampleVerbFuture.setVerbSpanish("Caminaré");
+        exampleVerbFuture.setVerbEnglish("Will walk");
+        exampleVerbFuture.setPhraseAffirmativeSpanish("Caminaré hacia mi casa");
+        exampleVerbFuture.setPhraseAffirmativeEnglish("I will walk to my house");
+        exampleVerbFuture.setPhraseNegativeSpanish("No caminaré hacia mi casa");
+        exampleVerbFuture.setPhraseNegativeEnglish("I won't walk home");
+        exampleVerbFuture.setPhraseQuestionSpanish("¿Caminarás a la tienda?");
+        exampleVerbFuture.setPhraseQuestionEnglish("Will you walk to the store?");
 
         verb.setExampleVerbPresent(exampleVerbPresent);
         verb.setExampleVerbPast(exampleVerbPast);
         verb.setExampleVerbFuture(exampleVerbFuture);
         viewModel.fillDb(verb);
-    }*/
+    }
 }
