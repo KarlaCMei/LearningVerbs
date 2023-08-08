@@ -44,8 +44,7 @@ public class FavoritesViewModel extends BaseViewModel {
             }
             @Override
             public void onFailed(Throwable throwable) {
-                msgError.postValue(throwable.getMessage());
-                Log.e("Mensaje", "No hay informacion");
+
             }
 
             @Override

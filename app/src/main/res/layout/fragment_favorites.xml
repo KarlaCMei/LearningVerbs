@@ -22,7 +22,6 @@ tools:context="com.example.learningverbs.favorites.view.FavoritesFragment">
     app:tint="@color/teal_800"
     android:src="@drawable/ic_add_verb"
     app:backgroundTint="@color/purple_700"/>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listVerbsFavorites"
         android:layout_width="0dp"
@@ -32,7 +31,32 @@ tools:context="com.example.learningverbs.favorites.view.FavoritesFragment">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
         tools:itemCount="2"
         tools:listitem="@layout/verb_list_item" />
+
+    <ImageView
+        android:id="@+id/imgEmptyVerbs"
+        android:layout_width="@dimen/size_image_get_password"
+        android:layout_height="@dimen/size_image_get_password"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_list_empty" />
+
+    <TextView
+        android:id="@+id/msgEmptyListVerb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:text="@string/msg_list_empty"
+        android:textColor="@color/purple_700"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgEmptyVerbs" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

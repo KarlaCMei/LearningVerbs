@@ -53,15 +53,26 @@ public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, Fa
         viewModel.getListResultsFavoriteVerbs().observe(this, new Observer<List<Verb>>() {
             @Override
             public void onChanged(List<Verb> verbs) {
-                adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
-                    @Override
-                    public void onVerbClicListener(Verb verb) {
-                        Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                        detailActivity.putExtra(Constants.VERB, verb);
-                        startActivity(detailActivity);
-                    }
-                });
-                binding.listVerbsFavorites.setAdapter(adapterListVerbs);
+
+                if(verbs.size()>0){
+                    binding.msgEmptyListVerb.setVisibility(View.GONE);
+                    binding.imgEmptyVerbs.setVisibility(View.GONE);
+                    binding.listVerbsFavorites.setVisibility(View.VISIBLE);
+                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                        @Override
+                        public void onVerbClicListener(Verb verb) {
+                            Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                            detailActivity.putExtra(Constants.VERB, verb);
+                            startActivity(detailActivity);
+                        }
+                    });
+                    binding.listVerbsFavorites.setAdapter(adapterListVerbs);
+                }else{
+                    binding.msgEmptyListVerb.setVisibility(View.VISIBLE);
+                    binding.imgEmptyVerbs.setVisibility(View.VISIBLE);
+                    binding.listVerbsFavorites.setVisibility(View.GONE);
+                }
+
             }
         });
 
