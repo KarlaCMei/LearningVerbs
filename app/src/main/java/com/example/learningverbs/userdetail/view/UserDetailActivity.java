@@ -7,10 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,6 +38,13 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.github.dhaval2404.imagepicker.constant.ImageProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, UserDetailViewModel> {
     private FirebaseAuth mAuth;
@@ -118,7 +129,9 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
             Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
         }else{
             uri = data.getData();
+            String tempPath = getPathFromInputStreamUri(this, uri);
             Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
+            viewModel.updateProfile(tempPath);
             //Toast.makeText(getApplicationContext(), "No hay imagen seleccionada", Toast.LENGTH_SHORT).show();
         }
     }
@@ -131,7 +144,7 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
         }
         if (getFirebaseUser().getPhotoUrl() != null && !getFirebaseUser().getPhotoUrl().toString().isEmpty()) {
 
-            Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
+            Glide.with(this).load(getFirebaseUser().getPhotoUrl()).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
         }
         binding.txtUserEmail.setText(getFirebaseUser().getEmail());
 
@@ -158,6 +171,77 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
         finish();
 
+    }
+
+    public String getPathFromInputStreamUri(Context context, Uri uri) {
+        InputStream inputStream = null;
+        String filePath = null;
+
+        if (uri.getAuthority() != null) {
+            try {
+                inputStream = context.getContentResolver().openInputStream(uri);
+                File photoFile = createTemporalFileFrom(inputStream);
+
+                filePath = photoFile.getPath();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return filePath;
+    }
+
+    private File createTemporalFileFrom(InputStream inputStream) throws IOException {
+        File targetFile = null;
+
+        if (inputStream != null) {
+            int read;
+            byte[] buffer = new byte[8 * 1024];
+
+            targetFile = createTemporalFile();
+            OutputStream outputStream = new FileOutputStream(targetFile);
+
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+            outputStream.flush();
+
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return targetFile;
+    }
+
+    private File createTemporalFile() {
+        return new File(getDirectoryName(), "tempPicture.jpg");
+    }
+
+    private String getDirectoryName() {
+        PackageManager m = getPackageManager();
+        String s = getPackageName();
+        try {
+            PackageInfo p = m.getPackageInfo(s, 0);
+            return p.applicationInfo.dataDir;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w("yourtag", "Error Package name not found ", e);
+        }
+
+        return "";
     }
 
 }

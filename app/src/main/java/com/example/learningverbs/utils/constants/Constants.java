@@ -7,4 +7,6 @@ public class Constants {
 
     public final static String VERB = "VERB";
 
+    public final static String CLIENT_IMAGES_PROFILE_TABLE_FIREBASE = "ImagesProfile";
+
 }
