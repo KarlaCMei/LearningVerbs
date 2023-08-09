@@ -60,6 +60,10 @@
     <string name="card_title_question">Pregunta</string>
     <string name="msg_regular">Regular</string>
     <string name="msg_irregular">Irregular</string>
+    <string name="title_pager_present">Presente</string>
+    <string name="title_pager_past">Pasado</string>
+    <string name="title_pager_future">Futuro</string>
+
 
 
     <!-- Strings para los dialogos-->

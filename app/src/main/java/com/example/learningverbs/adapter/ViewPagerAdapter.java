@@ -8,14 +8,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.learningverbs.R;
 import com.example.learningverbs.detailverb.view.ViewPagerFragment;
 import com.example.learningverbs.model.ExampleVerb;
+import com.example.learningverbs.tools.LearningApplication;
 
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String[] arrayTitle = {"Presente", "Pasado", "Futuro"};
+    private String[] arrayTitle = {LearningApplication.getInstance().getString(R.string.title_pager_present), LearningApplication.getInstance().getString(R.string.title_pager_past),LearningApplication.getInstance().getString(R.string.title_pager_future)};
     private ArrayList<ExampleVerb> exampleVerbs = new ArrayList<>();
 
     public ViewPagerAdapter(@NonNull FragmentManager fm, ArrayList<ExampleVerb> exampleVerbs) {
