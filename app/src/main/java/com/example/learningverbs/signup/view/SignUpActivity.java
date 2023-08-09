@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivitySignUpBinding;
 import com.example.learningverbs.home.view.HomeActivity;
 import com.example.learningverbs.signup.viewmodel.SignUpViewModel;
@@ -50,16 +51,16 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding, SignUpVi
                         binding.editTextPassword.setError(null);
 
                         if (validateSamePassword(binding.editTextPassword.getText().toString(), binding.editTextVerifyPassword.getText().toString())) {
-                            binding.editTextVerifyPassword.setError("La contraseña no coincide");
+                            binding.editTextVerifyPassword.setError(getString(R.string.msg_verify_password));
                         } else {
                             viewModel.singUp(binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
                         }
                     } else {
-                        binding.editTextPassword.setError("La contraseña tiene que ser mayor a 6 digitos");
+                        binding.editTextPassword.setError(getString(R.string.msg_add_password));
                     }
 
                 } else {
-                    binding.editTextEmail.setError("Email no valido");
+                    binding.editTextEmail.setError(getString(R.string.msg_email_not_valid));
                 }
             }
         });
