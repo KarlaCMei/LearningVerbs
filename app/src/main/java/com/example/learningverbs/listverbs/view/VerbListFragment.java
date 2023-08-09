@@ -32,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> {
+public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> implements TextWatcher{
     private VerbAdapter adapterListVerbs;
     private Handler handler;
     @Override
@@ -46,53 +46,41 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         return FragmentVerbListBinding.inflate(layoutInflater, container, false);
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FirebaseDatabase.getInstance().getReference().keepSynced(true);
         //fillDataBase();
 
-        getListDataBase();
+        binding.txtSearchVerb.addTextChangedListener(this);
+        getVerbs(null);
         observers();
 
-        /*binding.btnCreateVerb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LearningVerbsDialogGlobal.showDialogChange(VerbListFragment.this, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                }, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
-            }
-        });*/
 
-        binding.txtSearchVerb.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    }
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                getHandler().removeCallbacksAndMessages(null);
-                getHandler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(charSequence.toString() != null){
-                            viewModel.getSearchVerb(charSequence.toString());
-                        }
-                    }
-                }, 1000);
-            }
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
+    public void getVerbs(String name){
+        getHandler().removeCallbacksAndMessages(null);
+        if (name != null) {
+
+
+            getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                        viewModel.getSearchVerb(name);
+
+                }
+            }, 1000);
+        }else{
+            viewModel.getSearchVerb(null);
+        }
+
     }
 
     public Handler getHandler() {
@@ -103,26 +91,74 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     }
 
 
-    private void getListDataBase() {
-        viewModel.getListElement();
-    }
     private void observers() {
-        FirebaseDatabase.getInstance().getReference().keepSynced(true);
             viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
                 @Override
                 public void onChanged(List<Verb> verbs) {
-                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
-                        @Override
-                        public void onVerbClicListener(Verb verb) {
+
+                    if(verbs.size()>0){
+                        binding.msgNoResultsFound.setVisibility(View.GONE);
+                        binding.imgNoResultsFound.setVisibility(View.GONE);
+                        binding.listVerbs.setVisibility(View.VISIBLE);
+                        adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                            @Override
+                            public void onVerbClicListener(Verb verb) {
                                 Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                            detailActivity.putExtra(Constants.VERB, verb);
-                            startActivity(detailActivity);
-                        }
-                    });
-                    binding.listVerbs.setAdapter(adapterListVerbs);
+                                detailActivity.putExtra(Constants.VERB, verb);
+                                startActivity(detailActivity);
+                            }
+                        });
+                        binding.listVerbs.setAdapter(adapterListVerbs);
+                    }else{
+                        binding.msgNoResultsFound.setVisibility(View.VISIBLE);
+                        binding.imgNoResultsFound.setVisibility(View.VISIBLE);
+                        binding.listVerbs.setVisibility(View.GONE);
+                    }
                 }
             });
+
+
+        viewModel.getResultVerbAdd().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    binding.msgNoResultsFound.setVisibility(View.GONE);
+                    binding.imgNoResultsFound.setVisibility(View.GONE);
+                    binding.listVerbs.setVisibility(View.VISIBLE);
+                }else{
+                    binding.msgNoResultsFound.setVisibility(View.VISIBLE);
+                    binding.imgNoResultsFound.setVisibility(View.VISIBLE);
+                    binding.listVerbs.setVisibility(View.GONE);
+
+                }
+            }
+        });
     }
+
+
+    /*                        @Override
+                        public void onVerbClicListener(Verb verb) {
+
+                            if(verbs.size()>0){
+                                binding.msgNoResultsFound.setVisibility(View.GONE);
+                                binding.imgNoResultsFound.setVisibility(View.GONE);
+                                binding.listVerbs.setVisibility(View.VISIBLE);
+                                adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                                    @Override
+                                    public void onVerbClicListener(Verb verb) {
+                                        Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                                        detailActivity.putExtra(Constants.VERB, verb);
+                                        startActivity(detailActivity);
+                                    }
+                                });
+                                binding.listVerbs.setAdapter(adapterListVerbs);
+                            }else{
+                                binding.msgNoResultsFound.setVisibility(View.VISIBLE);
+                                binding.imgNoResultsFound.setVisibility(View.VISIBLE);
+                                binding.listVerbs.setVisibility(View.GONE);
+                            }
+
+                        }*/
 
 
     public void fillDataBase() {
@@ -170,5 +206,20 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         verb.setExampleVerbPast(exampleVerbPast);
         verb.setExampleVerbFuture(exampleVerbFuture);
         viewModel.fillDb(verb);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(binding.txtSearchVerb.hasFocus()) getVerbs(charSequence.toString());
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
     }
 }

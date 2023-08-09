@@ -24,8 +24,8 @@ import java.util.List;
 public class FavoritesViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListFavoriteVerbs = new MutableLiveData<>();
     private FavoritesRepository favoritesRepository;
-
     private SplashRepository splashRepository;
+    private MutableLiveData<Boolean> getVerbFavorite = new MutableLiveData<>(false);
 
     public FavoritesViewModel() {
         favoritesRepository = FavoritesRepository.getInstance();
@@ -36,14 +36,14 @@ public class FavoritesViewModel extends BaseViewModel {
         favoritesRepository.getListElementsDataBase(splashRepository.getUserId(),new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
-                for (Verb verbList : response) {
-                    Log.e("Response FavoriteVerb", "" + verbList.getVerbSpanishPresent());
-                }
+                getVerbFavorite.setValue(true);
                 getResultListFavoriteVerbs.postValue(response);
 
             }
             @Override
             public void onFailed(Throwable throwable) {
+                getResultListFavoriteVerbs.postValue(null);
+                getVerbFavorite.setValue(false);
 
             }
 
@@ -62,5 +62,7 @@ public class FavoritesViewModel extends BaseViewModel {
     public LiveData<List<Verb>> getListResultsFavoriteVerbs() {
         return getResultListFavoriteVerbs;
     }
-
+    public LiveData<Boolean> getListVerbsFavorites() {
+        return getVerbFavorite;
+    }
 }

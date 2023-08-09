@@ -20,6 +20,7 @@ public abstract class CustomListEventListener<T> implements ValueEventListener {
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         hideLoading();
+        verbList.clear();
         for (DataSnapshot postSnapshot : snapshot.getChildren()) {
             verbList.add(postSnapshot.getValue(customClass));
         }

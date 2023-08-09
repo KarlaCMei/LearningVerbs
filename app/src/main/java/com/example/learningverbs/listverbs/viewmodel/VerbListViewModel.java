@@ -18,6 +18,7 @@ import java.util.List;
 public class VerbListViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
     private VerbListFragmentRepository repository;
+    private MutableLiveData<Boolean> getVerbAdd = new MutableLiveData<>(false);
 
     public VerbListViewModel() {
         repository = VerbListFragmentRepository.getInstance();
@@ -28,15 +29,19 @@ public class VerbListViewModel extends BaseViewModel {
     }
 
     public void getSearchVerb(String verbName){
-        repository.getSearchVerb(verbName, new CustomListEventListener<Verb>(Verb.class) {
+
+        String searchName = verbName != null ? verbName: "";
+        repository.getSearchVerb(searchName, new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
+                getVerbAdd.setValue(true);
                 getResultListVerbs.postValue(response);
             }
 
             @Override
             public void onFailed(Throwable throwable) {
-                msgError.postValue(throwable.getMessage());
+                getVerbAdd.setValue(false);
+                //msgError.postValue(throwable.getMessage());
             }
 
             @Override
@@ -51,14 +56,12 @@ public class VerbListViewModel extends BaseViewModel {
         });
     }
 
-    public void getListElement(){
+    /*public void getListElement(){
         repository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
-                for (Verb verbList : response) {
-                    Log.e("Response", "" + verbList.getVerbSpanishPresent());
                     getResultListVerbs.postValue(response);
-                }
+
             }
             @Override
             public void onFailed(Throwable throwable) {
@@ -76,10 +79,13 @@ public class VerbListViewModel extends BaseViewModel {
                 loading.postValue(false);
             }
         });
-    }
+    }*/
 
     public LiveData<List<Verb>> getListResultsVerbs() {
         return getResultListVerbs;
+    }
+    public LiveData<Boolean> getResultVerbAdd() {
+        return getVerbAdd;
     }
 
 }

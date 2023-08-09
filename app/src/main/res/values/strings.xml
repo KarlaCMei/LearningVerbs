@@ -68,6 +68,7 @@
     <string name="btn_open_galeri">Abre tu galeria</string>
     <string name="msg_loading">Cargando</string>
 
-    <string name="msg_list_empty">No tienes favoritos</string>
+    <string name="msg_list_empty">No tienes favoritos.</string>
+    <string name="msg_no_results_found">No se encontraron resultados.</string>
 
 </resources>

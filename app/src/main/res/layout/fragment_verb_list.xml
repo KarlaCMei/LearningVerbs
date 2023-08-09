@@ -47,6 +47,7 @@
         android:id="@+id/listVerbs"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,5 +55,27 @@
         app:layout_constraintTop_toBottomOf="@+id/txtSearchVerb"
         tools:itemCount="2"
         tools:listitem="@layout/verb_list_item"/>
+    <ImageView
+        android:id="@+id/imgNoResultsFound"
+        android:layout_width="@dimen/size_image_get_password"
+        android:layout_height="@dimen/size_image_get_password"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/undraw_search_engines_ij7q" />
+
+    <TextView
+        android:id="@+id/msgNoResultsFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:text="@string/msg_no_results_found"
+        android:textColor="@color/purple_700"
+        android:textSize="@dimen/little_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgNoResultsFound" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
