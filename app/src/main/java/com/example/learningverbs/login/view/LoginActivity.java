@@ -74,7 +74,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         viewModel.getFireBaseUser().observe(LoginActivity.this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean != null){
+                if (aBoolean != null) {
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
@@ -84,29 +84,29 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     }
 
-    private void getSaveData(){
+    private void getSaveData() {
         String userName = com.example.learningverbs.tools.Tools.getStringPreference(Constants.USERNAME_SAVE);
-        if(!userName.isEmpty()){
+        if (!userName.isEmpty()) {
             binding.editTextEmail.setText(userName);
             binding.checkBoxRememberUser.setChecked(true);
         }
     }
 
 
-    private void configSwitchSaveUser(){
+    private void configSwitchSaveUser() {
         binding.checkBoxRememberUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 String userName = binding.editTextEmail.getText().toString();
-                if(!userName.isEmpty()){
-                    if(compoundButton.isChecked()){
-                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE,userName);
-                    }else {
-                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE,"");
+                if (!userName.isEmpty()) {
+                    if (compoundButton.isChecked()) {
+                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE, userName);
+                    } else {
+                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE, "");
                     }
-                }else{
+                } else {
                     binding.checkBoxRememberUser.setChecked(false);
-                    com.example.learningverbs.tools.Tools.showSnackMessage(binding.CoordinatorLayoutContainerLogin,getString(R.string.lbl_email));
+                    com.example.learningverbs.tools.Tools.showSnackMessage(binding.CoordinatorLayoutContainerLogin, getString(R.string.lbl_email));
                 }
 
             }

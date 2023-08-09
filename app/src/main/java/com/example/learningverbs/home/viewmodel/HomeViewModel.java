@@ -13,16 +13,16 @@ public class HomeViewModel extends BaseViewModel {
     private MutableLiveData<Uri> urlImage;
 
 
-    public HomeViewModel(){
+    public HomeViewModel() {
         this.urlImage = new MutableLiveData<>();
         splashRepository = SplashRepository.getInstance();
     }
 
-    public void responseImageUser(){
+    public void responseImageUser() {
         urlImage.setValue(splashRepository.getUserUrlImage());
     }
 
-    public LiveData<Uri> getUrlImage(){
+    public LiveData<Uri> getUrlImage() {
         return urlImage;
     }
 

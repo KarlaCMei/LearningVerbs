@@ -41,11 +41,11 @@ public class GetPasswordActivity extends BaseActivity<ActivityGetPasswordBinding
 
     }
 
-    public void validate(){
+    public void validate() {
         String email = binding.editTextEmail.getText().toString().trim();
-        if(email.isEmpty()||!validateEmail(binding.editTextEmail.getText().toString())){
+        if (email.isEmpty() || !validateEmail(binding.editTextEmail.getText().toString())) {
             binding.editTextEmail.setError("Correo no valido");
-        }else{
+        } else {
             binding.editTextEmail.setError(null);
             viewModel.getRecoveryPassword(binding.editTextEmail.getText().toString());
         }
@@ -57,7 +57,7 @@ public class GetPasswordActivity extends BaseActivity<ActivityGetPasswordBinding
         viewModel.sendEmail().observe(GetPasswordActivity.this, new Observer<String>() {
             @Override
             public void onChanged(String string) {
-                if(string !=  null){
+                if (string != null) {
                     Toast.makeText(GetPasswordActivity.this, string, Toast.LENGTH_SHORT).show();
                     onBackPressed();
                 }

@@ -21,15 +21,15 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="@dimen/normal_margin"
-        android:background="@drawable/ic_icon_back"/>
+        android:background="@drawable/ic_icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="@dimen/card_layout_height"
         android:background="@drawable/view_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,39 +55,39 @@
             android:id="@+id/title_user_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_user"
-            android:gravity="center"
-            android:textColor="@color/purple_700"
-            android:fontFamily="serif-monospace"
-            android:textSize="@dimen/large_word"
             android:layout_marginTop="@dimen/large_margin"
+            android:fontFamily="serif-monospace"
+            android:gravity="center"
+            android:text="@string/title_user"
+            android:textColor="@color/purple_700"
+            android:textSize="@dimen/large_word"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
             android:fontFamily="serif-monospace"
             android:gravity="center"
-            android:layout_margin="@dimen/normal_margin"
-            tools:text="@string/title_user"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/normal_word"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_user_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/title_user_detail"
+            tools:text="@string/title_user" />
 
         <TextView
             android:id="@+id/txtUserEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
             android:fontFamily="serif-monospace"
             android:gravity="center"
-            android:layout_margin="@dimen/normal_margin"
-            tools:text="correo"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/normal_word"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtUserName" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+            tools:text="correo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -98,35 +98,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-       <!--<ImageView
-            android:id="@+id/imageviewUserAccountProfile"
-            android:layout_width="@dimen/icon_user_dimens"
-            android:layout_height="@dimen/icon_user_dimens"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:srcCompat="@drawable/user_profile"
-            android:background="@drawable/image_view_circle"/>-->
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageviewUserAccountProfile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/title_width"
+            android:layout_height="@dimen/title_width"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/image_view_circle"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/user_profile"
-            android:background="@drawable/image_view_circle"/>
+            app:srcCompat="@drawable/user_profile" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icCamera"
             android:layout_width="@dimen/large_word"
             android:layout_height="@dimen/large_word"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="@dimen/margin_icon_camera"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/photo_camera_photocamera_snapshot_svgrepo_com" />

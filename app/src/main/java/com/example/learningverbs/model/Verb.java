@@ -9,11 +9,12 @@ public class Verb implements Serializable {
     private Boolean regular;
     private String verbSpanishPresent;
     private String verbEnglishPresent;
-   private ExampleVerb exampleVerbPresent;
-   private ExampleVerb exampleVerbPast;
-   private ExampleVerb exampleVerbFuture;
+    private ExampleVerb exampleVerbPresent;
+    private ExampleVerb exampleVerbPast;
+    private ExampleVerb exampleVerbFuture;
 
-    public Verb(){}
+    public Verb() {
+    }
 
     public Verb(String image, String verbId, Boolean regular, String verbSpanishPresent, String verbEnglishPresent, ExampleVerb exampleVerbPresent, ExampleVerb exampleVerbPast, ExampleVerb exampleVerbFuture) {
         this.image = image;

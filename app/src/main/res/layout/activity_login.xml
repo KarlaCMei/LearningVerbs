@@ -20,11 +20,11 @@
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/card_layout_width"
             android:layout_height="@dimen/card_layout_height"
+            android:layout_marginTop="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/normal_margin"
             android:backgroundTint="@color/teal_700"
             app:cardCornerRadius="@dimen/title"
             app:cardElevation="@dimen/elevation"
-            android:layout_marginTop="@dimen/medium_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

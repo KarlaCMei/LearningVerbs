@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:background="@color/teal_800"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding"
-    >
+    android:background="@color/teal_800"
+    android:padding="@dimen/padding">
 
 
     <TextView
         android:id="@+id/title_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_dialog"
-        android:textSize="@dimen/norm_word"
         android:layout_margin="@dimen/padding"
-        android:textColor="@color/purple_700"
         android:fontFamily="casual"
-        android:textStyle="bold"
         android:gravity="center"
+        android:text="@string/title_dialog"
+        android:textColor="@color/purple_700"
+        android:textSize="@dimen/norm_word"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +30,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:gravity="center"
-        android:textColor="@color/purple_500"
         android:text="@string/msg_dialog"
+        android:textColor="@color/purple_500"
         android:textSize="@dimen/normal_word"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

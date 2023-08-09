@@ -40,8 +40,11 @@ public abstract class CustomListEventListener<T> implements ValueEventListener {
 
 
     public abstract void onSuccess(ArrayList<T> response);
+
     public abstract void onFailed(Throwable throwable);
+
     public abstract void showLoaging();
+
     public abstract void hideLoading();
 
 }

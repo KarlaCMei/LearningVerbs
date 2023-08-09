@@ -22,6 +22,9 @@
     <!-- Strings para la pantalla de signUp-->
     <string name="tittle_sign_up">CREAR CUENTA</string>
     <string name="hint_edit_verify_password">verificar contraseña</string>
+    <string name="msg_verify_password">La contraseña no coincide</string>
+    <string name="msg_add_password">La contraseña tiene que ser mayor a 6 digitos</string>
+    <string name="msg_email_not_valid">Email no valido</string>
 
     <!-- Strings para la pantalla de forgot password-->
     <string name="tittle_get_password">Recupera tu constraseña </string>
@@ -55,6 +58,9 @@
     <string name="card_title_affirmative">Afirmativo</string>
     <string name="card_title_negative">Negativo</string>
     <string name="card_title_question">Pregunta</string>
+    <string name="msg_regular">Regular</string>
+    <string name="msg_irregular">Irregular</string>
+
 
     <!-- Strings para los dialogos-->
     <string name="title_dialog">Cerrar sesión</string>

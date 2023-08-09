@@ -18,7 +18,7 @@ public class LoginViewModel extends BaseViewModel {
         this.isLogin = new MutableLiveData<>();
     }
 
-    public void doLogin(String email, String password){
+    public void doLogin(String email, String password) {
         repository.login(new CustomOnCompleteListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult task) {
@@ -39,11 +39,11 @@ public class LoginViewModel extends BaseViewModel {
             public void hideLoading() {
                 loading.postValue(false);
             }
-        }, email,password);
+        }, email, password);
 
     }
 
-    public LiveData<Boolean> getFireBaseUser(){
+    public LiveData<Boolean> getFireBaseUser() {
         return isLogin;
     }
 

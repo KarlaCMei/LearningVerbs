@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
     android:layout_marginTop="@dimen/large_margin"
     android:layout_marginBottom="@dimen/large_margin"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     tools:context="com.example.learningverbs.listverbs.view.VerbListFragment">
 
     <EditText
@@ -17,36 +17,23 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:alpha="0.7"
-        android:padding="@dimen/padding"
         android:background="@drawable/edit_text_search"
         android:drawableEnd="@drawable/ic_search"
         android:hint="@string/edit_search"
-        android:textColorHint="@color/purple_700"
         android:inputType="textCapSentences"
-        android:paddingStart="20dp"
+        android:padding="@dimen/padding"
+        android:paddingStart="@dimen/normal_margin"
         android:textColor="@color/purple_700"
+        android:textColorHint="@color/purple_700"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-   <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnCreateVerb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/normal_margin"
-        android:layout_marginBottom="@dimen/normal_margin"
-        app:tint="@color/purple_700"
-        app:maxImageSize="@dimen/btn_floating_button_verb"
-        android:src="@drawable/ic_chage_verb"
-        app:backgroundTint="@color/teal_800"/>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listVerbs"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/fit_component"
+        android:layout_height="@dimen/fit_component"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +41,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSearchVerb"
         tools:itemCount="2"
-        tools:listitem="@layout/verb_list_item"/>
+        tools:listitem="@layout/verb_list_item" />
+
     <ImageView
         android:id="@+id/imgNoResultsFound"
         android:layout_width="@dimen/size_image_get_password"

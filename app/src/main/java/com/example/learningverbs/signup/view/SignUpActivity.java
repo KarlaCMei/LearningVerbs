@@ -46,12 +46,12 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding, SignUpVi
                 if (validateEmail(binding.editTextEmail.getText().toString())) {
                     binding.editTextEmail.setError(null);
 
-                    if (validatePassword(binding.editTextPassword.getText().toString()) ) {
+                    if (validatePassword(binding.editTextPassword.getText().toString())) {
                         binding.editTextPassword.setError(null);
 
-                        if(validateSamePassword(binding.editTextPassword.getText().toString(), binding.editTextVerifyPassword.getText().toString())){
+                        if (validateSamePassword(binding.editTextPassword.getText().toString(), binding.editTextVerifyPassword.getText().toString())) {
                             binding.editTextVerifyPassword.setError("La contraseña no coincide");
-                        }else{
+                        } else {
                             viewModel.singUp(binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
                         }
                     } else {

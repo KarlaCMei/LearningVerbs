@@ -2,13 +2,11 @@ package com.example.learningverbs.userdetail.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -17,25 +15,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.learningverbs.R;
 import com.example.learningverbs.createaccount.createaccountview.CreateAccountActivity;
-import com.example.learningverbs.databinding.ActivityHomeBinding;
 import com.example.learningverbs.databinding.ActivityUserDetailBinding;
-import com.example.learningverbs.home.view.HomeActivity;
-import com.example.learningverbs.home.viewmodel.HomeViewModel;
-import com.example.learningverbs.listverbs.view.VerbListFragment;
-import com.example.learningverbs.login.view.LoginActivity;
-import com.example.learningverbs.signup.view.SignUpActivity;
 import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
 import com.example.learningverbs.userdetail.viewmodel.UserDetailViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.github.dhaval2404.imagepicker.constant.ImageProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -126,16 +114,14 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 10 && resultCode == Activity.RESULT_OK){
+        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
             uri = data.getData();
-            //binding.imageviewUserAccountProfile.setImageURI(uri);
             Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
-        }else{
+        } else {
             uri = data.getData();
             String tempPath = getPathFromInputStreamUri(this, uri);
             Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
             viewModel.updateProfile(tempPath);
-            //Toast.makeText(getApplicationContext(), "No hay imagen seleccionada", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -152,6 +138,7 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
         binding.txtUserEmail.setText(getFirebaseUser().getEmail());
 
     }
+
     private void inicializateElements() {
         if (mAuth.getCurrentUser() == null) {
             finish();
@@ -164,12 +151,13 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     public FirebaseUser getFirebaseUser() {
         return firebaseUser;
     }
+
     public void setFirebaseUser(FirebaseUser firebaseUser) {
         this.firebaseUser = firebaseUser;
     }
 
     public void closeSesion() {
-    mAuth.signOut();
+        mAuth.signOut();
         startActivity(new Intent(UserDetailActivity.this, CreateAccountActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
         finish();
@@ -248,24 +236,3 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     }
 
 }
-
-
-
-/**
- * Codigo para el boton de cerrar sesion
- *
- * private FirebaseAuth mAuth;
- * mAuth = FirebaseAuth.getInstance();
- *
- *
- *     public void closeSesion() {
- *         mAuth.signOut();
- *         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
- *         startActivity(intent);
- *         finish();
- *     }
- *
- *
- *     ESTE METODO SE MANDA A LLAMAR EN EL ONCLICK DEL BOTON DE CERRAR SESION
- *     closeSesion();
- */

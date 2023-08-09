@@ -8,8 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,20 +19,16 @@ import com.example.learningverbs.adapter.VerbAdapter;
 import com.example.learningverbs.databinding.FragmentVerbListBinding;
 import com.example.learningverbs.detailverb.view.VerbDetailActivity;
 import com.example.learningverbs.listverbs.viewmodel.VerbListViewModel;
-import com.example.learningverbs.model.ExampleVerb;
 import com.example.learningverbs.model.Verb;
-import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
 import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> implements TextWatcher{
+public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, VerbListViewModel> implements TextWatcher {
     private VerbAdapter adapterListVerbs;
     private Handler handler;
+
     @Override
     protected VerbListViewModel createViewModel() {
         return new ViewModelProvider(this).get(VerbListViewModel.class);
@@ -54,8 +48,6 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //fillDataBase();
-
         binding.txtSearchVerb.addTextChangedListener(this);
         getVerbs(null);
         observers();
@@ -64,7 +56,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
     }
 
 
-    public void getVerbs(String name){
+    public void getVerbs(String name) {
         getHandler().removeCallbacksAndMessages(null);
         if (name != null) {
 
@@ -73,18 +65,18 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
                 @Override
                 public void run() {
 
-                        viewModel.getSearchVerb(name);
+                    viewModel.getSearchVerb(name);
 
                 }
             }, 1000);
-        }else{
+        } else {
             viewModel.getSearchVerb(null);
         }
 
     }
 
     public Handler getHandler() {
-        if(handler==null){
+        if (handler == null) {
             handler = new Handler();
         }
         return handler;
@@ -92,40 +84,40 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
 
 
     private void observers() {
-            viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
-                @Override
-                public void onChanged(List<Verb> verbs) {
+        viewModel.getListResultsVerbs().observe(this, new Observer<List<Verb>>() {
+            @Override
+            public void onChanged(List<Verb> verbs) {
 
-                    if(verbs.size()>0){
-                        binding.msgNoResultsFound.setVisibility(View.GONE);
-                        binding.imgNoResultsFound.setVisibility(View.GONE);
-                        binding.listVerbs.setVisibility(View.VISIBLE);
-                        adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
-                            @Override
-                            public void onVerbClicListener(Verb verb) {
-                                Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                                detailActivity.putExtra(Constants.VERB, verb);
-                                startActivity(detailActivity);
-                            }
-                        });
-                        binding.listVerbs.setAdapter(adapterListVerbs);
-                    }else{
-                        binding.msgNoResultsFound.setVisibility(View.VISIBLE);
-                        binding.imgNoResultsFound.setVisibility(View.VISIBLE);
-                        binding.listVerbs.setVisibility(View.GONE);
-                    }
+                if (verbs.size() > 0) {
+                    binding.msgNoResultsFound.setVisibility(View.GONE);
+                    binding.imgNoResultsFound.setVisibility(View.GONE);
+                    binding.listVerbs.setVisibility(View.VISIBLE);
+                    adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
+                        @Override
+                        public void onVerbClicListener(Verb verb) {
+                            Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
+                            detailActivity.putExtra(Constants.VERB, verb);
+                            startActivity(detailActivity);
+                        }
+                    });
+                    binding.listVerbs.setAdapter(adapterListVerbs);
+                } else {
+                    binding.msgNoResultsFound.setVisibility(View.VISIBLE);
+                    binding.imgNoResultsFound.setVisibility(View.VISIBLE);
+                    binding.listVerbs.setVisibility(View.GONE);
                 }
-            });
+            }
+        });
 
 
         viewModel.getResultVerbAdd().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean){
+                if (aBoolean) {
                     binding.msgNoResultsFound.setVisibility(View.GONE);
                     binding.imgNoResultsFound.setVisibility(View.GONE);
                     binding.listVerbs.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     binding.msgNoResultsFound.setVisibility(View.VISIBLE);
                     binding.imgNoResultsFound.setVisibility(View.VISIBLE);
                     binding.listVerbs.setVisibility(View.GONE);
@@ -135,79 +127,6 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         });
     }
 
-
-    /*                        @Override
-                        public void onVerbClicListener(Verb verb) {
-
-                            if(verbs.size()>0){
-                                binding.msgNoResultsFound.setVisibility(View.GONE);
-                                binding.imgNoResultsFound.setVisibility(View.GONE);
-                                binding.listVerbs.setVisibility(View.VISIBLE);
-                                adapterListVerbs = new VerbAdapter(verbs, new OnClicVerbListener() {
-                                    @Override
-                                    public void onVerbClicListener(Verb verb) {
-                                        Intent detailActivity = new Intent(requireActivity(), VerbDetailActivity.class);
-                                        detailActivity.putExtra(Constants.VERB, verb);
-                                        startActivity(detailActivity);
-                                    }
-                                });
-                                binding.listVerbs.setAdapter(adapterListVerbs);
-                            }else{
-                                binding.msgNoResultsFound.setVisibility(View.VISIBLE);
-                                binding.imgNoResultsFound.setVisibility(View.VISIBLE);
-                                binding.listVerbs.setVisibility(View.GONE);
-                            }
-
-                        }*/
-
-
-    public void fillDataBase() {
-        long currentTimeMillis = System.currentTimeMillis();
-        Verb verb = new Verb();
-
-        verb.setVerbId(String.valueOf(currentTimeMillis));
-        verb.setImage("https://i.pinimg.com/564x/ff/70/4c/ff704cf23ce4e6107a54e4b657256aad.jpg");
-        verb.setVerbSpanishPresent("Caminar");
-        verb.setVerbEnglishPresent("Walk");
-        verb.setRegular(true);
-
-        ExampleVerb exampleVerbPresent = new ExampleVerb();
-        exampleVerbPresent.setVerbSpanish("Caminar");
-        exampleVerbPresent.setVerbEnglish("Walk");
-        exampleVerbPresent.setPhraseAffirmativeSpanish("Ella se fue a dar un paseo.");
-        exampleVerbPresent.setPhraseAffirmativeEnglish("She went for a walk.");
-        exampleVerbPresent.setPhraseNegativeSpanish("Ella no se fue a dar un paseo.");
-        exampleVerbPresent.setPhraseNegativeEnglish("She didn't go for a walk.");
-        exampleVerbPresent.setPhraseQuestionSpanish("¿Ella se fue a dar un paseo?");
-        exampleVerbPresent.setPhraseQuestionEnglish("Did she go for a walk?");
-
-
-        ExampleVerb exampleVerbPast= new ExampleVerb();
-        exampleVerbPast.setVerbSpanish("Caminé");
-        exampleVerbPast.setVerbEnglish("Walked");
-        exampleVerbPast.setPhraseAffirmativeSpanish("Él y yo caminamos juntos.");
-        exampleVerbPast.setPhraseAffirmativeEnglish("He and I walked together..");
-        exampleVerbPast.setPhraseNegativeSpanish("Él y yo no caminamos juntos.");
-        exampleVerbPast.setPhraseNegativeEnglish("He and I don't walk together.");
-        exampleVerbPast.setPhraseQuestionSpanish("¿El caminó por el bosque?");
-        exampleVerbPast.setPhraseQuestionEnglish("Did he walk through the woods?");
-
-        ExampleVerb exampleVerbFuture = new ExampleVerb();
-        exampleVerbFuture.setVerbSpanish("Caminaré");
-        exampleVerbFuture.setVerbEnglish("Will walk");
-        exampleVerbFuture.setPhraseAffirmativeSpanish("Caminaré hacia mi casa");
-        exampleVerbFuture.setPhraseAffirmativeEnglish("I will walk to my house");
-        exampleVerbFuture.setPhraseNegativeSpanish("No caminaré hacia mi casa");
-        exampleVerbFuture.setPhraseNegativeEnglish("I won't walk home");
-        exampleVerbFuture.setPhraseQuestionSpanish("¿Caminarás a la tienda?");
-        exampleVerbFuture.setPhraseQuestionEnglish("Will you walk to the store?");
-
-        verb.setExampleVerbPresent(exampleVerbPresent);
-        verb.setExampleVerbPast(exampleVerbPast);
-        verb.setExampleVerbFuture(exampleVerbFuture);
-        viewModel.fillDb(verb);
-    }
-
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -215,7 +134,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
 
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        if(binding.txtSearchVerb.hasFocus()) getVerbs(charSequence.toString());
+        if (binding.txtSearchVerb.hasFocus()) getVerbs(charSequence.toString());
     }
 
     @Override

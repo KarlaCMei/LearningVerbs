@@ -23,7 +23,7 @@ public class SignUpViewModel extends BaseViewModel {
         this.isSignUp = new MutableLiveData<>();
     }
 
-    public void singUp(String email, String password){
+    public void singUp(String email, String password) {
         loading.postValue(true);
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -49,10 +49,10 @@ public class SignUpViewModel extends BaseViewModel {
                 loading.postValue(false);
 
             }
-        },email,password);
+        }, email, password);
     }
 
-    public LiveData<FirebaseUser> getfirebaseUser(){
+    public LiveData<FirebaseUser> getfirebaseUser() {
         return isSignUp;
     }
 

@@ -15,11 +15,11 @@ public class SplashViewModel extends BaseViewModel {
         this.splashScreenRepository = SplashRepository.getInstance();
     }
 
-    public void isLogin(){
+    public void isLogin() {
         isLoginStatus.setValue(splashScreenRepository.isLogin());
     }
 
-    public LiveData<Boolean> getIsLogin(){
+    public LiveData<Boolean> getIsLogin() {
         return isLoginStatus;
     }
 }

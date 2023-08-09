@@ -4,18 +4,17 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
->
+    android:layout_marginTop="@dimen/normal_margin">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="@dimen/normal_margin"
         android:clickable="true"
         android:focusable="true"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="20dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/normal_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +22,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="@dimen/title_width">
 
 
             <ImageView
@@ -35,7 +34,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtVerbName"
@@ -46,10 +45,10 @@
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
                 android:singleLine="true"
-                android:textStyle="bold"
                 android:textAlignment="inherit"
                 android:textColor="@color/purple_700"
                 android:textSize="@dimen/large_word"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="@string/txt_verb_name" />

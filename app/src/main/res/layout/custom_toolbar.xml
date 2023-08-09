@@ -19,16 +19,16 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginEnd="@dimen/little_margin"
                 android:padding="@dimen/padding_little"
                 android:src="@drawable/ic_icon_user"
-                android:layout_marginEnd="@dimen/little_margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/app_bar"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/fit_component"
                 android:layout_height="wrap_content"
                 android:theme="@style/Theme.BottomNavigation"
                 app:layout_constraintBottom_toBottomOf="parent"

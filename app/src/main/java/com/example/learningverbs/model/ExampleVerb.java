@@ -12,7 +12,7 @@ public class ExampleVerb implements Serializable {
     private String phraseNegativeEnglish;
     private String phraseQuestionEnglish;
 
-    public ExampleVerb(){
+    public ExampleVerb() {
 
     }
 

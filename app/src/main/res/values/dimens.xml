@@ -39,5 +39,9 @@
     <dimen name="margin_icon_camera">95dp</dimen>
     <dimen name="icon_user_dimens">150dp</dimen>
 
+    <dimen name="height_separation">30dp</dimen>
+    <dimen name="width_separation">1dp</dimen>
+    <dimen name="dimen_height_card_main_verb">230dp</dimen>
+
 
 </resources>

@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 public class LearningApplication extends Application {
   private static Context myApplicationContext;
+  public static LearningApplication instance;
+
+  public LearningApplication (){
+    instance = this;
+  }
 
   @Override
   public void onCreate() {
@@ -18,6 +23,15 @@ public class LearningApplication extends Application {
   }
   public static Context getMyApplicationContext(){
     return myApplicationContext;
+  }
+
+  public static LearningApplication getInstance(){
+    if(instance == null )instance = new LearningApplication();
+    return instance;
+  }
+
+  public String getApplicationName() {
+    return LearningApplication.getInstance().getApplicationInfo().loadLabel(getBaseContext().getPackageManager()).toString();
   }
 
 }

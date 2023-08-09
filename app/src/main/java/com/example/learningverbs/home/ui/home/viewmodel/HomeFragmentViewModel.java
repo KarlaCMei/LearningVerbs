@@ -1,7 +1,5 @@
 package com.example.learningverbs.home.ui.home.viewmodel;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -27,21 +25,16 @@ public class HomeFragmentViewModel extends BaseViewModel {
 
     }
 
-    public void fillDb(Verb verb) {
-        repository.fillDataBase(verb);
-    }
-
-    public void getListElement(){
+    public void getListElement() {
         repository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
-                    //Log.e("Response", "" + verbList.getVerbSpanishPresent());
-                    getResultListVerbs.postValue(response);
+                getResultListVerbs.postValue(response);
             }
+
             @Override
             public void onFailed(Throwable throwable) {
                 msgError.postValue(throwable.getMessage());
-                Log.e("Mensaje", "No hay informacion");
             }
 
             @Override
@@ -55,12 +48,13 @@ public class HomeFragmentViewModel extends BaseViewModel {
             }
         });
     }
+
     public LiveData<List<Verb>> getListResultsVerbs() {
         return getResultListVerbs;
     }
 
 
-    public void getListVerbs(){
+    public void getListVerbs() {
         verbListFragmentRepository.getListVerbs(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
@@ -68,7 +62,6 @@ public class HomeFragmentViewModel extends BaseViewModel {
                 int randomIndex = random.nextInt(response.size());
                 Verb randomElement = response.get(randomIndex);
                 verbRandom.setValue(randomElement);
-                Log.e("Elemento aleatorio: ","Elemento" + randomElement);
             }
 
             @Override

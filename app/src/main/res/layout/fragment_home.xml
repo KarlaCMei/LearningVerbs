@@ -45,7 +45,7 @@
             android:id="@+id/btnVerbHave"
             layout="@layout/btn_verb_have"
             android:layout_width="@dimen/fit_component"
-            android:layout_height="230dp"
+            android:layout_height="@dimen/dimen_height_card_main_verb"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btnVerbOfTheDay" />
@@ -54,7 +54,7 @@
             android:id="@+id/btnVerbDo"
             layout="@layout/btn_verb_do"
             android:layout_width="@dimen/fit_component"
-            android:layout_height="230dp"
+            android:layout_height="@dimen/dimen_height_card_main_verb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
@@ -62,7 +62,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </ScrollView>

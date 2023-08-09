@@ -27,8 +27,8 @@
 
         <ImageView
             android:id="@+id/icBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/little_padding"
+            android:layout_height="@dimen/little_padding"
             android:scaleType="center"
             android:src="@drawable/ic_icon_back"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,18 +53,18 @@
             android:id="@+id/imgVerb"
             android:layout_width="@dimen/size_image_get_password"
             android:layout_height="@dimen/size_image_get_password"
+            android:layout_margin="@dimen/normal_margin"
             android:background="@drawable/ic_img_background"
+            android:padding="@dimen/padding"
             app:layout_constraintBottom_toBottomOf="@+id/img_background"
             app:layout_constraintEnd_toEndOf="parent"
-            android:padding="@dimen/padding"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintTop_toBottomOf="@+id/txtIsRegular" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintTitle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/fit_component"
+            android:layout_height="@dimen/fit_component"
             android:background="@drawable/view_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
-                android:text="Verb"
+                android:text="@string/txt_verb_name"
                 android:textColor="@color/purple_500"
                 android:textSize="@dimen/large_word"
                 android:textStyle="bold"
@@ -129,7 +129,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/fit_component"
                 android:background="@color/teal_800"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/verbSpanish">

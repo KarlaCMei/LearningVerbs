@@ -16,13 +16,13 @@ import com.example.learningverbs.model.Verb;
 
 import java.util.List;
 
-public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
+public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder> {
 
     private OnClicVerbListener listener;
     private List<Verb> resultsListVerbs;
 
-    public VerbAdapter(List<Verb> resultsSuperHeros, OnClicVerbListener listener) {
-        this.resultsListVerbs = resultsSuperHeros;
+    public VerbAdapter(List<Verb> resultsVerbs, OnClicVerbListener listener) {
+        this.resultsListVerbs = resultsVerbs;
         this.listener = listener;
 
     }
@@ -35,7 +35,8 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
 
         ViewHolder vh = new ViewHolder(view);
         vh.setListener(this.listener);
-        return vh;    }
+        return vh;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull VerbAdapter.ViewHolder holder, int position) {
@@ -46,9 +47,9 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder>  {
         holder.setVerb(resultsListVerbs.get(position));
 
         if (resultsListVerbs.get(position).getRegular()) {
-            holder.txtIsRegular.setText("Regular");
+            holder.txtIsRegular.setText(R.string.msg_regular);
         } else {
-            holder.txtIsRegular.setText("Irregular");
+            holder.txtIsRegular.setText(R.string.msg_irregular);
         }
     }
 

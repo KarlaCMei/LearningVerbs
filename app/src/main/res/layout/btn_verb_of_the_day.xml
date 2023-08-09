@@ -5,28 +5,27 @@
     android:id="@+id/cardVerbOfDay"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/purple_500"
-    app:cardElevation="@dimen/elevation"
     android:elevation="@dimen/elevation"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="@dimen/radius">
+    app:cardBackgroundColor="@color/purple_500"
+    app:cardCornerRadius="@dimen/radius"
+    app:cardElevation="@dimen/elevation"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding"
-        >
+        android:padding="@dimen/padding">
 
         <TextView
             android:id="@+id/txtTitleVerbDay"
             android:layout_width="@dimen/title_width"
             android:layout_height="wrap_content"
-            android:text="@string/btn_title"
-            android:textSize="@dimen/large_word"
             android:fontFamily="casual"
             android:gravity="center"
+            android:text="@string/btn_title"
             android:textColor="@color/teal_800"
+            android:textSize="@dimen/large_word"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +38,7 @@
             android:background="@drawable/btn_login_with_facebook"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="verbo"
+            android:text="@string/txt_verb_name"
             android:textAllCaps="false"
             android:textColor="@color/teal_800"
             android:textSize="@dimen/little_word"

@@ -11,7 +11,6 @@ import android.view.View;
 import com.example.learningverbs.createaccount.createaccountviewmodel.CreateAccountViewModel;
 import com.example.learningverbs.databinding.ActivityCreateAccountBinding;
 import com.example.learningverbs.login.view.LoginActivity;
-import com.example.learningverbs.login.viewmodel.LoginViewModel;
 import com.example.learningverbs.signup.view.SignUpActivity;
 import com.example.learningverbs.utils.BaseActivity;
 

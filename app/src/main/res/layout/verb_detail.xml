@@ -15,134 +15,134 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_background"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_width_button"
-        android:background="@color/purple_500"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/icBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:scaleType="center"
-        android:src="@drawable/ic_icon_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/little_margin"
-        android:background="@drawable/esquina_redondeada_edit_text_sign_up"
-        android:fontFamily="serif-monospace"
-        android:gravity="center|start"
-        android:padding="@dimen/padding"
-        android:textColor="@color/teal_800"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Regular" />
-
-    <ImageView
-        android:id="@+id/imgVerb"
-        android:layout_width="@dimen/size_image_get_password"
-        android:layout_height="@dimen/size_image_get_password"
-        app:layout_constraintBottom_toBottomOf="@+id/img_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/ic_img_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/view_radius"
-        android:padding="@dimen/padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_background"
-        tools:visibility="visible">
-
-        <TextView
-            android:id="@+id/spanish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginEnd="@dimen/normal_margin"
-            android:layout_marginBottom="@dimen/normal_margin"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:text="Verbo en Español"
-            android:textColor="@color/purple_500"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/english"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/normal_margin"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:text="Verbo en Ingles"
-            android:textColor="@color/purple_500"
-            app:layout_constraintStart_toEndOf="@+id/spanish"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/verbSpanish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:text="Verbo"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/large_word"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/spanish"
-            app:layout_constraintStart_toStartOf="@+id/spanish"
-            app:layout_constraintTop_toBottomOf="@+id/spanish" />
-
-        <TextView
-            android:id="@+id/verbEnglish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:text="Verb"
-            android:textColor="@color/purple_500"
-            android:textSize="@dimen/large_word"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/english"
-            app:layout_constraintStart_toStartOf="@+id/english"
-            app:layout_constraintTop_toBottomOf="@+id/english" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/view_radius"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_width_button"
+            android:background="@color/purple_500"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/verbEnglish">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/icBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/little_margin"
+            android:background="@drawable/esquina_redondeada_edit_text_sign_up"
+            android:fontFamily="serif-monospace"
+            android:gravity="center|start"
+            android:padding="@dimen/padding"
+            android:textColor="@color/teal_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Regular" />
+
+        <ImageView
+            android:id="@+id/imgVerb"
+            android:layout_width="@dimen/size_image_get_password"
+            android:layout_height="@dimen/size_image_get_password"
+            android:background="@drawable/ic_img_background"
+            app:layout_constraintBottom_toBottomOf="@+id/img_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/view_radius"
+            android:padding="@dimen/padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_background"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/spanish"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/view_radius"
-                app:tabSelectedTextAppearance="@style/Theme.BottomNavigation" />
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/normal_margin"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Verbo en Español"
+                android:textColor="@color/purple_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.viewpager.widget.ViewPager>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Verbo en Ingles"
+                android:textColor="@color/purple_500"
+                app:layout_constraintStart_toEndOf="@+id/spanish"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/verbSpanish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Verbo"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/large_word"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/spanish"
+                app:layout_constraintStart_toStartOf="@+id/spanish"
+                app:layout_constraintTop_toBottomOf="@+id/spanish" />
+
+            <TextView
+                android:id="@+id/verbEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Verb"
+                android:textColor="@color/purple_500"
+                android:textSize="@dimen/large_word"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/english"
+                app:layout_constraintStart_toStartOf="@+id/english"
+                app:layout_constraintTop_toBottomOf="@+id/english" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/view_radius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/verbEnglish">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_radius"
+                    app:tabSelectedTextAppearance="@style/Theme.BottomNavigation" />
+
+            </androidx.viewpager.widget.ViewPager>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

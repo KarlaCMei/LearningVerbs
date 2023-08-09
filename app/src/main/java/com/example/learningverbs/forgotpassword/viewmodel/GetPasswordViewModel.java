@@ -1,15 +1,15 @@
 package com.example.learningverbs.forgotpassword.viewmodel;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
 import com.example.learningverbs.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.forgotpassword.repository.GetPasswordRepository;
 import com.example.learningverbs.utils.BaseViewModel;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class GetPasswordViewModel extends BaseViewModel {
     private MutableLiveData<String> isSendEmail;
-    private GetPasswordRepository repository
-            ;
+    private GetPasswordRepository repository;
 
     public GetPasswordViewModel() {
         this.repository = GetPasswordRepository.getInstance();
@@ -17,7 +17,7 @@ public class GetPasswordViewModel extends BaseViewModel {
         this.isSendEmail = new MutableLiveData<>();
     }
 
-    public void getRecoveryPassword(String email){
+    public void getRecoveryPassword(String email) {
 
         repository.recoverPassword(email, new CustomOnCompleteListener<Void>() {
             @Override
@@ -43,7 +43,7 @@ public class GetPasswordViewModel extends BaseViewModel {
 
     }
 
-    public LiveData<String> sendEmail(){
+    public LiveData<String> sendEmail() {
         return isSendEmail;
     }
 

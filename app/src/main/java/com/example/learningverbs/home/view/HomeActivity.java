@@ -1,7 +1,6 @@
 package com.example.learningverbs.home.view;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -18,16 +17,12 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.learningverbs.R;
-import com.example.learningverbs.databinding.ActivityGetPasswordBinding;
 import com.example.learningverbs.databinding.ActivityHomeBinding;
-import com.example.learningverbs.home.ui.home.view.HomeFragment;
 import com.example.learningverbs.home.viewmodel.HomeViewModel;
 import com.example.learningverbs.userdetail.view.UserDetailActivity;
 import com.example.learningverbs.utils.BaseActivity;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
-    private Uri uri;
-
     @Override
     protected HomeViewModel createViewModel() {
         return new ViewModelProvider(this).get(HomeViewModel.class);
@@ -72,11 +67,11 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         }
     }
 
-    private void getUrlUserImage(){
+    private void getUrlUserImage() {
         viewModel.responseImageUser();
     }
 
-    private void observer(){
+    private void observer() {
         viewModel.getUrlImage().observe(this, new Observer<Uri>() {
             @Override
             public void onChanged(Uri uri) {

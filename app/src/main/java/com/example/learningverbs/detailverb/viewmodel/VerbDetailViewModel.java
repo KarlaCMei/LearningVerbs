@@ -1,9 +1,6 @@
 package com.example.learningverbs.detailverb.viewmodel;
 
-import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -13,26 +10,25 @@ import com.example.learningverbs.splash.repository.SplashRepository;
 import com.example.learningverbs.utils.BaseViewModel;
 import com.example.learningverbs.utils.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-
-import java.util.List;
 
 public class VerbDetailViewModel extends BaseViewModel {
 
     private MutableLiveData<Boolean> isVerbFavorite = new MutableLiveData<>();
     private VerbDetailRepository verbDetailRepository;
     private SplashRepository splashRepository;
+
     public VerbDetailViewModel() {
         verbDetailRepository = VerbDetailRepository.getInstance();
         splashRepository = SplashRepository.getInstance();
     }
-    public void responseVerbFavoriteUser(String verbId){
+
+    public void responseVerbFavoriteUser(String verbId) {
         verbDetailRepository.getUserVerbFavorite(splashRepository.getUserId(), verbId, new CustomEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(Verb response) {
                 isVerbFavorite.setValue(response != null);
             }
+
             @Override
             public void onFailed(Throwable throwable) {
                 isVerbFavorite.setValue(false);
@@ -42,6 +38,7 @@ public class VerbDetailViewModel extends BaseViewModel {
             public void showLoaging() {
                 loading.setValue(true);
             }
+
             @Override
             public void hideLoading() {
                 loading.setValue(false);
@@ -49,18 +46,16 @@ public class VerbDetailViewModel extends BaseViewModel {
         });
     }
 
-    public void deleteelement(String verbid){
+    public void deleteelement(String verbid) {
         verbDetailRepository.deleteElement(splashRepository.getUserId(), verbid, new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
-                Log.e("Response", "EL elemento se elimino correctamente");
-
             }
         });
     }
 
     public void fillDb(Verb verb, String verbId) {
-        verbDetailRepository.fillDataBase(splashRepository.getUserId(),verbId,verb);
+        verbDetailRepository.fillDataBase(splashRepository.getUserId(), verbId, verb);
     }
 
     public LiveData<Boolean> getIsFavoriteVerb() {

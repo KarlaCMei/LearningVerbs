@@ -19,7 +19,6 @@ public class SplashRepository {
     }
 
     public boolean isLogin() {
-       // Log.e("Email user", "Email" + firebaseAuth.getCurrentUser().getPhotoUrl());
         return firebaseAuth.getCurrentUser() != null;
     }
 
@@ -28,9 +27,7 @@ public class SplashRepository {
 
     }
 
-    public Uri getUserUrlImage(){
-        Log.e("Email user", "Email" + firebaseAuth.getCurrentUser().getPhotoUrl());
-
+    public Uri getUserUrlImage() {
         return (firebaseAuth.getCurrentUser() != null) ? firebaseAuth.getCurrentUser().getPhotoUrl() : null;
     }
 

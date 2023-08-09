@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-   private String[] arrayTitle = {"Presente", "Pasado", "Futuro"};
+    private String[] arrayTitle = {"Presente", "Pasado", "Futuro"};
     private ArrayList<ExampleVerb> exampleVerbs = new ArrayList<>();
 
     public ViewPagerAdapter(@NonNull FragmentManager fm, ArrayList<ExampleVerb> exampleVerbs) {

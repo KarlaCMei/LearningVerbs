@@ -37,19 +37,14 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
         viewModel.getIsLogin().observe(SplashActivity.this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean isLogin) {
-                if(isLogin){
-                    Log.e("Email user", "Email" );
-
+                if (isLogin) {
                     startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                }else{
-                    Log.e("Email user", "Emailcc" );
-
+                } else {
                     startActivity(new Intent(SplashActivity.this, CreateAccountActivity.class));
                 }
                 finish();
             }
         });
-
 
 
         binding.splashLottie.addAnimatorListener(new Animator.AnimatorListener() {

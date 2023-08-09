@@ -1,7 +1,6 @@
 package com.example.learningverbs.utils;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Toast;
@@ -19,8 +18,6 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
     protected VM viewModel;
     protected BINDING binding;
     private Dialog dialog;
-
-    private ProgressDialog customProgressDialog;
 
     protected abstract VM createViewModel();
 
@@ -42,9 +39,9 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         viewModel.loading.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean isLoading) {
-                if(isLoading){
+                if (isLoading) {
                     showProgress();
-                }else{
+                } else {
                     hideProgress();
                 }
             }
@@ -58,17 +55,17 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         });
     }
 
-     void showProgress(){
+    void showProgress() {
         dialog.setContentView(R.layout.loading_view);
-         if(!dialog.isShowing()) dialog.show();
+        if (!dialog.isShowing()) dialog.show();
     }
 
-     void hideProgress(){
-        if(dialog.isShowing())dialog.dismiss();
+    void hideProgress() {
+        if (dialog.isShowing()) dialog.dismiss();
     }
 
 
-    public void showMessageError(String msgError){
+    public void showMessageError(String msgError) {
         Toast.makeText(BaseActivity.this, msgError, Toast.LENGTH_SHORT).show();
     }
 
