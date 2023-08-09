@@ -19,6 +19,7 @@ import com.example.learningverbs.forgotpassword.view.GetPasswordActivity;
 import com.example.learningverbs.home.view.HomeActivity;
 import com.example.learningverbs.login.viewmodel.LoginViewModel;
 import com.example.learningverbs.utils.BaseActivity;
+import com.example.learningverbs.utils.Tools;
 import com.example.learningverbs.utils.constants.Constants;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
@@ -56,10 +57,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                         viewModel.doLogin(binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
 
                     } else {
-                        binding.editTextPassword.setError("La contraseña tiene que ser mayor a 6 digitos");
+                        binding.editTextPassword.setError(getString(R.string.msg_add_password));
                     }
                 } else {
-                    binding.editTextEmail.setError("Email no valido");
+                    binding.editTextEmail.setError(getString(R.string.msg_email_not_valid));
                 }
             }
         });
@@ -85,7 +86,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     }
 
     private void getSaveData() {
-        String userName = com.example.learningverbs.tools.Tools.getStringPreference(Constants.USERNAME_SAVE);
+        String userName = Tools.getStringPreference(Constants.USERNAME_SAVE);
         if (!userName.isEmpty()) {
             binding.editTextEmail.setText(userName);
             binding.checkBoxRememberUser.setChecked(true);
@@ -100,13 +101,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                 String userName = binding.editTextEmail.getText().toString();
                 if (!userName.isEmpty()) {
                     if (compoundButton.isChecked()) {
-                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE, userName);
+                        Tools.setStringPreference(Constants.USERNAME_SAVE, userName);
                     } else {
-                        com.example.learningverbs.tools.Tools.setStringPreference(Constants.USERNAME_SAVE, "");
+                        Tools.setStringPreference(Constants.USERNAME_SAVE, "");
                     }
                 } else {
                     binding.checkBoxRememberUser.setChecked(false);
-                    com.example.learningverbs.tools.Tools.showSnackMessage(binding.CoordinatorLayoutContainerLogin, getString(R.string.lbl_email));
+                    Tools.showSnackMessage(binding.CoordinatorLayoutContainerLogin, getString(R.string.lbl_email));
                 }
 
             }

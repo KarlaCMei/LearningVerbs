@@ -3,7 +3,7 @@ package com.example.learningverbs.login.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.login.repository.LoginRepository;
 import com.example.learningverbs.utils.BaseViewModel;
 import com.google.firebase.auth.AuthResult;

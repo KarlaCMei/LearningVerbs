@@ -18,8 +18,6 @@ import com.example.learningverbs.utils.BaseFragment;
 import com.example.learningverbs.utils.constants.Constants;
 
 public class ViewPagerFragment extends BaseFragment<FragmentViewPagerBinding, VerbDetailViewModel> {
-    public static final String ARG_OBJECT_VERB_EXAMPLE = "verbExample";
-
     @Override
     protected VerbDetailViewModel createViewModel() {
         return new ViewModelProvider(this).get(VerbDetailViewModel.class);

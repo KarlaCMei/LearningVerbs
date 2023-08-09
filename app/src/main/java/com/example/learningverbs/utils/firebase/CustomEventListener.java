@@ -1,7 +1,9 @@
-package com.example.learningverbs.utils;
+package com.example.learningverbs.utils.firebase;
 
 import androidx.annotation.NonNull;
 
+import com.example.learningverbs.R;
+import com.example.learningverbs.utils.LearningApplication;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -24,7 +26,7 @@ public abstract class CustomEventListener<T> implements ValueEventListener {
         if (currentCustomClass != null) {
             onSuccess(currentCustomClass);
         } else {
-            onFailed(new Throwable("Error al consultar el elemento"));
+            onFailed(new Throwable(LearningApplication.getInstance().getString(R.string.msg_throwable)));
         }
 
     }

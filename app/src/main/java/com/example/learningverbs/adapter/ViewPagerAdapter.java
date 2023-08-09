@@ -11,7 +11,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.example.learningverbs.R;
 import com.example.learningverbs.detailverb.view.ViewPagerFragment;
 import com.example.learningverbs.model.ExampleVerb;
-import com.example.learningverbs.tools.LearningApplication;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.constants.Constants;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment = new ViewPagerFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ViewPagerFragment.ARG_OBJECT_VERB_EXAMPLE, exampleVerbs.get(position));
+        args.putSerializable(Constants.ARG_OBJECT_VERB_EXAMPLE, exampleVerbs.get(position));
         fragment.setArguments(args);
         return fragment;
     }

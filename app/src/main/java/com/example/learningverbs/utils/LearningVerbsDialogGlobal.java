@@ -1,4 +1,4 @@
-package com.example.learningverbs.tools;
+package com.example.learningverbs.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -39,7 +39,7 @@ public class LearningVerbsDialogGlobal {
         dialog.show();
     }
 
-    public static void showDialogTakePhoto(AppCompatActivity context, View.OnClickListener onClick, OnClickDialogListener onClickListener) {
+    public static void showDialogTakePhoto(AppCompatActivity context,OnClickDialogListener onClickDialogListener, OnClickDialogListener onClickListener) {
         AlertDialog dialog = new AlertDialog.Builder(context).create();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_take_photo, null);
@@ -47,7 +47,7 @@ public class LearningVerbsDialogGlobal {
         view.findViewById(R.id.btnOpenGalery).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                onClickDialogListener.onClick(view, dialog);
             }
         });
         view.findViewById(R.id.btnTakePhoto).setOnClickListener(new View.OnClickListener() {

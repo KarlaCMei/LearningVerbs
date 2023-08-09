@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".tools.LearningApplication"
+        android:name=".utils.LearningApplication"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="false"
@@ -33,7 +33,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".createaccount.createaccountview.CreateAccountActivity"
+            android:name=".createaccount.CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".splash.view.SplashActivity"

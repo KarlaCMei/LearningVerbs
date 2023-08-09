@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.learningverbs.listverbs.repository.VerbListFragmentRepository;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.utils.BaseViewModel;
-import com.example.learningverbs.utils.CustomListEventListener;
+import com.example.learningverbs.utils.firebase.CustomListEventListener;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,9 @@ package com.example.learningverbs.forgotpassword.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.R;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.forgotpassword.repository.GetPasswordRepository;
 import com.example.learningverbs.utils.BaseViewModel;
 
@@ -22,12 +24,12 @@ public class GetPasswordViewModel extends BaseViewModel {
         repository.recoverPassword(email, new CustomOnCompleteListener<Void>() {
             @Override
             public void onSuccess(Void task) {
-                isSendEmail.postValue("Correo enviado");
+                isSendEmail.postValue(LearningApplication.getInstance().getString(R.string.msg_email_send));
             }
 
             @Override
             public void onFailure(Throwable throwable) {
-                msgError.postValue("No se envío el correo");
+                msgError.postValue(LearningApplication.getInstance().getString(R.string.msg_no_email_send));
             }
 
             @Override

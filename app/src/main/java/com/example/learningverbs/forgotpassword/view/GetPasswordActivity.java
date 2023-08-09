@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.learningverbs.R;
 import com.example.learningverbs.databinding.ActivityGetPasswordBinding;
 import com.example.learningverbs.forgotpassword.viewmodel.GetPasswordViewModel;
 import com.example.learningverbs.utils.BaseActivity;
@@ -44,7 +45,7 @@ public class GetPasswordActivity extends BaseActivity<ActivityGetPasswordBinding
     public void validate() {
         String email = binding.editTextEmail.getText().toString().trim();
         if (email.isEmpty() || !validateEmail(binding.editTextEmail.getText().toString())) {
-            binding.editTextEmail.setError("Correo no valido");
+            binding.editTextEmail.setError(getString(R.string.msg_no_email_send));
         } else {
             binding.editTextEmail.setError(null);
             viewModel.getRecoveryPassword(binding.editTextEmail.getText().toString());

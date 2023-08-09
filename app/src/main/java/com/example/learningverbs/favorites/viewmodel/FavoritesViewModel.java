@@ -8,7 +8,7 @@ import com.example.learningverbs.favorites.repository.FavoritesRepository;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.splash.repository.SplashRepository;
 import com.example.learningverbs.utils.BaseViewModel;
-import com.example.learningverbs.utils.CustomListEventListener;
+import com.example.learningverbs.utils.firebase.CustomListEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class FavoritesViewModel extends BaseViewModel {
     }
 
     public void getFavoriteVerbListElement() {
-        favoritesRepository.getListElementsDataBase(splashRepository.getUserId(), new CustomListEventListener<Verb>(Verb.class) {
+        favoritesRepository.getFavoritesListUser(splashRepository.getUserId(), new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
                 getVerbFavorite.setValue(true);

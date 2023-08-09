@@ -1,8 +1,8 @@
 package com.example.learningverbs.favorites.repository;
 
 import com.example.learningverbs.model.Verb;
-import com.example.learningverbs.tools.LearningApplication;
-import com.example.learningverbs.utils.CustomListEventListener;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.firebase.CustomListEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,7 +22,7 @@ public class FavoritesRepository {
         mPostReference = dataBaseBookReference.child(LearningApplication.getInstance().getApplicationName()).child("Favorites");
     }
 
-    public void getListElementsDataBase(String userId, CustomListEventListener<Verb> postListener) {
+    public void getFavoritesListUser(String userId, CustomListEventListener<Verb> postListener) {
         mPostReference.child(userId).addValueEventListener(postListener);
     }
 

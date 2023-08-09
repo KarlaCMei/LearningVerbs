@@ -3,7 +3,7 @@ package com.example.learningverbs.userdetail.viewmodel;
 import android.net.Uri;
 import android.util.Log;
 
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.splash.repository.SplashRepository;
 import com.example.learningverbs.userdetail.repository.UserDetailRepository;
 import com.example.learningverbs.utils.BaseViewModel;

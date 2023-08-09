@@ -2,9 +2,9 @@ package com.example.learningverbs.userdetail.repository;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
-import com.example.learningverbs.tools.LearningApplication;
-import com.example.learningverbs.tools.Tools;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.Tools;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

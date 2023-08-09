@@ -1,6 +1,6 @@
 package com.example.learningverbs.forgotpassword.repository;
 
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class GetPasswordRepository {

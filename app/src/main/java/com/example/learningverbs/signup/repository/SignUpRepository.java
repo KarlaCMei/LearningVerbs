@@ -1,6 +1,6 @@
 package com.example.learningverbs.signup.repository;
 
-import com.example.learningverbs.firebase.CustomOnCompleteListener;
+import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 

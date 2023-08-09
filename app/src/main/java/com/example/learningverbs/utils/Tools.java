@@ -1,4 +1,4 @@
-package com.example.learningverbs.tools;
+package com.example.learningverbs.utils;
 
 
 import android.content.Context;
@@ -17,7 +17,7 @@ import id.zelory.compressor.Compressor;
 
 
 public class Tools {
-    private static SharedPreferences preferences = com.example.learningverbs.tools.LearningApplication.getMyApplicationContext().getSharedPreferences(Constants.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE);
+    private static SharedPreferences preferences = LearningApplication.getMyApplicationContext().getSharedPreferences(Constants.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE);
 
     public static void showSnackMessage(View myActivity, String message) {
         Snackbar.make(myActivity, message, Snackbar.LENGTH_SHORT).show();

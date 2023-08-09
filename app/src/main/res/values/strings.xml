@@ -31,6 +31,9 @@
     <string name="msg_get_password">Introduce el correo electrónico con el que iniciaste sesión y enviaremos un enlace para que puedas cambiar tu contraseña y puedas recuperar tu cuenta</string>
     <string name="btn_get_password">Enviar </string>
     <string name="msg_error">Correo no valido </string>
+    <string name="msg_email_send">Correo enviado</string>
+    <string name="msg_no_email_send">No se envio el correo</string>
+
 
     <!-- Strings para la pantalla del home-->
     <string name="title_home">Inicio</string>
@@ -80,5 +83,8 @@
 
     <string name="msg_list_empty">No tienes favoritos.</string>
     <string name="msg_no_results_found">No se encontraron resultados.</string>
+
+    <string name="msg_throwable">Error al consultar el elemento.</string>
+
 
 </resources>

@@ -18,9 +18,9 @@ import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.learningverbs.createaccount.createaccountview.CreateAccountActivity;
+import com.example.learningverbs.createaccount.CreateAccountActivity;
 import com.example.learningverbs.databinding.ActivityUserDetailBinding;
-import com.example.learningverbs.tools.LearningVerbsDialogGlobal;
+import com.example.learningverbs.utils.LearningVerbsDialogGlobal;
 import com.example.learningverbs.userdetail.viewmodel.UserDetailViewModel;
 import com.example.learningverbs.utils.BaseActivity;
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -38,7 +38,6 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
     private Uri uri;
-
 
     @Override
     protected UserDetailViewModel createViewModel() {
@@ -81,16 +80,17 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
         binding.icCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LearningVerbsDialogGlobal.showDialogTakePhoto(UserDetailActivity.this, new View.OnClickListener() {
+                LearningVerbsDialogGlobal.showDialogTakePhoto(UserDetailActivity.this, new LearningVerbsDialogGlobal.OnClickDialogListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(View var1, AlertDialog dialog) {
+                        dialog.dismiss();
                         ImagePicker.Companion.with(UserDetailActivity.this)
                                 .cameraOnly()
                                 .crop()
+                                .cropSquare()
                                 .compress(1024)
                                 .maxResultSize(1080, 1080)
                                 .start();
-
                     }
                 }, new LearningVerbsDialogGlobal.OnClickDialogListener() {
                     @Override
@@ -114,14 +114,19 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
-            uri = data.getData();
-            Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
-        } else {
-            uri = data.getData();
-            String tempPath = getPathFromInputStreamUri(this, uri);
-            Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
-            viewModel.updateProfile(tempPath);
+
+        if(uri != null){
+            if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
+                uri = data.getData();
+                String tempPath = getPathFromInputStreamUri(this, uri);
+                Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
+                viewModel.updateProfile(tempPath);
+            } else {
+                uri = data.getData();
+                String tempPath = getPathFromInputStreamUri(this, uri);
+                Glide.with(this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.imageviewUserAccountProfile);
+                viewModel.updateProfile(tempPath);
+            }
         }
     }
 
@@ -188,6 +193,8 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
                     e.printStackTrace();
                 }
             }
+        }else{
+            onBackPressed();
         }
 
         return filePath;

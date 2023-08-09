@@ -1,8 +1,8 @@
 package com.example.learningverbs.detailverb.repository;
 
 import com.example.learningverbs.model.Verb;
-import com.example.learningverbs.tools.LearningApplication;
-import com.example.learningverbs.utils.CustomEventListener;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.firebase.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +23,7 @@ public class VerbDetailRepository {
         mPostReference = dataBaseBookReference.child(LearningApplication.getInstance().getApplicationName()).child("Favorites");
     }
 
-    public void fillDataBase(String idUser, String verbId, Verb verb) {
+    public void addVerbFavoriteUser(String idUser, String verbId, Verb verb) {
         mPostReference.child(idUser).child(verbId).setValue(verb);
     }
 

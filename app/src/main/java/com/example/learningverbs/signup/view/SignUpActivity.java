@@ -65,14 +65,14 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding, SignUpVi
             }
         });
 
-        viewModel.getfirebaseUser().observe(SignUpActivity.this, new Observer<FirebaseUser>() {
+        viewModel.getfirebaseUser().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(FirebaseUser firebaseUser) {
-                Log.e("Email", firebaseUser.getEmail());
-
-                startActivity(new Intent(SignUpActivity.this, HomeActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                finish();
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    startActivity(new Intent(SignUpActivity.this, HomeActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    finish();
+                }
             }
         });
 

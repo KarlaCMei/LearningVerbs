@@ -8,7 +8,7 @@ import com.example.learningverbs.detailverb.repository.VerbDetailRepository;
 import com.example.learningverbs.model.Verb;
 import com.example.learningverbs.splash.repository.SplashRepository;
 import com.example.learningverbs.utils.BaseViewModel;
-import com.example.learningverbs.utils.CustomEventListener;
+import com.example.learningverbs.utils.firebase.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class VerbDetailViewModel extends BaseViewModel {
@@ -55,7 +55,7 @@ public class VerbDetailViewModel extends BaseViewModel {
     }
 
     public void fillDb(Verb verb, String verbId) {
-        verbDetailRepository.fillDataBase(splashRepository.getUserId(), verbId, verb);
+        verbDetailRepository.addVerbFavoriteUser(splashRepository.getUserId(), verbId, verb);
     }
 
     public LiveData<Boolean> getIsFavoriteVerb() {

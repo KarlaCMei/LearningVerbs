@@ -1,4 +1,4 @@
-package com.example.learningverbs.utils;
+package com.example.learningverbs.utils.firebase;
 
 import androidx.annotation.NonNull;
 

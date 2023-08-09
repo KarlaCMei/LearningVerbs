@@ -81,12 +81,10 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             binding.tabLayout.setupWithViewPager(binding.pager);
 
             if (verbDetail.getRegular()) {
-                binding.txtIsRegular.setText("Regular");
+                binding.txtIsRegular.setText(R.string.msg_regular);
             } else {
-                binding.txtIsRegular.setText("Irregular");
+                binding.txtIsRegular.setText(R.string.msg_irregular);
             }
-        } else {
-            Log.e("NO Contiene llave", "NO Contiene la Key");
         }
     }
 

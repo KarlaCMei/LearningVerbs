@@ -1,4 +1,4 @@
-package com.example.learningverbs.tools;
+package com.example.learningverbs.utils;
 
 import android.app.Application;
 import android.content.Context;
