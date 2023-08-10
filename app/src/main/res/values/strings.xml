@@ -52,6 +52,7 @@
     <!-- Strings para el layout de user detail-->
     <string name="btn_close_sesion">Cerrar sesión</string>
     <string name="title_user">Usuario</string>
+    <string name="msg_image_updated">Imagen actualizada</string>
 
     <!--Strings para la pantalla del detalle del verbo -->
     <string name="msg_verb_spanish">Verbo en Español</string>

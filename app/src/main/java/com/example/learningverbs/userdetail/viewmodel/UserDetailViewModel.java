@@ -2,7 +2,11 @@ package com.example.learningverbs.userdetail.viewmodel;
 
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.learningverbs.R;
+import com.example.learningverbs.utils.LearningApplication;
+import com.example.learningverbs.utils.Tools;
 import com.example.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.example.learningverbs.splash.repository.SplashRepository;
 import com.example.learningverbs.userdetail.repository.UserDetailRepository;
@@ -48,7 +52,7 @@ public class UserDetailViewModel extends BaseViewModel {
         userDetailRepository.uploadProfile(url, new CustomOnCompleteListener() {
             @Override
             public void onSuccess(Object task) {
-                Log.e("Msg Success", "Imagen actualizada");
+                Tools.showToastMessage(LearningApplication.getMyApplicationContext().getString(R.string.msg_image_updated));
             }
 
             @Override

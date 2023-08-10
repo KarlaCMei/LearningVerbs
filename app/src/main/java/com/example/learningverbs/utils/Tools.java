@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.learningverbs.utils.constants.Constants;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,6 +22,10 @@ public class Tools {
 
     public static void showSnackMessage(View myActivity, String message) {
         Snackbar.make(myActivity, message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    public static void showToastMessage(String message) {
+        Toast.makeText(LearningApplication.getMyApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public static void setStringPreference(String name, String value) {

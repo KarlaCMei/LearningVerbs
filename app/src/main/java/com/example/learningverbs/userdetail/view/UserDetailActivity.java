@@ -115,7 +115,7 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(uri != null){
+        if(resultCode != 0 ){
             if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
                 uri = data.getData();
                 String tempPath = getPathFromInputStreamUri(this, uri);
@@ -128,6 +128,8 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
                 viewModel.updateProfile(tempPath);
             }
         }
+
+
     }
 
     private void chargeInformation() {
