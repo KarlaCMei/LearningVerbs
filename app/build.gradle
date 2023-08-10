@@ -12,11 +12,11 @@ android {
             keyPassword 'LearningVerbS7'
         }
     }
-    namespace 'com.example.learningverbs'
+    namespace 'com.karla.learningverbs'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.learningverbs"
+        applicationId "com.karla.learningverbs"
         minSdk 24
         targetSdk 33
         versionCode 1

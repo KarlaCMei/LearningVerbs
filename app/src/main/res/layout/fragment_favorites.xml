@@ -7,7 +7,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context="com.example.learningverbs.favorites.view.FavoritesFragment">
+    tools:context="com.karla.learningverbs.favorites.view.FavoritesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listVerbsFavorites"
