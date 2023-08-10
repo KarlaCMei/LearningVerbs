@@ -23,20 +23,20 @@
             android:name=".forgotpassword.view.GetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".login.view.LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".signup.view.SignUpActivity"
+            android:name=".view.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".home.view.HomeActivity"
+            android:name=".view.HomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".createaccount.CreateAccountActivity"
+            android:name=".view.CreateAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".splash.view.SplashActivity"
+            android:name=".view.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

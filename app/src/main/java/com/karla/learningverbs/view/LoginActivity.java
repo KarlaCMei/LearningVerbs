@@ -1,4 +1,4 @@
-package com.karla.learningverbs.login.view;
+package com.karla.learningverbs.view;
 
 import static com.karla.learningverbs.utils.StringUtils.validateEmail;
 import static com.karla.learningverbs.utils.StringUtils.validatePassword;
@@ -16,8 +16,7 @@ import android.widget.CompoundButton;
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivityLoginBinding;
 import com.karla.learningverbs.forgotpassword.view.GetPasswordActivity;
-import com.karla.learningverbs.home.view.HomeActivity;
-import com.karla.learningverbs.login.viewmodel.LoginViewModel;
+import com.karla.learningverbs.viewmodel.LoginViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.constants.Constants;

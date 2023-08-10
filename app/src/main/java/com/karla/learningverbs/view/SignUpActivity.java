@@ -1,4 +1,4 @@
-package com.karla.learningverbs.signup.view;
+package com.karla.learningverbs.view;
 
 import static com.karla.learningverbs.utils.StringUtils.validateEmail;
 import static com.karla.learningverbs.utils.StringUtils.validatePassword;
@@ -16,8 +16,7 @@ import android.view.View;
 
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivitySignUpBinding;
-import com.karla.learningverbs.home.view.HomeActivity;
-import com.karla.learningverbs.signup.viewmodel.SignUpViewModel;
+import com.karla.learningverbs.viewmodel.SignUpViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 
 public class SignUpActivity extends BaseActivity<ActivitySignUpBinding, SignUpViewModel> {

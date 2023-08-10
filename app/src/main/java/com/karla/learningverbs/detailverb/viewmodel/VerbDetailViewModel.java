@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.karla.learningverbs.detailverb.repository.VerbDetailRepository;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.splash.repository.SplashRepository;
+import com.karla.learningverbs.repository.SplashRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;

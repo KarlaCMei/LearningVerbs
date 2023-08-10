@@ -1,10 +1,10 @@
-package com.karla.learningverbs.signup.viewmodel;
+package com.karla.learningverbs.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.signup.repository.SignUpRepository;
+import com.karla.learningverbs.repository.SignUpRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.google.firebase.auth.AuthResult;
 

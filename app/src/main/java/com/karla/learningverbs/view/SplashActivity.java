@@ -1,4 +1,4 @@
-package com.karla.learningverbs.splash.view;
+package com.karla.learningverbs.view;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
@@ -10,9 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import com.karla.learningverbs.databinding.ActivitySplashBinding;
-import com.karla.learningverbs.home.view.HomeActivity;
-import com.karla.learningverbs.createaccount.CreateAccountActivity;
-import com.karla.learningverbs.splash.viewmodel.SplashViewModel;
+import com.karla.learningverbs.viewmodel.SplashViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> {

@@ -1,4 +1,4 @@
-package com.karla.learningverbs.splash.repository;
+package com.karla.learningverbs.repository;
 
 import android.net.Uri;
 

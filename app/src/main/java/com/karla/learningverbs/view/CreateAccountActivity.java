@@ -1,4 +1,4 @@
-package com.karla.learningverbs.createaccount.createaccountview;
+package com.karla.learningverbs.view;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,17 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.karla.learningverbs.createaccount.createaccountviewmodel.CreateAccountViewModel;
 import com.karla.learningverbs.databinding.ActivityCreateAccountBinding;
-import com.karla.learningverbs.login.view.LoginActivity;
-import com.karla.learningverbs.signup.view.SignUpActivity;
 import com.karla.learningverbs.utils.BaseActivity;
+import com.karla.learningverbs.utils.BaseViewModel;
 
-public class CreateAccountActivity extends BaseActivity<ActivityCreateAccountBinding, CreateAccountViewModel> {
+public class CreateAccountActivity extends BaseActivity<ActivityCreateAccountBinding, BaseViewModel> {
 
     @Override
-    protected CreateAccountViewModel createViewModel() {
-        return new ViewModelProvider(this).get(CreateAccountViewModel.class);
+    protected BaseViewModel createViewModel() {
+        return new ViewModelProvider(this).get(BaseViewModel.class);
     }
 
     @NonNull

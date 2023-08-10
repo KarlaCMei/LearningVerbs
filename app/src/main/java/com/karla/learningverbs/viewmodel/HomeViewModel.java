@@ -1,11 +1,11 @@
-package com.karla.learningverbs.home.viewmodel;
+package com.karla.learningverbs.viewmodel;
 
 import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.splash.repository.SplashRepository;
+import com.karla.learningverbs.repository.SplashRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 
 public class HomeViewModel extends BaseViewModel {

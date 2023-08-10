@@ -6,7 +6,7 @@ import com.karla.learningverbs.R;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.splash.repository.SplashRepository;
+import com.karla.learningverbs.repository.SplashRepository;
 import com.karla.learningverbs.userdetail.repository.UserDetailRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 

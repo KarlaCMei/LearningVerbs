@@ -1,4 +1,4 @@
-package com.karla.learningverbs.home.view;
+package com.karla.learningverbs.view;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivityHomeBinding;
-import com.karla.learningverbs.home.viewmodel.HomeViewModel;
+import com.karla.learningverbs.viewmodel.HomeViewModel;
 import com.karla.learningverbs.userdetail.view.UserDetailActivity;
 import com.karla.learningverbs.utils.BaseActivity;
 

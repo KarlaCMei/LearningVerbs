@@ -1,4 +1,4 @@
-package com.karla.learningverbs.home.ui.home.view;
+package com.karla.learningverbs.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.karla.learningverbs.databinding.FragmentHomeBinding;
 import com.karla.learningverbs.detailverb.view.VerbDetailActivity;
-import com.karla.learningverbs.home.ui.home.viewmodel.HomeFragmentViewModel;
+import com.karla.learningverbs.viewmodel.HomeFragmentViewModel;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseFragment;
 import com.karla.learningverbs.utils.constants.Constants;
