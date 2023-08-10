@@ -1,9 +1,9 @@
-package com.karla.learningverbs.listverbs.viewmodel;
+package com.karla.learningverbs.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.listverbs.repository.VerbListFragmentRepository;
+import com.karla.learningverbs.repository.VerbListFragmentRepository;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomListEventListener;

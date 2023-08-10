@@ -13,14 +13,14 @@
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31">
         <activity
-            android:name=".detailverb.view.VerbDetailActivity"
+            android:name=".view.VerbDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".userdetail.view.UserDetailActivity"
+            android:name=".view.UserDetailActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".forgotpassword.view.GetPasswordActivity"
+            android:name=".view.GetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".view.LoginActivity"

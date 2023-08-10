@@ -1,4 +1,4 @@
-package com.karla.learningverbs.detailverb.view;
+package com.karla.learningverbs.view;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.adapter.ViewPagerAdapter;
 import com.karla.learningverbs.databinding.ActivityVerbDetailBinding;
-import com.karla.learningverbs.detailverb.viewmodel.VerbDetailViewModel;
+import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseActivity;

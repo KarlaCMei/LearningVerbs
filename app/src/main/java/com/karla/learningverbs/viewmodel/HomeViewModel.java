@@ -5,7 +5,7 @@ import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.SplashRepository;
+import com.karla.learningverbs.repository.userrepository.SplashRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 
 public class HomeViewModel extends BaseViewModel {

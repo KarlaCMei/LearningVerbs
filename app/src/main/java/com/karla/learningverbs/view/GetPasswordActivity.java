@@ -1,4 +1,4 @@
-package com.karla.learningverbs.forgotpassword.view;
+package com.karla.learningverbs.view;
 
 import static com.karla.learningverbs.utils.StringUtils.validateEmail;
 
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivityGetPasswordBinding;
-import com.karla.learningverbs.forgotpassword.viewmodel.GetPasswordViewModel;
+import com.karla.learningverbs.viewmodel.GetPasswordViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 
 public class GetPasswordActivity extends BaseActivity<ActivityGetPasswordBinding, GetPasswordViewModel> {

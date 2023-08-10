@@ -1,4 +1,4 @@
-package com.karla.learningverbs.listverbs.view;
+package com.karla.learningverbs.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.karla.learningverbs.adapter.OnClicVerbListener;
 import com.karla.learningverbs.adapter.VerbAdapter;
 import com.karla.learningverbs.databinding.FragmentVerbListBinding;
-import com.karla.learningverbs.detailverb.view.VerbDetailActivity;
-import com.karla.learningverbs.listverbs.viewmodel.VerbListViewModel;
+import com.karla.learningverbs.viewmodel.VerbListViewModel;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseFragment;
 import com.karla.learningverbs.utils.constants.Constants;

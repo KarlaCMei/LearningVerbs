@@ -1,4 +1,4 @@
-package com.karla.learningverbs.forgotpassword.repository;
+package com.karla.learningverbs.repository;
 
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;

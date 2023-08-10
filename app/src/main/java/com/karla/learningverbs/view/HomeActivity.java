@@ -19,7 +19,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivityHomeBinding;
 import com.karla.learningverbs.viewmodel.HomeViewModel;
-import com.karla.learningverbs.userdetail.view.UserDetailActivity;
 import com.karla.learningverbs.utils.BaseActivity;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {

@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.detailverb.view.ViewPagerFragment;
+import com.karla.learningverbs.view.ViewPagerFragment;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.constants.Constants;

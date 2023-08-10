@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.karla.learningverbs.databinding.FragmentHomeBinding;
-import com.karla.learningverbs.detailverb.view.VerbDetailActivity;
 import com.karla.learningverbs.viewmodel.HomeFragmentViewModel;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseFragment;

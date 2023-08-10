@@ -1,4 +1,4 @@
-package com.karla.learningverbs.favorites.repository;
+package com.karla.learningverbs.repository;
 
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.LearningApplication;

@@ -1,4 +1,4 @@
-package com.karla.learningverbs.userdetail.repository;
+package com.karla.learningverbs.repository;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;

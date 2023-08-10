@@ -1,4 +1,4 @@
-package com.karla.learningverbs.userdetail.view;
+package com.karla.learningverbs.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,10 +18,9 @@ import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.karla.learningverbs.view.CreateAccountActivity;
 import com.karla.learningverbs.databinding.ActivityUserDetailBinding;
 import com.karla.learningverbs.utils.LearningVerbsDialogGlobal;
-import com.karla.learningverbs.userdetail.viewmodel.UserDetailViewModel;
+import com.karla.learningverbs.viewmodel.UserDetailViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.firebase.auth.FirebaseAuth;

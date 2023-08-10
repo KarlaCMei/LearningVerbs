@@ -1,4 +1,4 @@
-package com.karla.learningverbs.userdetail.viewmodel;
+package com.karla.learningverbs.viewmodel;
 
 import android.net.Uri;
 
@@ -6,8 +6,8 @@ import com.karla.learningverbs.R;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.repository.SplashRepository;
-import com.karla.learningverbs.userdetail.repository.UserDetailRepository;
+import com.karla.learningverbs.repository.userrepository.SplashRepository;
+import com.karla.learningverbs.repository.UserDetailRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 
 public class UserDetailViewModel extends BaseViewModel {

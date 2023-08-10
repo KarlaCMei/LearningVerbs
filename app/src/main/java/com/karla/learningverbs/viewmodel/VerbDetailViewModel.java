@@ -1,12 +1,12 @@
-package com.karla.learningverbs.detailverb.viewmodel;
+package com.karla.learningverbs.viewmodel;
 
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.detailverb.repository.VerbDetailRepository;
+import com.karla.learningverbs.repository.VerbDetailRepository;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.repository.SplashRepository;
+import com.karla.learningverbs.repository.userrepository.SplashRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;

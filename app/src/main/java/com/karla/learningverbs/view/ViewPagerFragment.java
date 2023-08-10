@@ -1,4 +1,4 @@
-package com.karla.learningverbs.detailverb.view;
+package com.karla.learningverbs.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.karla.learningverbs.databinding.FragmentViewPagerBinding;
-import com.karla.learningverbs.detailverb.viewmodel.VerbDetailViewModel;
+import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 
 import com.karla.learningverbs.utils.BaseFragment;
