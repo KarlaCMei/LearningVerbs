@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.karla.learningverbs.repository.HomeFragmentRepository;
-import com.karla.learningverbs.repository.VerbListFragmentRepository;
+import com.karla.learningverbs.repository.verblist.VerbListFragmentRepository;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomListEventListener;

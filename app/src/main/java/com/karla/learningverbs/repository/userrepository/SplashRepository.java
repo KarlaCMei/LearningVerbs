@@ -2,8 +2,19 @@ package com.karla.learningverbs.repository.userrepository;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.karla.learningverbs.utils.LearningApplication;
+import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
 
 public class SplashRepository {
@@ -38,7 +49,36 @@ public class SplashRepository {
 
     public void singUp(CustomOnCompleteListener<AuthResult> onCompleteListener, String email, String password) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(onCompleteListener);
+    }
 
+    public void recoverPassword(String email, CustomOnCompleteListener<Void> onCompleteListener) {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(onCompleteListener);
+    }
+
+    public void updateProfile(String userId, String urlImage, CustomOnCompleteListener<Uri> postListener) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        final StorageReference mPostReference = storage.getReference().child(LearningApplication.getInstance().getApplicationName()).child(userId + ".jpg");
+        byte[] data = Tools.getImage(LearningApplication.getMyApplicationContext(), urlImage, 150, 150);
+        if (data != null) {
+            UploadTask uploadTask = mPostReference.putBytes(data);
+            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful() && task.getException() != null) {
+                        throw task.getException();
+                    }
+                    return mPostReference.getDownloadUrl();
+                }
+            }).addOnCompleteListener(postListener);
+        }
+    }
+
+    public void uploadProfile(String url, CustomOnCompleteListener onCompleteListener) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setPhotoUri(Uri.parse(url))
+                .build();
+        user.updateProfile(profileUpdates).addOnCompleteListener(onCompleteListener);
     }
 
 }
