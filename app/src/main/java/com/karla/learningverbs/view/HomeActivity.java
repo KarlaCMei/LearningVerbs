@@ -74,7 +74,11 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         viewModel.getUrlImage().observe(this, new Observer<Uri>() {
             @Override
             public void onChanged(Uri uri) {
-                Glide.with(HomeActivity.this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+                if(uri!= null){
+                    Glide.with(HomeActivity.this).load(uri).apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+                }else{
+                    Glide.with(HomeActivity.this).load(R.drawable.ic_icon_user).apply(RequestOptions.circleCropTransform()).into(binding.customToolbar.imgProfile);
+                }
             }
         });
     }
