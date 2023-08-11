@@ -4,9 +4,9 @@ package com.karla.learningverbs.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.VerbDetailRepository;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.repository.userrepository.SplashRepository;
+import com.karla.learningverbs.repository.verblist.VerbListFragmentRepository;
 import com.karla.learningverbs.utils.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomEventListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,11 +14,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 public class VerbDetailViewModel extends BaseViewModel {
 
     private MutableLiveData<Boolean> isVerbFavorite = new MutableLiveData<>();
-    private VerbDetailRepository verbDetailRepository;
+    private VerbListFragmentRepository verbDetailRepository;
     private SplashRepository splashRepository;
 
     public VerbDetailViewModel() {
-        verbDetailRepository = VerbDetailRepository.getInstance();
+        verbDetailRepository = VerbListFragmentRepository.getInstance();
         splashRepository = SplashRepository.getInstance();
     }
 

@@ -3,7 +3,6 @@ package com.karla.learningverbs.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.HomeFragmentRepository;
 import com.karla.learningverbs.repository.verblist.VerbListFragmentRepository;
 import com.karla.learningverbs.model.Verb;
 import com.karla.learningverbs.utils.BaseViewModel;
@@ -16,17 +15,15 @@ import java.util.Random;
 public class HomeFragmentViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
     private MutableLiveData<Verb> verbRandom = new MutableLiveData<>();
-    private HomeFragmentRepository repository;
     private VerbListFragmentRepository verbListFragmentRepository;
 
     public HomeFragmentViewModel() {
-        repository = HomeFragmentRepository.getInstance();
         verbListFragmentRepository = VerbListFragmentRepository.getInstance();
 
     }
 
     public void getListElement() {
-        repository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
+        verbListFragmentRepository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
                 getResultListVerbs.postValue(response);
