@@ -87,7 +87,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
             @Override
             public void onChanged(List<Verb> verbs) {
 
-                if (verbs.size() > 0) {
+                if (verbs != null && verbs.size() > 0) {
                     binding.msgNoResultsFound.setVisibility(View.GONE);
                     binding.imgNoResultsFound.setVisibility(View.GONE);
                     binding.listVerbs.setVisibility(View.VISIBLE);
@@ -109,7 +109,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
         });
 
 
-        viewModel.getResultVerbAdd().observe(this, new Observer<Boolean>() {
+       /*viewModel.getResultVerbAdd().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
@@ -123,7 +123,7 @@ public class VerbListFragment extends BaseFragment<FragmentVerbListBinding, Verb
 
                 }
             }
-        });
+        });*/
     }
 
     @Override

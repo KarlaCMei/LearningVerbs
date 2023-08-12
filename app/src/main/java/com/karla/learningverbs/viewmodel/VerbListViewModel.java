@@ -14,7 +14,7 @@ import java.util.List;
 public class VerbListViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
     private VerbListFragmentRepository repository;
-    private MutableLiveData<Boolean> getVerbAdd = new MutableLiveData<>(false);
+    //private MutableLiveData<Boolean> getVerbAdd = new MutableLiveData<>(false);
 
     public VerbListViewModel() {
         repository = VerbListFragmentRepository.getInstance();
@@ -26,13 +26,13 @@ public class VerbListViewModel extends BaseViewModel {
         repository.getSearchVerb(searchName, new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
-                getVerbAdd.setValue(true);
+                //getVerbAdd.setValue(true);
                 getResultListVerbs.postValue(response);
             }
 
             @Override
             public void onFailed(Throwable throwable) {
-                getVerbAdd.setValue(false);
+                getResultListVerbs.postValue(null);
             }
 
             @Override
@@ -51,8 +51,8 @@ public class VerbListViewModel extends BaseViewModel {
         return getResultListVerbs;
     }
 
-    public LiveData<Boolean> getResultVerbAdd() {
+    /*public LiveData<Boolean> getResultVerbAdd() {
         return getVerbAdd;
-    }
+    }*/
 
 }

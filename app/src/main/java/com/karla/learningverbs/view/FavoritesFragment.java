@@ -75,21 +75,5 @@ public class FavoritesFragment extends BaseFragment<FragmentFavoritesBinding, Fa
             }
         });
 
-        viewModel.getListVerbsFavorites().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                if (aBoolean) {
-                    binding.msgEmptyListVerb.setVisibility(View.GONE);
-                    binding.imgEmptyVerbs.setVisibility(View.GONE);
-                    binding.listVerbsFavorites.setVisibility(View.VISIBLE);
-                } else {
-                    binding.msgEmptyListVerb.setVisibility(View.VISIBLE);
-                    binding.imgEmptyVerbs.setVisibility(View.VISIBLE);
-                    binding.listVerbsFavorites.setVisibility(View.GONE);
-
-                }
-            }
-        });
-
     }
 }
