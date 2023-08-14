@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LearningVerbs</string>
+
+    <!-- Strings para la pantalla de create account-->
+    <string name="title">Create Account</string>
+    <string name="textButton">Enter with email</string>
+    <string name="textButtonWithFacebook">Facebook</string>
+    <string name="textButtonWithGoogle">Google</string>
+    <string name="textButtonWhitTwitter">Twitter</string>
+
+    <string name="textSeparator">or</string>
+
+    <!-- Strings para la pantalla de login-->
+    <string name="tittle_login">LOG IN</string>
+    <string name="hint_edit_email">mail</string>
+    <string name="hint_edit_password">password</string>
+    <string name="text_check_box">Remember user</string>
+    <string name="btn_start_sesion">Log in</string>
+    <string name="btn_forgot_password">I forgot my password</string>
+    <string name="lbl_email">Enter email</string>
+
+    <!-- Strings para la pantalla de signUp-->
+    <string name="tittle_sign_up">CREATE ACCOUNT</string>
+    <string name="hint_edit_verify_password">verify password</string>
+    <string name="msg_verify_password">Password does not match</string>
+    <string name="msg_add_password">The password must be greater than 6 digits</string>
+    <string name="msg_email_not_valid">Invalid email</string>
+
+    <!-- Strings para la pantalla de forgot password-->
+    <string name="tittle_get_password">Recover your password </string>
+    <string name="msg_get_password">Enter the email with which you logged in and we will send a link so you can change your password and recover your account</string>
+    <string name="btn_get_password">Send </string>
+    <string name="msg_error">Invalid email </string>
+    <string name="msg_email_send">Email sent</string>
+    <string name="msg_no_email_send">The mail was not sent</string>
+
+
+    <!-- Strings para la pantalla del home-->
+    <string name="title_home">Home</string>
+    <string name="title_list_verbs">Verbs</string>
+    <string name="title_favorites">Favorites</string>
+    <!-- Strings para la pantalla de verb list-->
+    <string name="edit_search">Search</string>
+    <string name="txt_verb_name">Verb</string>
+
+    <!-- Strings para los botones de los verbos en el home-->
+    <string name="btn_title">Verb of the day</string>
+    <string name="btn_title_to_be">Verb Ser Estar</string>
+    <string name="btn_title_have">Verb Tener</string>
+    <string name="btn_title_do">Verb Hacer</string>
+
+    <!-- Strings para el layout de user detail-->
+    <string name="btn_close_sesion">Sign off</string>
+    <string name="title_user">User</string>
+    <string name="msg_image_updated">Updated image</string>
+
+    <!--Strings para la pantalla del detalle del verbo -->
+    <string name="msg_verb_spanish">Verb in Spanish</string>
+    <string name="msg_verb_english">Verb in english</string>
+    <string name="verb_spanish">Verb</string>
+    <string name="verb_english">Verbo</string>
+    <string name="card_title_affirmative">Affirmative</string>
+    <string name="card_title_negative">Negative</string>
+    <string name="card_title_question">Question</string>
+    <string name="msg_regular">Regular</string>
+    <string name="msg_irregular">Irregular</string>
+    <string name="title_pager_present">Present</string>
+    <string name="title_pager_past">Past</string>
+    <string name="title_pager_future">Future</string>
+
+
+
+    <!-- Strings para los dialogos-->
+    <string name="title_dialog">Sign off</string>
+    <string name="msg_dialog">Do you want to log out?</string>
+    <string name="btn_accept">Accept</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_regular">Regulars</string>
+    <string name="btn_irregular">Irregulars</string>
+    <string name="title_dialog_take_photo">Select a photo</string>
+    <string name="btn_take_photo">Take a photo</string>
+    <string name="btn_open_galeri">Open your gallery</string>
+    <string name="msg_loading">Loading</string>
+
+    <string name="msg_list_empty"> You don´t have favourites.</string>
+    <string name="msg_no_results_found">No results found.</string>
+
+    <string name="msg_throwable">Error querying item.</string>
+</resources>
