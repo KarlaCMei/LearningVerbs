@@ -1,69 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/teal_800"
-    android:padding="@dimen/padding">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <TextView
-        android:id="@+id/title_dialog"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="@string/title_dialog"
-        android:textColor="@color/purple_700"
-        android:textSize="@dimen/norm_word"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/teal_800"
+        android:padding="@dimen/padding">
 
-    <TextView
-        android:id="@+id/msg_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="@string/msg_dialog"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/normal_word"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_dialog" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTakePhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/normal_margin"
-        android:background="@drawable/btn_login_with_facebook"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="@string/btn_accept"
-        android:textColor="@color/teal_800"
-        android:textSize="@dimen/little_word"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msg_dialog" />
+        <TextView
+            android:id="@+id/title_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding"
+            android:fontFamily="casual"
+            android:gravity="center"
+            tools:text="@string/title_dialog"
+            android:textColor="@color/purple_700"
+            android:textSize="@dimen/norm_word"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnOpenGalery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/normal_margin"
-        android:layout_marginEnd="@dimen/padding"
-        android:background="@drawable/btn_login_with_facebook"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="@string/btn_cancel"
-        android:textColor="@color/teal_800"
-        android:textSize="@dimen/little_word"
-        app:layout_constraintEnd_toStartOf="@+id/btnTakePhoto"
-        app:layout_constraintTop_toBottomOf="@+id/msg_dialog" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/size_image_get_password"
+            android:layout_height="@dimen/size_image_get_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:srcCompat="@drawable/img_create_account"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/msg_dialog" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/msg_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:layout_margin="@dimen/little_margin"
+            tools:text="@string/msg_dialog"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/normal_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_dialog" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_login_with_facebook"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:layout_margin="@dimen/little_margin"
+            android:text="@string/btn_accept"
+            android:textColor="@color/teal_800"
+            android:textSize="@dimen/little_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding"
+            android:background="@drawable/btn_login_with_facebook"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:layout_margin="@dimen/little_margin"
+            android:visibility="gone"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/teal_800"
+            android:textSize="@dimen/little_word"
+            app:layout_constraintEnd_toStartOf="@+id/btnAccept"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -18,8 +18,10 @@ import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.karla.learningverbs.R;
 import com.karla.learningverbs.databinding.ActivityUserDetailBinding;
 import com.karla.learningverbs.utils.LearningVerbsDialogGlobal;
+import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.viewmodel.UserDetailViewModel;
 import com.karla.learningverbs.utils.BaseActivity;
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -60,10 +62,15 @@ public class UserDetailActivity extends BaseActivity<ActivityUserDetailBinding, 
         binding.btnCloseSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LearningVerbsDialogGlobal.showDialogAccept(UserDetailActivity.this, new View.OnClickListener() {
+                LearningVerbsDialogGlobal.dialogGlobal(UserDetailActivity.this, getString(R.string.title_dialog), getString(R.string.msg_dialog), new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         closeSesion();
+                    }
+                }, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
                     }
                 });
             }
