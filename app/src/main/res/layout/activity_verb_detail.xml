@@ -126,22 +126,31 @@
                 app:layout_constraintStart_toStartOf="@+id/english"
                 app:layout_constraintTop_toBottomOf="@+id/english" />
 
-            <androidx.viewpager.widget.ViewPager
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/verbEnglish"
+                app:tabSelectedTextAppearance="@style/Theme.BottomNavigation" />
+
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fit_component"
                 android:background="@color/teal_800"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/verbSpanish">
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-                <com.google.android.material.tabs.TabLayout
+                <!--<com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/teal_800"
-                    app:tabSelectedTextAppearance="@style/Theme.BottomNavigation" />
-
-            </androidx.viewpager.widget.ViewPager>
+                    app:tabSelectedTextAppearance="@style/Theme.BottomNavigation" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

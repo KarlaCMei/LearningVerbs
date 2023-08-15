@@ -3,6 +3,7 @@ package com.karla.learningverbs.view;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -10,9 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.karla.learningverbs.R;
 import com.karla.learningverbs.adapter.ViewPagerAdapter;
 import com.karla.learningverbs.databinding.ActivityVerbDetailBinding;
+import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.model.Verb;
@@ -75,9 +79,15 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             arrayExampleVerb.add(verbDetail.getExampleVerbPast());
             arrayExampleVerb.add(verbDetail.getExampleVerbFuture());
 
-            viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), arrayExampleVerb);
+            viewPagerAdapter = new ViewPagerAdapter(VerbDetailActivity.this, arrayExampleVerb);
             binding.pager.setAdapter(viewPagerAdapter);
-            binding.tabLayout.setupWithViewPager(binding.pager);
+            TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(binding.tabLayout, binding.pager, true, new TabLayoutMediator.TabConfigurationStrategy() {
+                @Override
+                public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                    tab.setText(viewPagerAdapter.getPageTitle(position));
+                }
+            });
+            tabLayoutMediator.attach();
 
             if (verbDetail.getRegular()) {
                 binding.txtIsRegular.setText(R.string.msg_regular);
