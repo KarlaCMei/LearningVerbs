@@ -1,4 +1,4 @@
-package com.karla.learningverbs.adapter;
+package com.karla.learningverbs.view.home.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.karla.learningverbs.R;
+import com.karla.learningverbs.listeners.OnClicVerbListener;
 import com.karla.learningverbs.model.Verb;
 
 import java.util.List;

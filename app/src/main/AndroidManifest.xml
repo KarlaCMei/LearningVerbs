@@ -13,27 +13,27 @@
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31">
         <activity
-            android:name=".view.VerbDetailActivity"
+            android:name=".view.verd_detail.VerbDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".view.UserDetailActivity"
+            android:name=".view.profile.UserDetailActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".view.GetPasswordActivity"
+            android:name=".view.profile.GetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.profile.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SignUpActivity"
+            android:name=".view.profile.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".view.home.HomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.CreateAccountActivity"
+            android:name=".view.profile.CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".view.SplashActivity"

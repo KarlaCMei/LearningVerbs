@@ -1,4 +1,4 @@
-package com.karla.learningverbs.utils;
+package com.karla.learningverbs.utils.base;
 
 import android.app.Dialog;
 import android.os.Bundle;

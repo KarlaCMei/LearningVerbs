@@ -1,4 +1,4 @@
-package com.karla.learningverbs.view;
+package com.karla.learningverbs.view.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.karla.learningverbs.adapter.OnClicVerbListener;
-import com.karla.learningverbs.adapter.VerbAdapter;
+import com.karla.learningverbs.listeners.OnClicVerbListener;
+import com.karla.learningverbs.view.home.adapters.VerbAdapter;
 import com.karla.learningverbs.databinding.FragmentFavoritesBinding;
+import com.karla.learningverbs.view.verd_detail.VerbDetailActivity;
 import com.karla.learningverbs.viewmodel.FavoritesViewModel;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.BaseFragment;
+import com.karla.learningverbs.utils.base.BaseFragment;
 import com.karla.learningverbs.utils.constants.Constants;
 import com.google.firebase.database.FirebaseDatabase;
 

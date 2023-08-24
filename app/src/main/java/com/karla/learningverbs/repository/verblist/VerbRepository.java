@@ -8,17 +8,17 @@ import com.karla.learningverbs.utils.firebase.CustomListEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class VerbListFragmentRepository {
+public class VerbRepository {
     private DatabaseReference dataBaseBookReference;
     private DatabaseReference mPostReference;
-    public static VerbListFragmentRepository instance;
+    public static VerbRepository instance;
 
-    public static VerbListFragmentRepository getInstance() {
-        if (instance == null) instance = new VerbListFragmentRepository();
+    public static VerbRepository getInstance() {
+        if (instance == null) instance = new VerbRepository();
         return instance;
     }
 
-    public VerbListFragmentRepository() {
+    public VerbRepository() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         dataBaseBookReference = database.getReference();
         mPostReference = dataBaseBookReference.child(LearningApplication.getInstance().getApplicationName());
@@ -48,7 +48,7 @@ public class VerbListFragmentRepository {
         mPostReference.child("Favorites").child(idUser).orderByChild("verbId").equalTo(verbId).addValueEventListener(postListener);
     }
 
-    public void deleteElement(String iduser, String verbid, OnSuccessListener onSuccessListener) {
+    public void removeUserVerbFavorite(String iduser, String verbid, OnSuccessListener onSuccessListener) {
         mPostReference.child("Favorites").child(iduser).child(verbid).removeValue().addOnSuccessListener(onSuccessListener);
     }
 

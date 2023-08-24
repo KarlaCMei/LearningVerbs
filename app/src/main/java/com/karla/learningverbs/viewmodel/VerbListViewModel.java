@@ -3,9 +3,9 @@ package com.karla.learningverbs.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.verblist.VerbListFragmentRepository;
+import com.karla.learningverbs.repository.verblist.VerbRepository;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomListEventListener;
 
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import java.util.List;
 
 public class VerbListViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
-    private VerbListFragmentRepository repository;
+    private VerbRepository repository;
     //private MutableLiveData<Boolean> getVerbAdd = new MutableLiveData<>(false);
 
     public VerbListViewModel() {
-        repository = VerbListFragmentRepository.getInstance();
+        repository = VerbRepository.getInstance();
     }
 
     public void getSearchVerb(String verbName) {

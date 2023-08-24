@@ -17,16 +17,16 @@ import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
 
-public class SplashRepository {
+public class UserRepository {
     private FirebaseAuth firebaseAuth;
-    private static SplashRepository instance;
+    private static UserRepository instance;
 
-    public SplashRepository() {
+    public UserRepository() {
         this.firebaseAuth = FirebaseAuth.getInstance();
     }
 
-    public static SplashRepository getInstance() {
-        if (instance == null) instance = new SplashRepository();
+    public static UserRepository getInstance() {
+        if (instance == null) instance = new UserRepository();
         return instance;
     }
 

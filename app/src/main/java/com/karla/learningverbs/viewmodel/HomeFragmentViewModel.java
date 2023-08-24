@@ -3,9 +3,9 @@ package com.karla.learningverbs.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.verblist.VerbListFragmentRepository;
+import com.karla.learningverbs.repository.verblist.VerbRepository;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomListEventListener;
 
 import java.util.ArrayList;
@@ -15,15 +15,15 @@ import java.util.Random;
 public class HomeFragmentViewModel extends BaseViewModel {
     private MutableLiveData<List<Verb>> getResultListVerbs = new MutableLiveData<>();
     private MutableLiveData<Verb> verbRandom = new MutableLiveData<>();
-    private VerbListFragmentRepository verbListFragmentRepository;
+    private VerbRepository verbRepository;
 
     public HomeFragmentViewModel() {
-        verbListFragmentRepository = VerbListFragmentRepository.getInstance();
+        verbRepository = VerbRepository.getInstance();
 
     }
 
     public void getListElement() {
-        verbListFragmentRepository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
+        verbRepository.getListVerbsDataBase(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
                 getResultListVerbs.postValue(response);
@@ -52,7 +52,7 @@ public class HomeFragmentViewModel extends BaseViewModel {
 
 
     public void getListVerbs() {
-        verbListFragmentRepository.getListVerbs(new CustomListEventListener<Verb>(Verb.class) {
+        verbRepository.getListVerbs(new CustomListEventListener<Verb>(Verb.class) {
             @Override
             public void onSuccess(ArrayList<Verb> response) {
                 Random random = new Random();

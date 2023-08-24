@@ -4,18 +4,18 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.repository.userrepository.SplashRepository;
+import com.karla.learningverbs.repository.userrepository.UserRepository;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 
 public class GetPasswordViewModel extends BaseViewModel {
     private MutableLiveData<String> isSendEmail;
-    private SplashRepository repository;
+    private UserRepository repository;
 
     public GetPasswordViewModel() {
-        this.repository = SplashRepository.getInstance();
-        repository = SplashRepository.getInstance();
+        this.repository = UserRepository.getInstance();
+        repository = UserRepository.getInstance();
         this.isSendEmail = new MutableLiveData<>();
     }
 

@@ -1,9 +1,8 @@
-package com.karla.learningverbs.view;
+package com.karla.learningverbs.view.verd_detail;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -14,13 +13,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.adapter.ViewPagerAdapter;
+import com.karla.learningverbs.view.verd_detail.adapters.ViewPagerAdapter;
 import com.karla.learningverbs.databinding.ActivityVerbDetailBinding;
-import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.BaseActivity;
+import com.karla.learningverbs.utils.base.BaseActivity;
 import com.karla.learningverbs.utils.constants.Constants;
 
 import java.util.ArrayList;

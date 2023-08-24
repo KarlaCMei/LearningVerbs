@@ -1,4 +1,4 @@
-package com.karla.learningverbs.view;
+package com.karla.learningverbs.view.verd_detail;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +14,7 @@ import com.karla.learningverbs.databinding.FragmentViewPagerBinding;
 import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 
-import com.karla.learningverbs.utils.BaseFragment;
+import com.karla.learningverbs.utils.base.BaseFragment;
 import com.karla.learningverbs.utils.constants.Constants;
 
 public class ViewPagerFragment extends BaseFragment<FragmentViewPagerBinding, VerbDetailViewModel> {

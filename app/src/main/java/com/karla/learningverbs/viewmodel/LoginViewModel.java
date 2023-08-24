@@ -3,18 +3,18 @@ package com.karla.learningverbs.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.userrepository.SplashRepository;
+import com.karla.learningverbs.repository.userrepository.UserRepository;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 import com.google.firebase.auth.AuthResult;
 
 public class LoginViewModel extends BaseViewModel {
     private MutableLiveData<Boolean> isLogin;
-    private SplashRepository repository;
+    private UserRepository repository;
 
     public LoginViewModel() {
-        this.repository = SplashRepository.getInstance();
-        repository = SplashRepository.getInstance();
+        this.repository = UserRepository.getInstance();
+        repository = UserRepository.getInstance();
         this.isLogin = new MutableLiveData<>();
     }
 

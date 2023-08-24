@@ -5,21 +5,21 @@ import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.karla.learningverbs.repository.userrepository.SplashRepository;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.repository.userrepository.UserRepository;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 
 public class HomeViewModel extends BaseViewModel {
-    private SplashRepository splashRepository;
+    private UserRepository userRepository;
     private MutableLiveData<Uri> urlImage;
 
 
     public HomeViewModel() {
         this.urlImage = new MutableLiveData<>();
-        splashRepository = SplashRepository.getInstance();
+        userRepository = UserRepository.getInstance();
     }
 
     public void responseImageUser() {
-        urlImage.setValue(splashRepository.getUserUrlImage());
+        urlImage.setValue(userRepository.getUserUrlImage());
     }
 
     public LiveData<Uri> getUrlImage() {

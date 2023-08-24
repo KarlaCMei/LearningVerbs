@@ -1,4 +1,4 @@
-package com.karla.learningverbs.utils;
+package com.karla.learningverbs.utils.base;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

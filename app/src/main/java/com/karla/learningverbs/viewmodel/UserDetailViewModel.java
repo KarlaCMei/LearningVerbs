@@ -6,18 +6,18 @@ import com.karla.learningverbs.R;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.Tools;
 import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
-import com.karla.learningverbs.repository.userrepository.SplashRepository;
-import com.karla.learningverbs.utils.BaseViewModel;
+import com.karla.learningverbs.repository.userrepository.UserRepository;
+import com.karla.learningverbs.utils.base.BaseViewModel;
 
 public class UserDetailViewModel extends BaseViewModel {
-    private SplashRepository splashRepository;
+    private UserRepository userRepository;
 
     public UserDetailViewModel() {
-        splashRepository = SplashRepository.getInstance();
+        userRepository = UserRepository.getInstance();
     }
 
     public void updateProfile(String urlImage) {
-        splashRepository.updateProfile(splashRepository.getUserId(), urlImage, new CustomOnCompleteListener<Uri>() {
+        userRepository.updateProfile(userRepository.getUserId(), urlImage, new CustomOnCompleteListener<Uri>() {
             @Override
             public void onSuccess(Uri task) {
                 uploadProfile(task + task.toString());
@@ -44,7 +44,7 @@ public class UserDetailViewModel extends BaseViewModel {
     }
 
     public void uploadProfile(String url) {
-        splashRepository.uploadProfile(url, new CustomOnCompleteListener() {
+        userRepository.uploadProfile(url, new CustomOnCompleteListener() {
             @Override
             public void onSuccess(Object task) {
                 Tools.showToastMessage(LearningApplication.getMyApplicationContext().getString(R.string.msg_image_updated));

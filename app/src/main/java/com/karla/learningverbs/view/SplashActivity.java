@@ -9,9 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
-import com.karla.learningverbs.databinding.ActivitySplashBinding;
+import com.karla.learningverbs.view.home.HomeActivity;
+import com.karla.learningverbs.view.profile.CreateAccountActivity;
 import com.karla.learningverbs.viewmodel.SplashViewModel;
-import com.karla.learningverbs.utils.BaseActivity;
+import com.karla.learningverbs.utils.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> {
 
