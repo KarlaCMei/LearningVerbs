@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.karla.learningverbs.databinding.ActivityCreateAccountBinding;
 import com.karla.learningverbs.utils.base.BaseActivity;
 import com.karla.learningverbs.utils.base.BaseViewModel;
 

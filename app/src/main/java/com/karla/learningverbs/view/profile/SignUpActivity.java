@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.karla.learningverbs.R;
+import com.karla.learningverbs.databinding.ActivitySignUpBinding;
 import com.karla.learningverbs.view.home.HomeActivity;
 import com.karla.learningverbs.viewmodel.SignUpViewModel;
 import com.karla.learningverbs.utils.base.BaseActivity;

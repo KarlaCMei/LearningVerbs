@@ -17,6 +17,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.karla.learningverbs.R;
+import com.karla.learningverbs.databinding.ActivityHomeBinding;
 import com.karla.learningverbs.view.profile.UserDetailActivity;
 import com.karla.learningverbs.viewmodel.HomeViewModel;
 import com.karla.learningverbs.utils.base.BaseActivity;

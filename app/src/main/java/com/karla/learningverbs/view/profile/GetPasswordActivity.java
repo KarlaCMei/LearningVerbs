@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.karla.learningverbs.R;
+import com.karla.learningverbs.databinding.ActivityGetPasswordBinding;
 import com.karla.learningverbs.viewmodel.GetPasswordViewModel;
 import com.karla.learningverbs.utils.base.BaseActivity;
 

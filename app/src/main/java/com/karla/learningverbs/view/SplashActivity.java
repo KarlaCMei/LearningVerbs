@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
+import com.karla.learningverbs.databinding.ActivitySplashBinding;
 import com.karla.learningverbs.view.home.HomeActivity;
 import com.karla.learningverbs.view.profile.CreateAccountActivity;
 import com.karla.learningverbs.viewmodel.SplashViewModel;
