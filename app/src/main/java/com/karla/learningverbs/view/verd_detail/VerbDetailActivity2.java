@@ -1,29 +1,29 @@
 package com.karla.learningverbs.view.verd_detail;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.view.verd_detail.adapters.ViewPagerAdapter;
 import com.karla.learningverbs.databinding.ActivityVerbDetailBinding;
-import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.base.BaseActivity;
-import com.karla.learningverbs.utils.constants.Constants;
+import com.karla.learningverbs.utils.base.BaseActivity2;
+import com.karla.learningverbs.kotlin.utils.constants.Constants;
+import com.karla.learningverbs.view.verd_detail.adapters.ViewPagerAdapter;
+import com.karla.learningverbs.viewmodel.VerbDetailViewModel;
 
 import java.util.ArrayList;
 
-public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel> {
+public class VerbDetailActivity2 extends BaseActivity2<ActivityVerbDetailBinding, VerbDetailViewModel> {
     ArrayList<ExampleVerb> arrayExampleVerb = new ArrayList();
     ViewPagerAdapter viewPagerAdapter;
     private Verb verbDetail;
@@ -77,7 +77,7 @@ public class VerbDetailActivity extends BaseActivity<ActivityVerbDetailBinding, 
             arrayExampleVerb.add(verbDetail.getExampleVerbPast());
             arrayExampleVerb.add(verbDetail.getExampleVerbFuture());
 
-            viewPagerAdapter = new ViewPagerAdapter(VerbDetailActivity.this, arrayExampleVerb);
+            viewPagerAdapter = new ViewPagerAdapter(VerbDetailActivity2.this, arrayExampleVerb);
             binding.pager.setAdapter(viewPagerAdapter);
             TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(binding.tabLayout, binding.pager, true, new TabLayoutMediator.TabConfigurationStrategy() {
                 @Override

@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.Toast;
 
-import com.karla.learningverbs.utils.constants.Constants;
+import com.karla.learningverbs.kotlin.utils.constants.Constants;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;

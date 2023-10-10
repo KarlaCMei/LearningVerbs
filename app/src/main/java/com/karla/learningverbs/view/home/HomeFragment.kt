@@ -11,8 +11,8 @@ import com.bumptech.glide.Glide
 import com.karla.learningverbs.databinding.FragmentHomeBinding
 import com.karla.learningverbs.model.Verb
 import com.karla.learningverbs.utils.base.BaseFragment
-import com.karla.learningverbs.utils.constants.Constants
-import com.karla.learningverbs.view.verd_detail.VerbDetailActivity
+import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.view.verd_detail.VerbDetailActivity2
 import com.karla.learningverbs.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding?, HomeFragmentViewModel?>() {
@@ -39,28 +39,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding?, HomeFragmentViewModel?>(
         observer()
         binding!!.btnVerbHave.cardVerbHave.setOnClickListener {
             if (verbResultHave != null) {
-                val intent = Intent(requireActivity(), VerbDetailActivity::class.java)
+                val intent = Intent(requireActivity(), VerbDetailActivity2::class.java)
                 intent.putExtra(Constants.VERB, verbResultHave)
                 startActivity(intent)
             }
         }
         binding!!.btnVerbToBe.cardVerbToBe.setOnClickListener {
             if (verbResultBe != null) {
-                val intent = Intent(requireContext(), VerbDetailActivity::class.java)
+                val intent = Intent(requireContext(), VerbDetailActivity2::class.java)
                 intent.putExtra(Constants.VERB, verbResultBe)
                 startActivity(intent)
             }
         }
         binding!!.btnVerbOfTheDay.btnSignUp.setOnClickListener { view1: View? ->
             if (verbDay != null) {
-                val intent = Intent(requireContext(), VerbDetailActivity::class.java)
+                val intent = Intent(requireContext(), VerbDetailActivity2::class.java)
                 intent.putExtra(Constants.VERB, verbDay)
                 startActivity(intent)
             }
         }
         binding!!.btnVerbDo.cardVerbDo.setOnClickListener {
             if (verbResultDo != null) {
-                val intent = Intent(requireContext(), VerbDetailActivity::class.java)
+                val intent = Intent(requireContext(), VerbDetailActivity2::class.java)
                 intent.putExtra(Constants.VERB, verbResultDo)
                 startActivity(intent)
             }

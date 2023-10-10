@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityGetPasswordBinding
 import com.karla.learningverbs.utils.StringUtils
-import com.karla.learningverbs.utils.base.BaseActivity
+import com.karla.learningverbs.utils.base.BaseActivity2
 import com.karla.learningverbs.viewmodel.GetPasswordViewModel
 
-class GetPasswordActivity : BaseActivity<ActivityGetPasswordBinding?, GetPasswordViewModel?>() {
+class GetPasswordActivity2 : BaseActivity2<ActivityGetPasswordBinding?, GetPasswordViewModel?>() {
     override fun createViewModel(): GetPasswordViewModel {
         return ViewModelProvider(this).get(GetPasswordViewModel::class.java)
     }
@@ -37,9 +37,9 @@ class GetPasswordActivity : BaseActivity<ActivityGetPasswordBinding?, GetPasswor
     }
 
     private fun recoverPassword() {
-        viewModel?.sendEmail()?.observe(this@GetPasswordActivity, Observer { string ->
+        viewModel?.sendEmail()?.observe(this@GetPasswordActivity2, Observer { string ->
             if (string != null) {
-                Toast.makeText(this@GetPasswordActivity, string, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@GetPasswordActivity2, string, Toast.LENGTH_SHORT).show()
                 onBackPressed()
             }
         })

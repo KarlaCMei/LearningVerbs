@@ -12,31 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31">
+
         <activity
-            android:name=".view.verd_detail.VerbDetailActivity"
+            android:name=".view.verd_detail.VerbDetailActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.profile.UserDetailActivity"
+            android:name=".view.profile.UserDetailActivity2"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.profile.GetPasswordActivity"
+            android:name=".view.profile.GetPasswordActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.profile.LoginActivity"
+            android:name=".view.profile.LoginActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.profile.SignUpActivity"
+            android:name=".view.profile.SignUpActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.home.HomeActivity"
+            android:name=".view.home.HomeActivity2"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.profile.CreateAccountActivity"
+            android:name=".view.profile.CreateAccountActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".kotlin.view.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

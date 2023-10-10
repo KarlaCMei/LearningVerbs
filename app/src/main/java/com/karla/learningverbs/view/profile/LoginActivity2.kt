@@ -9,12 +9,12 @@ import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityLoginBinding
 import com.karla.learningverbs.utils.StringUtils
 import com.karla.learningverbs.utils.Tools
-import com.karla.learningverbs.utils.base.BaseActivity
-import com.karla.learningverbs.utils.constants.Constants
-import com.karla.learningverbs.view.home.HomeActivity
+import com.karla.learningverbs.utils.base.BaseActivity2
+import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.view.home.HomeActivity2
 import com.karla.learningverbs.viewmodel.LoginViewModel
 
-class LoginActivity : BaseActivity<ActivityLoginBinding?, LoginViewModel?>() {
+class LoginActivity2 : BaseActivity2<ActivityLoginBinding?, LoginViewModel?>() {
     override fun createViewModel(): LoginViewModel {
         return ViewModelProvider(this).get(LoginViewModel::class.java)
     }
@@ -26,7 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding?, LoginViewModel?>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding!!.btnForgotPassword.setOnClickListener {
-            val intent = Intent(this@LoginActivity, GetPasswordActivity::class.java)
+            val intent = Intent(this@LoginActivity2, GetPasswordActivity2::class.java)
             startActivity(intent)
         }
         binding!!.btnLogin.setOnClickListener {
@@ -51,10 +51,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding?, LoginViewModel?>() {
     }
 
     private fun createUserWithEmail() {
-        viewModel?.fireBaseUser?.observe(this@LoginActivity, Observer { aBoolean ->
+        viewModel?.fireBaseUser?.observe(this@LoginActivity2, Observer { aBoolean ->
             if (aBoolean != null) {
                 startActivity(
-                    Intent(this@LoginActivity, HomeActivity::class.java)
+                    Intent(this@LoginActivity2, HomeActivity2::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
                 finish()

@@ -16,11 +16,11 @@ import com.google.firebase.auth.FirebaseUser
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityUserDetailBinding
 import com.karla.learningverbs.utils.LearningVerbsDialogGlobal
-import com.karla.learningverbs.utils.base.BaseActivity
+import com.karla.learningverbs.utils.base.BaseActivity2
 import com.karla.learningverbs.viewmodel.UserDetailViewModel
 import java.io.*
 
-class UserDetailActivity : BaseActivity<ActivityUserDetailBinding?, UserDetailViewModel?>() {
+class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetailViewModel?>() {
     private var mAuth: FirebaseAuth? = null
     var firebaseUser: FirebaseUser? = null
     private var uri: Uri? = null
@@ -39,16 +39,16 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding?, UserDetailVi
         chargeInformation()
         binding!!.btnCloseSesion.setOnClickListener {
             LearningVerbsDialogGlobal.dialogGlobal(
-                this@UserDetailActivity,
+                this@UserDetailActivity2,
                 getString(R.string.title_dialog),
                 getString(R.string.msg_dialog),
                 { closeSesion() }) { }
         }
         binding!!.btnBack.setOnClickListener { onBackPressed() }
         binding!!.icCamera.setOnClickListener {
-            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity, { var1, dialog ->
+            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity2, { var1, dialog ->
                 dialog.dismiss()
-                with(this@UserDetailActivity)
+                with(this@UserDetailActivity2)
                     .cameraOnly()
                     .crop()
                     .cropSquare()
@@ -57,7 +57,7 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding?, UserDetailVi
                     .start()
             }) { var1, dialog ->
                 dialog.dismiss()
-                with(this@UserDetailActivity)
+                with(this@UserDetailActivity2)
                     .galleryOnly()
                     .crop()
                     .cropSquare()
@@ -115,7 +115,7 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding?, UserDetailVi
     fun closeSesion() {
         mAuth!!.signOut()
         startActivity(
-            Intent(this@UserDetailActivity, CreateAccountActivity::class.java)
+            Intent(this@UserDetailActivity2, CreateAccountActivity2::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         )
         finish()

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.karla.learningverbs.repository.verblist.VerbRepository;
 import com.karla.learningverbs.model.Verb;
-import com.karla.learningverbs.utils.base.BaseViewModel;
+import com.karla.learningverbs.kotlin.utils.base.BaseViewModel;
 import com.karla.learningverbs.utils.firebase.CustomListEventListener;
 
 import java.util.ArrayList;

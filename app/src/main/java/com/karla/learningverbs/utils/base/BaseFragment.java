@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 
+import com.karla.learningverbs.kotlin.utils.base.BaseViewModel;
+
 public abstract class BaseFragment<BINDING extends ViewBinding, VM extends BaseViewModel> extends Fragment {
 
     protected VM viewModel;
@@ -49,8 +51,8 @@ public abstract class BaseFragment<BINDING extends ViewBinding, VM extends BaseV
         viewModel.msgError.observe(requireActivity(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                if (getActivity() instanceof BaseActivity) {
-                    ((BaseActivity) getActivity()).showMessageError(s);
+                if (getActivity() instanceof BaseActivity2) {
+                    ((BaseActivity2) getActivity()).showMessageError(s);
                 }
             }
         });
@@ -58,16 +60,16 @@ public abstract class BaseFragment<BINDING extends ViewBinding, VM extends BaseV
 
     private void showProgress() {
 
-        if (getActivity() instanceof BaseActivity) {
-            ((BaseActivity) getActivity()).showProgress();
+        if (getActivity() instanceof BaseActivity2) {
+            ((BaseActivity2) getActivity()).showProgress();
         }
 
     }
 
     private void hideProgress() {
 
-        if (getActivity() instanceof BaseActivity) {
-            ((BaseActivity) getActivity()).hideProgress();
+        if (getActivity() instanceof BaseActivity2) {
+            ((BaseActivity2) getActivity()).hideProgress();
         }
     }
 

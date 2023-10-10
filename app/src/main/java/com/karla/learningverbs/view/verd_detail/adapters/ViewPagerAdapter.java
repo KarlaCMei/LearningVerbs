@@ -8,10 +8,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.view.verd_detail.ViewPagerFragment;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.utils.LearningApplication;
-import com.karla.learningverbs.utils.constants.Constants;
+import com.karla.learningverbs.kotlin.utils.constants.Constants;
+import com.karla.learningverbs.view.verd_detail.ViewPagerFragment;
 
 import java.util.ArrayList;
 

@@ -12,8 +12,9 @@ import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 
 import com.karla.learningverbs.R;
+import com.karla.learningverbs.kotlin.utils.base.BaseViewModel;
 
-public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseViewModel> extends AppCompatActivity {
+public abstract class BaseActivity2<BINDING extends ViewBinding, VM extends BaseViewModel> extends AppCompatActivity {
 
     protected VM viewModel;
     protected BINDING binding;
@@ -29,7 +30,7 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
         super.onCreate(savedInstanceState);
         binding = createViewBinding(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        dialog = new Dialog(BaseActivity.this, R.style.customLottie);
+        dialog = new Dialog(BaseActivity2.this, R.style.customLottie);
         viewModel = createViewModel();
         observers();
     }
@@ -66,7 +67,7 @@ public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseV
 
 
     public void showMessageError(String msgError) {
-        Toast.makeText(BaseActivity.this, msgError, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BaseActivity2.this, msgError, Toast.LENGTH_SHORT).show();
     }
 
 }

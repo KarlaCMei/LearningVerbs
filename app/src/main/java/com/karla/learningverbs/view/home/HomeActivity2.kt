@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityHomeBinding
-import com.karla.learningverbs.utils.base.BaseActivity
-import com.karla.learningverbs.view.profile.UserDetailActivity
+import com.karla.learningverbs.utils.base.BaseActivity2
+import com.karla.learningverbs.view.profile.UserDetailActivity2
 import com.karla.learningverbs.viewmodel.HomeViewModel
 
-class HomeActivity : BaseActivity<ActivityHomeBinding?, HomeViewModel?>() {
+class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
     override fun createViewModel(): HomeViewModel {
         return ViewModelProvider(this).get(HomeViewModel::class.java)
     }
@@ -39,10 +39,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding?, HomeViewModel?>() {
             .build()
 
         val navController = findNavController(this, R.id.nav_host_fragment_activity_main)
-        setupActionBarWithNavController(this@HomeActivity, navController, appBarConfiguration)
+        setupActionBarWithNavController(this@HomeActivity2, navController, appBarConfiguration)
         setupWithNavController(binding!!.navView, navController)
         binding!!.customToolbar.imgProfile.setOnClickListener {
-            val intent = Intent(this@HomeActivity, UserDetailActivity::class.java)
+            val intent = Intent(this@HomeActivity2, UserDetailActivity2::class.java)
             startActivity(intent)
         }
     }
@@ -62,12 +62,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding?, HomeViewModel?>() {
     private fun observer() {
         viewModel?.urlImage?.observe(this, Observer { uri ->
             if (uri != null) {
-                Glide.with(this@HomeActivity)
+                Glide.with(this@HomeActivity2)
                     .load(uri)
                     .apply(RequestOptions.circleCropTransform())
                     .into(binding?.customToolbar?.imgProfile ?: return@Observer)
             } else {
-                Glide.with(this@HomeActivity)
+                Glide.with(this@HomeActivity2)
                     .load(R.drawable.ic_icon_user)
                     .apply(RequestOptions.circleCropTransform())
                     .into(binding?.customToolbar?.imgProfile ?: return@Observer)
