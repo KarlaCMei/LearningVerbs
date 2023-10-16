@@ -1,35 +1,38 @@
-package com.karla.learningverbs.view.profile
+package com.karla.learningverbs.kotlin.view.profile
 
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.github.dhaval2404.imagepicker.ImagePicker.Companion.with
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityUserDetailBinding
+import com.karla.learningverbs.kotlin.utils.base.BaseActivity
+import com.karla.learningverbs.kotlin.viewmodel.UserDetailViewModel
 import com.karla.learningverbs.utils.LearningVerbsDialogGlobal
-import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.viewmodel.UserDetailViewModel
 import java.io.*
 
-class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetailViewModel?>() {
+class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailViewModel>() {
+
     private var mAuth: FirebaseAuth? = null
     var firebaseUser: FirebaseUser? = null
     private var uri: Uri? = null
+
     override fun createViewModel(): UserDetailViewModel {
         return ViewModelProvider(this).get(UserDetailViewModel::class.java)
     }
 
-    override fun createViewBinding(layoutInflater: LayoutInflater): ActivityUserDetailBinding {
-        return ActivityUserDetailBinding.inflate(layoutInflater)
+    override fun createViewBinding(layoutInflater: LayoutInflater?): ActivityUserDetailBinding {
+        return ActivityUserDetailBinding.inflate(layoutInflater!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +42,16 @@ class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetail
         chargeInformation()
         binding!!.btnCloseSesion.setOnClickListener {
             LearningVerbsDialogGlobal.dialogGlobal(
-                this@UserDetailActivity2,
+                this@UserDetailActivity,
                 getString(R.string.title_dialog),
                 getString(R.string.msg_dialog),
                 { closeSesion() }) { }
         }
         binding!!.btnBack.setOnClickListener { onBackPressed() }
         binding!!.icCamera.setOnClickListener {
-            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity2, { var1, dialog ->
+            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity, { var1, dialog ->
                 dialog.dismiss()
-                with(this@UserDetailActivity2)
+                ImagePicker.Companion.with(this@UserDetailActivity)
                     .cameraOnly()
                     .crop()
                     .cropSquare()
@@ -57,7 +60,7 @@ class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetail
                     .start()
             }) { var1, dialog ->
                 dialog.dismiss()
-                with(this@UserDetailActivity2)
+                ImagePicker.Companion.with(this@UserDetailActivity)
                     .galleryOnly()
                     .crop()
                     .cropSquare()
@@ -98,8 +101,8 @@ class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetail
         if (firebaseUser!!.photoUrl != null && !firebaseUser!!.photoUrl.toString().isEmpty()) {
             Glide.with(this).load(firebaseUser!!.photoUrl)
                 .apply(RequestOptions.circleCropTransform()).into(
-                binding!!.imageviewUserAccountProfile
-            )
+                    binding!!.imageviewUserAccountProfile
+                )
         }
         binding!!.txtUserEmail.text = firebaseUser!!.email
     }
@@ -115,7 +118,7 @@ class UserDetailActivity2 : BaseActivity2<ActivityUserDetailBinding?, UserDetail
     fun closeSesion() {
         mAuth!!.signOut()
         startActivity(
-            Intent(this@UserDetailActivity2, CreateAccountActivity2::class.java)
+            Intent(this@UserDetailActivity, CreateAccountActivity::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         )
         finish()

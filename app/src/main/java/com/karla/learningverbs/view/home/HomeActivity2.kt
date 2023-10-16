@@ -1,7 +1,6 @@
 package com.karla.learningverbs.view.home
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.lifecycle.Observer
@@ -14,8 +13,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityHomeBinding
+import com.karla.learningverbs.kotlin.view.profile.UserDetailActivity
 import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.view.profile.UserDetailActivity2
 import com.karla.learningverbs.viewmodel.HomeViewModel
 
 class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
@@ -42,7 +41,7 @@ class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
         setupActionBarWithNavController(this@HomeActivity2, navController, appBarConfiguration)
         setupWithNavController(binding!!.navView, navController)
         binding!!.customToolbar.imgProfile.setOnClickListener {
-            val intent = Intent(this@HomeActivity2, UserDetailActivity2::class.java)
+            val intent = Intent(this@HomeActivity2, UserDetailActivity::class.java)
             startActivity(intent)
         }
     }

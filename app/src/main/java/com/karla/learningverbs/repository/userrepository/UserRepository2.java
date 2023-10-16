@@ -13,9 +13,9 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.utils.Tools;
-import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener;
 
 public class UserRepository2 {
     private FirebaseAuth firebaseAuth;

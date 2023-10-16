@@ -20,4 +20,6 @@ abstract class BaseActivity<BINDING : ViewBinding, VM : BaseViewModel> :AppCompa
         setContentView(binding.root)
         viewModel = createViewModel()
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.karla.learningverbs.view.profile
+package com.karla.learningverbs.kotlin.view.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,26 +7,28 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityLoginBinding
+import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.viewmodel.LoginViewModel
 import com.karla.learningverbs.utils.StringUtils
 import com.karla.learningverbs.utils.Tools
 import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.kotlin.utils.constants.Constants
 import com.karla.learningverbs.view.home.HomeActivity2
-import com.karla.learningverbs.viewmodel.LoginViewModel
 
-class LoginActivity2 : BaseActivity2<ActivityLoginBinding?, LoginViewModel?>() {
+class LoginActivity : BaseActivity2<ActivityLoginBinding?,LoginViewModel?>() {
+
+
     override fun createViewModel(): LoginViewModel {
         return ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
-    override fun createViewBinding(layoutInflater: LayoutInflater): ActivityLoginBinding {
-        return ActivityLoginBinding.inflate(layoutInflater)
+    override fun createViewBinding(layoutInflater: LayoutInflater?): ActivityLoginBinding {
+        return ActivityLoginBinding.inflate(layoutInflater!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding!!.btnForgotPassword.setOnClickListener {
-            val intent = Intent(this@LoginActivity2, GetPasswordActivity2::class.java)
+            val intent = Intent(this@LoginActivity, GetPasswordActivity::class.java)
             startActivity(intent)
         }
         binding!!.btnLogin.setOnClickListener {
@@ -51,17 +53,16 @@ class LoginActivity2 : BaseActivity2<ActivityLoginBinding?, LoginViewModel?>() {
     }
 
     private fun createUserWithEmail() {
-        viewModel?.fireBaseUser?.observe(this@LoginActivity2, Observer { aBoolean ->
+        viewModel?.getFireBaseUser()?.observe(this@LoginActivity, Observer { aBoolean ->
             if (aBoolean != null) {
                 startActivity(
-                    Intent(this@LoginActivity2, HomeActivity2::class.java)
+                    Intent(this@LoginActivity, HomeActivity2::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
                 finish()
             }
         })
     }
-
 
     private val saveData: Unit
         private get() {

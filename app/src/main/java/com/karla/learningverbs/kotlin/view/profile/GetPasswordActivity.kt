@@ -1,4 +1,4 @@
-package com.karla.learningverbs.view.profile
+package com.karla.learningverbs.kotlin.view.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,17 +7,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityGetPasswordBinding
+import com.karla.learningverbs.kotlin.utils.base.BaseActivity
+import com.karla.learningverbs.kotlin.viewmodel.GetPasswordViewModel
 import com.karla.learningverbs.utils.StringUtils
-import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.viewmodel.GetPasswordViewModel
 
-class GetPasswordActivity2 : BaseActivity2<ActivityGetPasswordBinding?, GetPasswordViewModel?>() {
+class GetPasswordActivity : BaseActivity<ActivityGetPasswordBinding, GetPasswordViewModel>() {
+
     override fun createViewModel(): GetPasswordViewModel {
         return ViewModelProvider(this).get(GetPasswordViewModel::class.java)
     }
 
-    override fun createViewBinding(layoutInflater: LayoutInflater): ActivityGetPasswordBinding {
-        return ActivityGetPasswordBinding.inflate(layoutInflater)
+    override fun createViewBinding(layoutInflater: LayoutInflater?): ActivityGetPasswordBinding{
+        return ActivityGetPasswordBinding.inflate(layoutInflater!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,9 +38,9 @@ class GetPasswordActivity2 : BaseActivity2<ActivityGetPasswordBinding?, GetPassw
     }
 
     private fun recoverPassword() {
-        viewModel?.sendEmail()?.observe(this@GetPasswordActivity2, Observer { string ->
+        viewModel?.sendEmail()?.observe(this@GetPasswordActivity, Observer { string ->
             if (string != null) {
-                Toast.makeText(this@GetPasswordActivity2, string, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@GetPasswordActivity, string, Toast.LENGTH_SHORT).show()
                 onBackPressed()
             }
         })

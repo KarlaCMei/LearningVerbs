@@ -5,9 +5,9 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
+import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
 import com.karla.learningverbs.utils.LearningApplication
 import com.karla.learningverbs.utils.Tools
-import com.karla.learningverbs.utils.firebase.CustomOnCompleteListener
 
 class UserRepository {
 

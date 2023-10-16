@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_500"
-    tools:context=".view.profile.SignUpActivity2">
+    tools:context=".view.profile.SignUpActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
-        tools:context=".view.profile.SignUpActivity2">
+        tools:context=".view.profile.SignUpActivity">
 
         <TextView
             android:id="@+id/textView"

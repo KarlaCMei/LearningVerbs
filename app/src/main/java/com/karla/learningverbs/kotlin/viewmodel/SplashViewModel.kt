@@ -9,8 +9,7 @@ import com.karla.learningverbs.repository.userrepository.UserRepository2
 class SplashViewModel : BaseViewModel() {
 
     private var isLoginStatus = MutableLiveData<Boolean>()
-    private var splashScreenRepository: UserRepository =
-        UserRepository()
+    private var splashScreenRepository: UserRepository = UserRepository()
 
     fun isLogin() {
         isLoginStatus.value = splashScreenRepository.isLogin()

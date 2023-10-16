@@ -12,29 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningVerbs"
         tools:targetApi="31">
-
+        <activity
+            android:name=".kotlin.view.profile.UserDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.view.profile.GetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.view.profile.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.profile.SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".view.verd_detail.VerbDetailActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".view.profile.UserDetailActivity2"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.profile.GetPasswordActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".view.profile.LoginActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".view.profile.SignUpActivity2"
             android:exported="false" />
         <activity
             android:name=".view.home.HomeActivity2"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.profile.CreateAccountActivity2"
+            android:name=".kotlin.view.profile.CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".kotlin.view.SplashActivity"

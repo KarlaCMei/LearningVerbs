@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_500"
-    tools:context=".view.profile.CreateAccountActivity2">
+    tools:context=".kotlin.view.profile.CreateAccountActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:background="@color/purple_500"
         android:paddingStart="@dimen/normal_margin"
         android:paddingEnd="@dimen/normal_margin"
-        tools:context=".view.profile.CreateAccountActivity2">
+        tools:context=".kotlin.view.profile.CreateAccountActivity">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
