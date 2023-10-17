@@ -1,33 +1,39 @@
-package com.karla.learningverbs.view.home
+package com.karla.learningverbs.kotlin.view.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityHomeBinding
+import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.view.profile.UserDetailActivity
-import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.viewmodel.HomeViewModel
+import com.karla.learningverbs.kotlin.viewmodel.HomeViewModel
 
-class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
+class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() {
     override fun createViewModel(): HomeViewModel {
         return ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
-    override fun createViewBinding(layoutInflater: LayoutInflater): ActivityHomeBinding {
-        return ActivityHomeBinding.inflate(layoutInflater)
+    override fun createViewBinding(layoutInflater: LayoutInflater?): ActivityHomeBinding {
+        return ActivityHomeBinding.inflate(layoutInflater!!)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+
+
+    override fun onResume() {
+        super.onResume()
         configToolbar()
         urlUserImage
         observer()
@@ -38,10 +44,10 @@ class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
             .build()
 
         val navController = findNavController(this, R.id.nav_host_fragment_activity_main)
-        setupActionBarWithNavController(this@HomeActivity2, navController, appBarConfiguration)
+        setupActionBarWithNavController( navController, appBarConfiguration)
         setupWithNavController(binding!!.navView, navController)
         binding!!.customToolbar.imgProfile.setOnClickListener {
-            val intent = Intent(this@HomeActivity2, UserDetailActivity::class.java)
+            val intent = Intent(this@HomeActivity, UserDetailActivity::class.java)
             startActivity(intent)
         }
     }
@@ -59,14 +65,14 @@ class HomeActivity2 : BaseActivity2<ActivityHomeBinding?, HomeViewModel?>() {
         }
 
     private fun observer() {
-        viewModel?.urlImage?.observe(this, Observer { uri ->
+        viewModel.getUrlImage().observe(this, Observer { uri ->
             if (uri != null) {
-                Glide.with(this@HomeActivity2)
+                Glide.with(this@HomeActivity)
                     .load(uri)
                     .apply(RequestOptions.circleCropTransform())
                     .into(binding?.customToolbar?.imgProfile ?: return@Observer)
             } else {
-                Glide.with(this@HomeActivity2)
+                Glide.with(this@HomeActivity)
                     .load(R.drawable.ic_icon_user)
                     .apply(RequestOptions.circleCropTransform())
                     .into(binding?.customToolbar?.imgProfile ?: return@Observer)

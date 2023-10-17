@@ -2,7 +2,7 @@ package com.karla.learningverbs.kotlin.viewmodel
 
 import android.net.Uri
 import com.karla.learningverbs.R
-import com.karla.learningverbs.kotlin.repository.UserRepository
+import com.karla.learningverbs.kotlin.repository.userrepository.UserRepository
 import com.karla.learningverbs.kotlin.utils.base.BaseViewModel
 import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
 import com.karla.learningverbs.utils.LearningApplication

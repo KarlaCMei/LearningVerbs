@@ -3,7 +3,7 @@ package com.karla.learningverbs.kotlin.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.AuthResult
-import com.karla.learningverbs.kotlin.repository.UserRepository
+import com.karla.learningverbs.kotlin.repository.userrepository.UserRepository
 import com.karla.learningverbs.kotlin.utils.base.BaseViewModel
 import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
 

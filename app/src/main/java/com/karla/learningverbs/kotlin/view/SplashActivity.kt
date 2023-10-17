@@ -8,9 +8,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.databinding.ActivitySplashBinding
 import com.karla.learningverbs.kotlin.utils.base.BaseActivity
+import com.karla.learningverbs.kotlin.view.home.HomeActivity
 import com.karla.learningverbs.kotlin.view.profile.CreateAccountActivity
 import com.karla.learningverbs.kotlin.viewmodel.SplashViewModel
-import com.karla.learningverbs.view.home.HomeActivity2
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
@@ -29,7 +29,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
         viewModel.getIsLogin().observe(this, Observer { isLogin ->
             if (isLogin) {
-                startActivity(Intent(this, HomeActivity2::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 startActivity(Intent(this, CreateAccountActivity::class.java))
             }

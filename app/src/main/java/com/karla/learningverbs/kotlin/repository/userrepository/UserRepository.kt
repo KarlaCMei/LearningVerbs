@@ -1,4 +1,4 @@
-package com.karla.learningverbs.kotlin.repository
+package com.karla.learningverbs.kotlin.repository.userrepository
 
 import android.net.Uri
 import com.google.firebase.auth.AuthResult

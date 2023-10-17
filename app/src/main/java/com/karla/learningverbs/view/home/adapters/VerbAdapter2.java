@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.karla.learningverbs.R;
-import com.karla.learningverbs.listeners.OnClicVerbListener;
+import com.karla.learningverbs.kotlin.listeners.OnClicVerbListener;
 import com.karla.learningverbs.model.Verb;
 
 import java.util.List;
 
-public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder> {
+public class VerbAdapter2 extends RecyclerView.Adapter<VerbAdapter2.ViewHolder> {
 
     private OnClicVerbListener listener;
     private List<Verb> resultsListVerbs;
 
-    public VerbAdapter(List<Verb> resultsVerbs, OnClicVerbListener listener) {
+    public VerbAdapter2(List<Verb> resultsVerbs, OnClicVerbListener listener) {
         this.resultsListVerbs = resultsVerbs;
         this.listener = listener;
 
@@ -30,7 +30,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public VerbAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public VerbAdapter2.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.verb_list_item, parent, false);
 
@@ -40,7 +40,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VerbAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull VerbAdapter2.ViewHolder holder, int position) {
         holder.txtNameVerb.setText(resultsListVerbs.get(position).getVerbSpanishPresent());
 
         Glide.with(holder.img_verb.getContext()).load(resultsListVerbs.get(position).getImage()).into(holder.img_verb);

@@ -9,12 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivitySignUpBinding
 import com.karla.learningverbs.kotlin.utils.base.BaseActivity
+import com.karla.learningverbs.kotlin.view.home.HomeActivity
 import com.karla.learningverbs.kotlin.viewmodel.SignUpViewModel
 import com.karla.learningverbs.utils.StringUtils.validateEmail
 import com.karla.learningverbs.utils.StringUtils.validatePassword
 import com.karla.learningverbs.utils.StringUtils.validateSamePassword
-import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.view.home.HomeActivity2
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
 
@@ -60,7 +59,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
         viewModel.getfirebaseUser().observe(this, Observer { aBoolean ->
             if (aBoolean!!) {
                 startActivity(
-                    Intent(this@SignUpActivity, HomeActivity2::class.java)
+                    Intent(this@SignUpActivity, HomeActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
                 finish()

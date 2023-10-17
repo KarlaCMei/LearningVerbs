@@ -7,14 +7,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityLoginBinding
+import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.view.home.HomeActivity
 import com.karla.learningverbs.kotlin.viewmodel.LoginViewModel
 import com.karla.learningverbs.utils.StringUtils
 import com.karla.learningverbs.utils.Tools
-import com.karla.learningverbs.utils.base.BaseActivity2
-import com.karla.learningverbs.view.home.HomeActivity2
 
-class LoginActivity : BaseActivity2<ActivityLoginBinding?,LoginViewModel?>() {
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
     override fun createViewModel(): LoginViewModel {
@@ -56,7 +56,7 @@ class LoginActivity : BaseActivity2<ActivityLoginBinding?,LoginViewModel?>() {
         viewModel?.getFireBaseUser()?.observe(this@LoginActivity, Observer { aBoolean ->
             if (aBoolean != null) {
                 startActivity(
-                    Intent(this@LoginActivity, HomeActivity2::class.java)
+                    Intent(this@LoginActivity, HomeActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
                 finish()

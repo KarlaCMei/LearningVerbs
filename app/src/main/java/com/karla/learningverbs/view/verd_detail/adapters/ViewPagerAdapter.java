@@ -11,7 +11,7 @@ import com.karla.learningverbs.R;
 import com.karla.learningverbs.model.ExampleVerb;
 import com.karla.learningverbs.utils.LearningApplication;
 import com.karla.learningverbs.kotlin.utils.constants.Constants;
-import com.karla.learningverbs.view.verd_detail.ViewPagerFragment;
+import com.karla.learningverbs.kotlin.view.verbdetail.ViewPagerFragment;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        Fragment fragment = new ViewPagerFragment();
+        ViewPagerFragment fragment = new ViewPagerFragment();
         Bundle args = new Bundle();
         args.putSerializable(Constants.ARG_OBJECT_VERB_EXAMPLE, exampleVerbs.get(position));
         fragment.setArguments(args);

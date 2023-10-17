@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.karla.learningverbs.view.verd_detail.ViewPagerFragment">
+    tools:context="com.karla.learningverbs.kotlin.view.verbdetail.ViewPagerFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
