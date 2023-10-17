@@ -40,16 +40,18 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailVie
         mAuth = FirebaseAuth.getInstance()
         inicializateElements()
         chargeInformation()
-        binding!!.btnCloseSesion.setOnClickListener {
+        binding.btnCloseSesion.setOnClickListener {
             LearningVerbsDialogGlobal.dialogGlobal(
                 this@UserDetailActivity,
                 getString(R.string.title_dialog),
                 getString(R.string.msg_dialog),
                 { closeSesion() }) { }
         }
-        binding!!.btnBack.setOnClickListener { onBackPressed() }
-        binding!!.icCamera.setOnClickListener {
-            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity, { var1, dialog ->
+
+        binding.btnBack.setOnClickListener { onBackPressed() }
+        binding.icCamera.setOnClickListener {
+
+            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity, onClickDialogListener =  { var1, dialog ->
                 dialog.dismiss()
                 ImagePicker.Companion.with(this@UserDetailActivity)
                     .cameraOnly()
@@ -58,7 +60,7 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailVie
                     .compress(1024)
                     .maxResultSize(1080, 1080)
                     .start()
-            }) { var1, dialog ->
+            }, onClickListener =  { var1, dialog ->
                 dialog.dismiss()
                 ImagePicker.Companion.with(this@UserDetailActivity)
                     .galleryOnly()

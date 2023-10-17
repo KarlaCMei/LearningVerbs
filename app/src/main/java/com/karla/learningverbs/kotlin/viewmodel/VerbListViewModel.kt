@@ -9,7 +9,7 @@ import com.karla.learningverbs.model.Verb
 
 class VerbListViewModel: BaseViewModel() {
 
-    private val getResultListVerbs = MutableLiveData<ArrayList<Verb?>>()
+    private val getResultListVerbs = MutableLiveData<ArrayList<Verb?>?>()
     private var repository: VerbRepository = VerbRepository()
 
     fun getSearchVerb(verbName: String?) {
@@ -21,8 +21,7 @@ class VerbListViewModel: BaseViewModel() {
                 }
 
                 override fun onFailed(throwable: Throwable?) {
-                    //getResultListVerbs.postValue(null)
-                    msgError.postValue(throwable!!.message)
+                    getResultListVerbs.postValue(null)
                 }
 
                 override fun showLoaging() {
@@ -35,7 +34,7 @@ class VerbListViewModel: BaseViewModel() {
             })
     }
 
-    fun getListResultsVerbs(): LiveData<ArrayList<Verb?>>{
+    fun getListResultsVerbs(): LiveData<ArrayList<Verb?>?>{
         return getResultListVerbs
     }
 

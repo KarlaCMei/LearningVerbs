@@ -5,32 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.karla.learningverbs.databinding.FragmentViewPagerBinding
+import com.karla.learningverbs.kotlin.utils.base.BaseFragment
 import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.viewmodel.VerbDetailViewModel
 import com.karla.learningverbs.model.ExampleVerb
 
-class ViewPagerFragment : Fragment() {
-    private lateinit var binding : FragmentViewPagerBinding
-    /* override fun createViewModel(): VerbDetailViewModel {
-         return ViewModelProvider(this)[VerbDetailViewModel::class.java]
-     }
+class ViewPagerFragment : BaseFragment<FragmentViewPagerBinding, VerbDetailViewModel>() {
+    override fun createViewModel(): VerbDetailViewModel {
+        return ViewModelProvider(this)[VerbDetailViewModel::class.java]
+    }
 
-
-     override fun createViewBinding(
-         layoutInflater: LayoutInflater,
-         container: ViewGroup
-     ): FragmentViewPagerBinding {
-         return FragmentViewPagerBinding.inflate(layoutInflater, container, false)
-     }*/
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentViewPagerBinding.inflate(layoutInflater, container, false)
-        return binding.root
-
+    override fun createViewBinding(
+        layoutInflater: LayoutInflater?,
+        container: ViewGroup?
+    ): FragmentViewPagerBinding {
+        return FragmentViewPagerBinding.inflate(layoutInflater!!, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

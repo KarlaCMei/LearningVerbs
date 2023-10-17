@@ -1,4 +1,4 @@
-package com.karla.learningverbs.utils
+package com.karla.learningverbs.kotlin.utils
 
 import android.util.Patterns
 

@@ -11,7 +11,7 @@ import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.utils.constants.Constants
 import com.karla.learningverbs.kotlin.view.home.HomeActivity
 import com.karla.learningverbs.kotlin.viewmodel.LoginViewModel
-import com.karla.learningverbs.utils.StringUtils
+import com.karla.learningverbs.kotlin.utils.StringUtils
 import com.karla.learningverbs.utils.Tools
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {

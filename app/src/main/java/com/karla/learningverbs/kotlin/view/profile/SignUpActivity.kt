@@ -11,9 +11,9 @@ import com.karla.learningverbs.databinding.ActivitySignUpBinding
 import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.view.home.HomeActivity
 import com.karla.learningverbs.kotlin.viewmodel.SignUpViewModel
-import com.karla.learningverbs.utils.StringUtils.validateEmail
-import com.karla.learningverbs.utils.StringUtils.validatePassword
-import com.karla.learningverbs.utils.StringUtils.validateSamePassword
+import com.karla.learningverbs.kotlin.utils.StringUtils.validateEmail
+import com.karla.learningverbs.kotlin.utils.StringUtils.validatePassword
+import com.karla.learningverbs.kotlin.utils.StringUtils.validateSamePassword
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
 

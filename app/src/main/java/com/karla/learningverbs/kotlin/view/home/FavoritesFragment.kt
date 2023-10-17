@@ -12,14 +12,14 @@ import com.karla.learningverbs.databinding.FragmentFavoritesBinding
 import com.karla.learningverbs.kotlin.listeners.OnClicVerbListener
 import com.karla.learningverbs.kotlin.utils.base.BaseFragment
 import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.view.home.adapters.VerbAdapter
 import com.karla.learningverbs.kotlin.view.verbdetail.VerbDetailActivity
 import com.karla.learningverbs.kotlin.viewmodel.FavoritesViewModel
 import com.karla.learningverbs.model.Verb
-import com.karla.learningverbs.view.home.adapters.VerbAdapter2
 
 class FavoritesFragment:
     BaseFragment<FragmentFavoritesBinding, FavoritesViewModel>() {
-    private var adapterListVerbs: VerbAdapter2? = null
+    private var adapterListVerbs: VerbAdapter? = null
     override fun createViewModel(): FavoritesViewModel {
         return ViewModelProvider(this).get(FavoritesViewModel::class.java)
     }
@@ -40,17 +40,17 @@ class FavoritesFragment:
 
     private val listFavoriteVerbDataBase: Unit
         private get() {
-            viewModel!!.getFavoriteVerbListElement()
+            viewModel.getFavoriteVerbListElement()
         }
 
     private fun observers() {
-        viewModel!!.getListResultsFavoriteVerbs()?.observe(this, object : Observer<List<Verb?>?> {
+        viewModel.getListResultsFavoriteVerbs().observe(this, object : Observer<List<Verb?>?> {
             override fun onChanged(verbs: List<Verb?>?) {
                 if (verbs != null && verbs.isNotEmpty()) {
-                    binding!!.msgEmptyListVerb.visibility = View.GONE
-                    binding!!.imgEmptyVerbs.visibility = View.GONE
-                    binding!!.listVerbsFavorites.visibility = View.VISIBLE
-                    adapterListVerbs = VerbAdapter2(verbs, object : OnClicVerbListener {
+                    binding.msgEmptyListVerb.visibility = View.GONE
+                    binding.imgEmptyVerbs.visibility = View.GONE
+                    binding.listVerbsFavorites.visibility = View.VISIBLE
+                    adapterListVerbs = VerbAdapter(verbs, object : OnClicVerbListener {
                         override fun onVerbClicListener(verb: Verb?) {
                             val detailActivity = Intent(
                                 requireActivity(),
@@ -60,11 +60,11 @@ class FavoritesFragment:
                             startActivity(detailActivity)
                         }
                     })
-                    binding!!.listVerbsFavorites.adapter = adapterListVerbs
+                    binding.listVerbsFavorites.adapter = adapterListVerbs
                 } else {
-                    binding!!.msgEmptyListVerb.visibility = View.VISIBLE
-                    binding!!.imgEmptyVerbs.visibility = View.VISIBLE
-                    binding!!.listVerbsFavorites.visibility = View.GONE
+                    binding.msgEmptyListVerb.visibility = View.VISIBLE
+                    binding.imgEmptyVerbs.visibility = View.VISIBLE
+                    binding.listVerbsFavorites.visibility = View.GONE
                 }
             }
         })

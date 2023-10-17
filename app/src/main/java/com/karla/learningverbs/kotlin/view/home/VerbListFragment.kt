@@ -14,14 +14,14 @@ import com.karla.learningverbs.databinding.FragmentVerbListBinding
 import com.karla.learningverbs.kotlin.listeners.OnClicVerbListener
 import com.karla.learningverbs.kotlin.utils.base.BaseFragment
 import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.view.home.adapters.VerbAdapter
 import com.karla.learningverbs.kotlin.view.verbdetail.VerbDetailActivity
 import com.karla.learningverbs.kotlin.viewmodel.VerbListViewModel
 import com.karla.learningverbs.model.Verb
-import com.karla.learningverbs.view.home.adapters.VerbAdapter2
 
 class VerbListFragment :
     BaseFragment<FragmentVerbListBinding, VerbListViewModel>(), TextWatcher {
-    private var adapterListVerbs: VerbAdapter2? = null
+    private var adapterListVerbs: VerbAdapter? = null
     var handler: Handler? = null
         get() {
             if (field == null) {
@@ -63,12 +63,12 @@ class VerbListFragment :
     }
 
     private fun observers() {
-        viewModel!!.getListResultsVerbs().observe(this, Observer<List<Verb?>> { verbs ->
+        viewModel!!.getListResultsVerbs().observe(this, Observer<List<Verb?>?> { verbs ->
             if (verbs != null && verbs.isNotEmpty()) {
                 binding?.msgNoResultsFound?.visibility = View.GONE
                 binding?.imgNoResultsFound?.visibility = View.GONE
                 binding?.listVerbs?.visibility = View.VISIBLE
-                adapterListVerbs = VerbAdapter2(verbs, object : OnClicVerbListener {
+                adapterListVerbs = VerbAdapter(verbs, object : OnClicVerbListener {
                     override fun onVerbClicListener(verb: Verb?) {
                         val detailActivity = Intent(
                             requireActivity(),

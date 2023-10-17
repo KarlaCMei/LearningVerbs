@@ -21,7 +21,7 @@ abstract class BaseFragment<BINDING : ViewBinding, VM : BaseViewModel>: Fragment
         inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = createViewBinding(LayoutInflater.from(requireContext()), container!!)
+        binding = createViewBinding(LayoutInflater.from(requireContext()), container)
         viewModel = createViewModel()
         return binding.root
     }

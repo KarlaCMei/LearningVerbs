@@ -11,13 +11,13 @@ import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityVerbDetailBinding
 import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.utils.constants.Constants
+import com.karla.learningverbs.kotlin.view.verbdetail.adapters.ViewPagerAdapter
 import com.karla.learningverbs.kotlin.viewmodel.VerbDetailViewModel
 import com.karla.learningverbs.model.ExampleVerb
 import com.karla.learningverbs.model.Verb
-import com.karla.learningverbs.view.verd_detail.adapters.ViewPagerAdapter
 
 class VerbDetailActivity : BaseActivity<ActivityVerbDetailBinding, VerbDetailViewModel>() {
-    var arrayExampleVerb: ArrayList<ExampleVerb?> = ArrayList()
+    var arrayExampleVerb: ArrayList<ExampleVerb> = ArrayList()
     var viewPagerAdapter: ViewPagerAdapter? = null
     private var verbDetail: Verb? = null
     override fun createViewModel(): VerbDetailViewModel {
@@ -53,7 +53,11 @@ class VerbDetailActivity : BaseActivity<ActivityVerbDetailBinding, VerbDetailVie
             arrayExampleVerb.add(verbDetail!!.exampleVerbPresent)
             arrayExampleVerb.add(verbDetail!!.exampleVerbPast)
             arrayExampleVerb.add(verbDetail!!.exampleVerbFuture)
-            viewPagerAdapter = ViewPagerAdapter(this@VerbDetailActivity, arrayExampleVerb)
+            viewPagerAdapter =
+                ViewPagerAdapter(
+                    this@VerbDetailActivity,
+                    arrayExampleVerb
+                )
             binding!!.pager.adapter = viewPagerAdapter
             val tabLayoutMediator = TabLayoutMediator(
                 binding!!.tabLayout, binding!!.pager, true

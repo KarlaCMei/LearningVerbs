@@ -9,7 +9,7 @@ import com.karla.learningverbs.R
 import com.karla.learningverbs.databinding.ActivityGetPasswordBinding
 import com.karla.learningverbs.kotlin.utils.base.BaseActivity
 import com.karla.learningverbs.kotlin.viewmodel.GetPasswordViewModel
-import com.karla.learningverbs.utils.StringUtils
+import com.karla.learningverbs.kotlin.utils.StringUtils
 
 class GetPasswordActivity : BaseActivity<ActivityGetPasswordBinding, GetPasswordViewModel>() {
 

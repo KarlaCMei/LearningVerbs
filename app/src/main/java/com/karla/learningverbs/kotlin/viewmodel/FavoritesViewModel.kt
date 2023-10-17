@@ -9,7 +9,7 @@ import com.karla.learningverbs.kotlin.utils.firebase.CustomListEventListener
 import com.karla.learningverbs.model.Verb
 
 class FavoritesViewModel: BaseViewModel()  {
-    private val getResultListFavoriteVerbs = MutableLiveData<ArrayList<Verb?>>()
+    private val getResultListFavoriteVerbs = MutableLiveData<ArrayList<Verb?>?>()
     private var favoritesRepository: VerbRepository = VerbRepository()
     private var userRepository2: UserRepository = UserRepository()
 
@@ -22,8 +22,7 @@ class FavoritesViewModel: BaseViewModel()  {
                 }
 
                 override fun onFailed(throwable: Throwable?) {
-                    //getResultListFavoriteVerbs.postValue(null)
-                    msgError.postValue(throwable!!.message)
+                    getResultListFavoriteVerbs.postValue(null)
 
                 }
 
@@ -37,7 +36,7 @@ class FavoritesViewModel: BaseViewModel()  {
             })
     }
 
-    fun getListResultsFavoriteVerbs(): LiveData<ArrayList<Verb?>> {
+    fun getListResultsFavoriteVerbs(): LiveData<ArrayList<Verb?>?> {
         return getResultListFavoriteVerbs
     }
 
