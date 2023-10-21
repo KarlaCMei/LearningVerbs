@@ -1,5 +1,6 @@
 package com.karla.learningverbs.kotlin.view.profile
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -51,25 +53,35 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailVie
         binding.btnBack.setOnClickListener { onBackPressed() }
         binding.icCamera.setOnClickListener {
 
-            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity, onClickDialogListener =  { var1, dialog ->
-                dialog.dismiss()
-                ImagePicker.Companion.with(this@UserDetailActivity)
-                    .cameraOnly()
-                    .crop()
-                    .cropSquare()
-                    .compress(1024)
-                    .maxResultSize(1080, 1080)
-                    .start()
-            }, onClickListener =  { var1, dialog ->
-                dialog.dismiss()
-                ImagePicker.Companion.with(this@UserDetailActivity)
-                    .galleryOnly()
-                    .crop()
-                    .cropSquare()
-                    .compress(1024)
-                    .maxResultSize(1080, 1080)
-                    .start()
-            }
+            LearningVerbsDialogGlobal.showDialogTakePhoto(this@UserDetailActivity,
+                object : LearningVerbsDialogGlobal.OnClickDialogListener {
+                    override fun onClick(var1: View, dialog: AlertDialog) {
+                        dialog.dismiss()
+                        ImagePicker.Companion.with(this@UserDetailActivity)
+                            .cameraOnly()
+                            .crop()
+                            .cropSquare()
+                            .compress(1024)
+                            .maxResultSize(1080, 1080)
+                            .start()
+                    }
+
+                },
+                object : LearningVerbsDialogGlobal.OnClickDialogListener {
+                    override fun onClick(var1: View, dialog: AlertDialog) {
+                        dialog.dismiss()
+                        ImagePicker.Companion.with(this@UserDetailActivity)
+                            .galleryOnly()
+                            .crop()
+                            .cropSquare()
+                            .compress(1024)
+                            .maxResultSize(1080, 1080)
+                            .start()
+                    }
+
+
+                }
+            )
         }
     }
 

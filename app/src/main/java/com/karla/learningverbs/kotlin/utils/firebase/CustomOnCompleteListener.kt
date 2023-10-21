@@ -10,7 +10,7 @@ abstract class CustomOnCompleteListener<T> : OnCompleteListener<T> {
 
     override fun onComplete(task: Task<T>) {
         hideLoading()
-        if (task.isSuccessful) {
+        if (task != null && task.isSuccessful) {
             onSuccess(task.result)
         } else {
             onFailure(task.exception)

@@ -67,7 +67,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     private val saveData: Unit
         private get() {
             val userName = Tools.getStringPreference(Constants.USERNAME_SAVE)
-            if (!userName.isEmpty()) {
+            if (!userName!!.isEmpty()) {
                 binding!!.editTextEmail.setText(userName)
                 binding!!.checkBoxRememberUser.isChecked = true
             }

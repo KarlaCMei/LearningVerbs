@@ -6,12 +6,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.karla.learningverbs.kotlin.utils.firebase.CustomEventListener
 import com.karla.learningverbs.kotlin.utils.firebase.CustomListEventListener
 import com.karla.learningverbs.model.Verb
-import com.karla.learningverbs.utils.LearningApplication
+import com.karla.learningverbs.utils.LearningApplication2
 class VerbRepository {
 
     val database = FirebaseDatabase.getInstance()
     private var dataBaseBookReference = database.reference
-    private var mPostReference = dataBaseBookReference!!.child(LearningApplication.getInstance().applicationName)
+    private var mPostReference = dataBaseBookReference!!.child(LearningApplication2.getInstance().applicationName)
 
     fun getSearchVerb(verbName: String?, postListener: CustomListEventListener<Verb>?) {
         val paramName = if (verbName != null && !verbName.isEmpty()) verbName else ""

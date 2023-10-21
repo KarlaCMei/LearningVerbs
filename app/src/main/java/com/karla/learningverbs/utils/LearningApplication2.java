@@ -5,11 +5,11 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-public class LearningApplication extends Application {
+public class LearningApplication2 extends Application {
   private static Context myApplicationContext;
-  public static LearningApplication instance;
+  public static LearningApplication2 instance;
 
-  public LearningApplication (){
+  public LearningApplication2(){
     instance = this;
   }
 
@@ -25,13 +25,13 @@ public class LearningApplication extends Application {
     return myApplicationContext;
   }
 
-  public static LearningApplication getInstance(){
-    if(instance == null )instance = new LearningApplication();
+  public static LearningApplication2 getInstance(){
+    if(instance == null )instance = new LearningApplication2();
     return instance;
   }
 
   public String getApplicationName() {
-    return LearningApplication.getInstance().getApplicationInfo().loadLabel(getBaseContext().getPackageManager()).toString();
+    return LearningApplication2.getInstance().getApplicationInfo().loadLabel(getBaseContext().getPackageManager()).toString();
   }
 
 }

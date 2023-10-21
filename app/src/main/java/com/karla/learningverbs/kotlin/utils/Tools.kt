@@ -12,7 +12,7 @@ import java.io.File
 import java.io.IOException
 
 object Tools {
-    private val preferences = LearningApplication.getMyApplicationContext().getSharedPreferences(
+    private val preferences = LearningApplication2.getMyApplicationContext().getSharedPreferences(
         Constants.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE
     )
 
@@ -21,7 +21,7 @@ object Tools {
     }
 
     fun showToastMessage(message: String?) {
-        Toast.makeText(LearningApplication.getMyApplicationContext(), message, Toast.LENGTH_SHORT)
+        Toast.makeText(LearningApplication2.getMyApplicationContext(), message, Toast.LENGTH_SHORT)
             .show()
     }
 

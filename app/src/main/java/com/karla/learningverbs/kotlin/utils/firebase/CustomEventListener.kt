@@ -4,7 +4,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.karla.learningverbs.R
-import com.karla.learningverbs.utils.LearningApplication
+import com.karla.learningverbs.utils.LearningApplication2
 
 abstract class CustomEventListener<T>(GenericTypeIndicator: Class<T>) :
     ValueEventListener {
@@ -24,7 +24,7 @@ abstract class CustomEventListener<T>(GenericTypeIndicator: Class<T>) :
         if (currentCustomClass != null) {
             onSuccess(currentCustomClass)
         } else {
-            onFailed(Throwable(LearningApplication.getInstance().getString(R.string.msg_throwable)))
+            onFailed(Throwable(LearningApplication2.getInstance().getString(R.string.msg_throwable)))
         }
     }
 
