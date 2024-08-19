@@ -3,6 +3,7 @@ package com.karla.learningverbs.kotlin.view.verbdetail
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -42,6 +43,45 @@ class VerbDetailActivity : BaseActivity<ActivityVerbDetailBinding, VerbDetailVie
     }
 
     private fun readExtra() {
+        val extras = intent.extras
+        if (extras != null && extras.containsKey(Constants.VERB)) {
+            verbDetail = extras.getSerializable(Constants.VERB) as Verb?
+            if (verbDetail != null) {
+                binding.verbSpanish.text = verbDetail!!.verbSpanishPresent
+                binding.verbEnglish.text = verbDetail!!.verbEnglishPresent
+                Glide.with(binding.imgVerb.context).load(verbDetail!!.image).into(binding.imgVerb)
+                viewModel.responseVerbFavoriteUser(verbDetail!!.verbId)
+                arrayExampleVerb.add(verbDetail!!.exampleVerbPresent)
+                arrayExampleVerb.add(verbDetail!!.exampleVerbPast)
+                arrayExampleVerb.add(verbDetail!!.exampleVerbFuture)
+                viewPagerAdapter = ViewPagerAdapter(this@VerbDetailActivity, arrayExampleVerb)
+                binding.pager.adapter = viewPagerAdapter
+                val tabLayoutMediator = TabLayoutMediator(binding.tabLayout, binding.pager, true) { tab, position ->
+                    tab.text = viewPagerAdapter!!.getPageTitle(position)
+                }
+                tabLayoutMediator.attach()
+                if (verbDetail!!.regular) {
+                    binding.txtIsRegular.setText(R.string.msg_regular)
+                } else {
+                    binding.txtIsRegular.setText(R.string.msg_irregular)
+                }
+            } else {
+                // Manejar el caso donde verbDetail es nulo
+                showError("No se pudo cargar el verbo.")
+            }
+        } else {
+            // Manejar el caso donde extras es nulo o no contiene la clave VERB
+            showError("No se encontraron datos adicionales.")
+        }
+    }
+
+    private fun showError(message: String) {
+        // Muestra un mensaje de error al usuario de alguna manera (puede ser un Toast, un Snackbar, etc.)
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+
+    /*private fun readExtra() {
         if (intent.extras!!.containsKey(Constants.VERB)) {
             verbDetail = intent.extras!!.getSerializable(Constants.VERB) as Verb?
             binding.verbSpanish.text = verbDetail!!.verbSpanishPresent
@@ -69,7 +109,7 @@ class VerbDetailActivity : BaseActivity<ActivityVerbDetailBinding, VerbDetailVie
                 binding!!.txtIsRegular.setText(R.string.msg_irregular)
             }
         }
-    }
+    }*/
 
     private fun observers() {
         viewModel.getIsFavoriteVerb().observe(this, object : Observer<Boolean> {
