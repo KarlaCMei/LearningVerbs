@@ -3,9 +3,9 @@ package com.karla.learningverbs.kotlin.viewmodel
 import android.net.Uri
 import com.karla.learningverbs.R
 import com.karla.learningverbs.kotlin.repository.userrepository.UserRepository
+import com.karla.learningverbs.kotlin.utils.LearningApplication
 import com.karla.learningverbs.kotlin.utils.base.BaseViewModel
 import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
-import com.karla.learningverbs.utils.LearningApplication2
 import com.karla.learningverbs.utils.Tools
 
 class UserDetailViewModel: BaseViewModel()  {
@@ -37,7 +37,7 @@ class UserDetailViewModel: BaseViewModel()  {
 
             override fun onSuccess(task: Void?) {
                 Tools.showToastMessage(
-                    LearningApplication2.getMyApplicationContext()
+                    LearningApplication.getInstance()
                         .getString(R.string.msg_image_updated)
                 )            }
 

@@ -5,8 +5,8 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
+import com.karla.learningverbs.kotlin.utils.LearningApplication
 import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
-import com.karla.learningverbs.utils.LearningApplication2
 import com.karla.learningverbs.utils.Tools
 
 class UserRepository {
@@ -63,10 +63,10 @@ class UserRepository {
     ) {
         val storage = FirebaseStorage.getInstance()
         val mPostReference =
-            storage.reference.child(LearningApplication2.getInstance().applicationName).child(
+            storage.reference.child(LearningApplication.getInstance().applicationName).child(
                 "$userId.jpg"
             )
-        val data = Tools.getImage(LearningApplication2.getMyApplicationContext(), urlImage, 150, 150)
+        val data = Tools.getImage(LearningApplication.getInstance(), urlImage, 150, 150)
         if (data != null) {
             val uploadTask = mPostReference.putBytes(data)
             uploadTask.continueWithTask { task ->

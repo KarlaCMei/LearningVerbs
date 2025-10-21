@@ -41,4 +41,9 @@ class VerbListViewModel: BaseViewModel() {
     /*public LiveData<Boolean> getResultVerbAdd() {
         return getVerbAdd;
     }*/
+
+    fun fillDataBase(verb: Verb) {
+        repository.fillDataBase(verb)
+    }
+
 }

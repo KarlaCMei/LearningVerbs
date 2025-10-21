@@ -194,7 +194,14 @@ class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailVie
             val s = packageName
             try {
                 val p = m.getPackageInfo(s, 0)
-                return p.applicationInfo.dataDir
+                //return p.applicationInfo.dataDir
+                p.applicationInfo?.let {
+                    return it.dataDir
+                } ?: run {
+                    Log.e("UserDetailActivity", "applicationInfo es null")
+                    return ""
+                }
+
             } catch (e: PackageManager.NameNotFoundException) {
                 Log.w("yourtag", "Error Package name not found ", e)
             }

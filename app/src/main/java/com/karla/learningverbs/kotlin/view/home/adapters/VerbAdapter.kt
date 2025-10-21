@@ -34,6 +34,9 @@ class VerbAdapter(private val resultsListVerbs: List<Verb?>,private val listener
             } else {
                 holder.txtIsRegular.setText(R.string.msg_irregular)
             }
+            holder.cardView.setOnClickListener {
+                listener.onVerbClicListener(verb)
+            }
         }
 
 
@@ -44,7 +47,7 @@ class VerbAdapter(private val resultsListVerbs: List<Verb?>,private val listener
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-         private val cardView: CardView
+          val cardView: CardView
          val imgVerb: ImageView
          val txtNameVerb: TextView
          val txtIsRegular: TextView
@@ -56,7 +59,6 @@ class VerbAdapter(private val resultsListVerbs: List<Verb?>,private val listener
             cardView = itemView.findViewById(R.id.cardview)
             txtNameVerb = itemView.findViewById(R.id.txtVerbName)
             txtIsRegular = itemView.findViewById(R.id.txtIsRegular)
-            cardView.setOnClickListener { listener?.onVerbClicListener(verb) }
         }
     }
 

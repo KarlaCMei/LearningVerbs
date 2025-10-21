@@ -14,12 +14,12 @@ android {
         }
     }
     namespace 'com.karla.learningverbs'
-    compileSdk 33
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.karla.learningverbs"
         minSdk 24
-        targetSdk 33
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -33,9 +33,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
     }
 
     //Se agrega en view binding para acceder a los componentes de una manera mas rapida
@@ -77,6 +82,9 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
 
     modules {
         module("org.jetbrains.kotlin:kotlin-stdlib-jdk7") {

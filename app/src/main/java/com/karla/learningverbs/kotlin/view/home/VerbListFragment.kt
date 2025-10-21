@@ -17,6 +17,7 @@ import com.karla.learningverbs.kotlin.utils.constants.Constants
 import com.karla.learningverbs.kotlin.view.home.adapters.VerbAdapter
 import com.karla.learningverbs.kotlin.view.verbdetail.VerbDetailActivity
 import com.karla.learningverbs.kotlin.viewmodel.VerbListViewModel
+import com.karla.learningverbs.model.ExampleVerb
 import com.karla.learningverbs.model.Verb
 
 class VerbListFragment :
@@ -51,6 +52,7 @@ class VerbListFragment :
         binding!!.txtSearchVerb.addTextChangedListener(this)
         getVerbs(null)
         observers()
+        //fillDataBase()
     }
 
     fun getVerbs(name: String?) {
@@ -104,6 +106,68 @@ class VerbListFragment :
                  }
              }
          });*/
+
+    /*fun fillDataBase() {
+        val currentTimeMillis = System.currentTimeMillis()
+        val verb = Verb()
+        verb.verbId = currentTimeMillis.toString()
+        verb.image = "https://previews.123rf.com/images/blueringmedia/blueringmedia1410/blueringmedia141000800/32692194-illustration-of-a-simple-sketch-of-a-man-using-a-mobile-phone-on-a-white-background.jpg"
+        verb.verbSpanishPresent = "Usar"
+        verb.verbEnglishPresent = "Use"
+        verb.regular = true
+
+        val exampleVerbPresent = ExampleVerb().apply {
+            verbSpanish = "Usar"
+            verbEnglish = "Use"
+            phraseAffirmativeSpanish = "Ella usa su computadora todos los días."
+            phraseAffirmativeEnglish = "She uses her computer every day."
+            phraseNegativeSpanish = "Ella no usa su computadora todos los días."
+            phraseNegativeEnglish = "She does not use her computer every day."
+            phraseQuestionSpanish = "¿Usa ella su computadora todos los días?"
+            phraseQuestionEnglish = "Does she use her computer every day?"
+        }
+
+        val exampleVerbPast = ExampleVerb().apply {
+            verbSpanish = "Usó"
+            verbEnglish = "Used"
+            phraseAffirmativeSpanish = "Ayer, usó su teléfono para llamar a su amigo."
+            phraseAffirmativeEnglish = "Yesterday, she used her phone to call her friend."
+            phraseNegativeSpanish = "Ayer, ella no usó su teléfono para llamar a su amigo."
+            phraseNegativeEnglish = "Yesterday, she did not use her phone to call her friend."
+            phraseQuestionSpanish = "¿Usó ella su teléfono para llamar a su amigo ayer?"
+            phraseQuestionEnglish = "Did she use her phone to call her friend yesterday?"
+        }
+
+        val exampleVerbFuture = ExampleVerb().apply {
+            verbSpanish = "Usará"
+            verbEnglish = "Will use"
+            phraseAffirmativeSpanish = "Mañana, usará su cuaderno para tomar notas."
+            phraseAffirmativeEnglish = "Tomorrow, she will use her notebook to take notes."
+            phraseNegativeSpanish = "Mañana, ella no usará su cuaderno para tomar notas."
+            phraseNegativeEnglish = "Tomorrow, she will not use her notebook to take notes."
+            phraseQuestionSpanish = "¿Usará ella su cuaderno mañana?"
+            phraseQuestionEnglish = "Will she use her notebook tomorrow?"
+        }
+
+        verb.exampleVerbPresent = exampleVerbPresent
+        verb.exampleVerbPast = exampleVerbPast
+        verb.exampleVerbFuture = exampleVerbFuture
+        viewModel.fillDataBase(verb)
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}

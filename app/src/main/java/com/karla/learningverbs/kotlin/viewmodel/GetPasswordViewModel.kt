@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.karla.learningverbs.R
 import com.karla.learningverbs.kotlin.repository.userrepository.UserRepository
+import com.karla.learningverbs.kotlin.utils.LearningApplication
 import com.karla.learningverbs.kotlin.utils.base.BaseViewModel
 import com.karla.learningverbs.kotlin.utils.firebase.CustomOnCompleteListener
-import com.karla.learningverbs.utils.LearningApplication2
 
 class GetPasswordViewModel: BaseViewModel() {
 
@@ -19,12 +19,12 @@ class GetPasswordViewModel: BaseViewModel() {
 
             override fun onSuccess(task: Void?) {
                 isSendEmail.postValue(
-                    LearningApplication2.getInstance().getString(R.string.msg_email_send)
+                    LearningApplication.getInstance().getString(R.string.msg_email_send)
                 )            }
 
             override fun onFailure(throwable: Throwable?) {
                 msgError.postValue(
-                    LearningApplication2.getInstance().getString(R.string.msg_no_email_send)
+                    LearningApplication.getInstance().getString(R.string.msg_no_email_send)
                 )
             }
 

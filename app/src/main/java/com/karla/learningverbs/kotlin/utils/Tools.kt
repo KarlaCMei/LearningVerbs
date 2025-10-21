@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import com.karla.learningverbs.kotlin.utils.LearningApplication
 import com.karla.learningverbs.kotlin.utils.constants.Constants
 import id.zelory.compressor.Compressor
 import java.io.ByteArrayOutputStream
@@ -12,7 +13,7 @@ import java.io.File
 import java.io.IOException
 
 object Tools {
-    private val preferences = LearningApplication2.getMyApplicationContext().getSharedPreferences(
+    private val preferences = LearningApplication.getInstance().getSharedPreferences(
         Constants.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE
     )
 
@@ -21,7 +22,7 @@ object Tools {
     }
 
     fun showToastMessage(message: String?) {
-        Toast.makeText(LearningApplication2.getMyApplicationContext(), message, Toast.LENGTH_SHORT)
+        Toast.makeText(LearningApplication.getInstance(), message, Toast.LENGTH_SHORT)
             .show()
     }
 
@@ -36,7 +37,7 @@ object Tools {
     }
 
     fun getImage(ctx: Context?, path: String?, width: Int, height: Int): ByteArray? {
-        val file_thumb_path = File(path)
+        val file_thumb_path = path?.let { File(it) }
         var thumb_bitmap: Bitmap? = null
         var thumb_byte: ByteArray? = null
         try {

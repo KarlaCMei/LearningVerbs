@@ -31,16 +31,16 @@ abstract class BaseActivity<BINDING : ViewBinding, VM : BaseViewModel> :AppCompa
 
     private fun observers() {
         viewModel.loading.observe(this, object : Observer<Boolean?> {
-            override fun onChanged(isLoading: Boolean?) {
-                if (isLoading!!) {
+            override fun onChanged(value: Boolean?) {
+                if (value!!) {
                     showProgress()
                 } else {
                     hideProgress()
                 }            }
         })
         viewModel.msgError.observe(this, object : Observer<String?> {
-            override fun onChanged(msgError: String?) {
-                showMessageError(msgError!!)
+            override fun onChanged(value: String?) {
+                showMessageError(value!!)
             }
         })
     }
